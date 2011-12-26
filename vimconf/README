@@ -1,0 +1,19 @@
+一向に整う気配が無いけど、まだまだ勉強中で未熟なvimrcを晒してみる。
+去年(2010年)の段階で @yuroyoro さんが公開してたのをベースにしてるんでパクリ多め。
+
+Win7,WinXP,Cygwin,MacOSX(Leopard,snow Leopard),Ubuntu11.04 では一応普通に使えてます。
+
+ここのVimの設定使うには適当な場所にgit cloneして
+// --------------------------------------------------
+   Win7,VISTAの場合 ------------------ setup4win7.bat
+   WinXPの場合 ----------------------- setup4winXP.bat
+   Mac,UbuntuなどのUnix系環境の場合 -- setup.sh
+ -------------------------------------------------- //
+を叩けばセット完了。(お粗末なバッチ&シェルですが。。)
+まあvimprocの関係で最初はエラーでるんだけど、そのへんはvimprocでググってね。
+
+Windowsで使う時の注意点
+- Vundleでプラグイン管理してるんでcurlのセット忘れないでね。
+  ※ 詳細はVundleのGithub参照
+- XPの人はWindows Server 2003 Resource Kit Tools( http://www.microsoft.com/download/en/details.aspx?displaylang=en&id=17657 )
+  入れとかないとセットアップのバッチファイル動きませんぜ。
