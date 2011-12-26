@@ -5,15 +5,19 @@ Win7,WinXP,Cygwin,MacOSX(Leopard,snow Leopard),Ubuntu11.04 では一応普通に
 
 ここのVimの設定使うには適当な場所にgit cloneして
 // --------------------------------------------------
-   Win7,VISTAの場合 ------------------ setup4win7.bat
-   WinXPの場合 ----------------------- setup4winXP.bat
-   Mac,UbuntuなどのUnix系環境の場合 -- setup.sh
+   Win7,VISTAの場合                    setup4win7.bat
+   WinXPの場合                         setup4winXP.bat
+   Mac,UbuntuなどのUnix系環境の場合    setup.sh
  -------------------------------------------------- //
-を叩けばセット完了。(お粗末なバッチ&シェルですが。。)
+を叩けばファイルのセット完了。(お粗末なバッチ&シェルですが。。)
 まあvimprocの関係で最初はエラーでるんだけど、そのへんはvimprocでググってね。
 
-Windowsで使う時の注意点
+そしてvimの初回起動時に
+:BundleInstall
+を実行。プラグインのインストールが始まる。（他の詳細の動きはググったりVundleのページ見てね）
+
+※ Windowsで使う時の注意点
 - Vundleでプラグイン管理してるんでcurlのセット忘れないでね。
   ※ 詳細はVundleのGithub参照
-- XPの人はWindows Server 2003 Resource Kit Tools( http://www.microsoft.com/download/en/details.aspx?displaylang=en&id=17657 )
+- XPの人はWindows Server 2003 Resource Kit Tools( http://bit.ly/k4aIr9 )
   入れとかないとセットアップのバッチファイル動きませんぜ。
