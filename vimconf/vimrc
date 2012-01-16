@@ -903,7 +903,7 @@ let g:indent_guides_guide_size = 1
 " ---------------------------------------------------------
 if has('win32') || has('win64')
   set runtimepath+=~/vimfiles/bundle/qfixhowm
-  let howm_dir = $HOME.'/QFixHowm'
+  let howm_dir = $HOME.'/Dropbox/QFixHowm'
 else
   set runtimepath+=~/.vim/bundle/qfixhowm
   let howm_dir = $HOME.'/Dropbox/QFixHowm'
