@@ -37,7 +37,8 @@ if has('mac')
 elseif has('unix')
   set guifont=VL\ Gothic\ 9
 elseif has('win32') || has('win64')
-  set guifont=VL_Gothic:h8:cSHIFTJIS
+  " Windowsの場合は 等幅メイリオにしておく
+  set guifont=Consolas:h8:cSHIFTJIS
 endif
 
 " 半透明に表示する（Mac,Win向け）
