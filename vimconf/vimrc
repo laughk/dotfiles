@@ -18,27 +18,28 @@ endif
 " from VimScript ------------------------
 Bundle 'Align'
 Bundle 'DrawIt'
-Bundle 'Pydiction'
+" Bundle 'Pydiction'
+Bundle 'pythoncomplete'
 Bundle 'SQLUtilities'
 Bundle 'errormarker.vim'
 Bundle 'grep.vim'
 Bundle 'css_color.vim'
 Bundle 'surround.vim'
+Bundle 'vtreeexplorer'
 
 " from Github ---------------------------
+Bundle 'Integriti/pyshell'
 Bundle 'Shougo/neocomplcache'
 Bundle 'Shougo/unite.vim'
 Bundle 'Shougo/vimfiler'
 Bundle 'Shougo/vimproc'
 Bundle 'Shougo/vimshell'
 Bundle 'fholgado/minibufexpl.vim'
-Bundle 'fuenor/qfixhowm'
 Bundle 'fuenor/qfixgrep'
+Bundle 'fuenor/qfixhowm'
 Bundle 'gmarik/vundle'
-Bundle 'mattn/vim-metarw-simplenote'
-Bundle 'mattn/vimplenote-vim'
-Bundle 'mattn/webapi-vim'
 Bundle 'mattn/gist-vim'
+Bundle 'mattn/webapi-vim'
 Bundle 'motemen/git-vim'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'petdance/vim-perl'
@@ -48,18 +49,18 @@ Bundle 'thinca/vim-quickrun'
 Bundle 'thinca/vim-ref'
 Bundle 'tpope/vim-surround'
 Bundle 'tsukkee/unite-help'
+Bundle 'tyru/open-browser.vim'
 
 " OS別プラグイン -----------------------
 if has('win32') || has('win64')
   " windowsでのみ追加するもの ------
-  Bundle 'mattn/vim-metarw'
+  " Bundle 'mattn/vim-metarw'
 elseif ! has('win32unix')
   " Cygwin以外のUnix系で追加  ------
   Bundle 'sudo.vim'
 else
   " unix系全般で追加するもの -------
-  Bundle 'opsplorer'
-  Bundle 'kana/vim-metarw'
+  " Bundle 'kana/vim-metarw'
 endif
 
 filetype plugin indent on
@@ -480,11 +481,11 @@ augroup END
 
 
 " 括弧を自動補完
-" inoremap { {}<LEFT>
-" inoremap [ []<LEFT>
-" inoremap ( ()<LEFT>
-" inoremap " ""<LEFT>
-" inoremap ' ''<LEFT>
+inoremap { {}<LEFT>
+inoremap [ []<LEFT>
+inoremap ( ()<LEFT>
+inoremap " ""<LEFT>
+inoremap ' ''<LEFT>
 " vnoremap { "zdi^V{<C-R>z}<ESC>
 " vnoremap [ "zdi^V[<C-R>z]<ESC>
 " vnoremap ( "zdi^V(<C-R>z)<ESC>
@@ -853,17 +854,6 @@ let g:unite_source_file_mru_limit = 200
 " =========================================================
 " Alignを日本語環境で使用するための設定 -----------------------
 let g:Align_xstrlen = 3
-
-" =========================================================
-"  VimpleNote Plugin
-" =========================================================
-if filereadable($HOME.'/.vimplenoterc')
-  source $HOME/.vimplenoterc
-endif
-command! Vnl :VimpleNote -l
-command! Vnn :VimpleNote -n
-command! Vnu :VimpleNote -u
-command! Vnt :VimpleNote -t
 
 " =========================================================
 " Pydiction
