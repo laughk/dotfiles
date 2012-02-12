@@ -50,6 +50,7 @@ Bundle 'thinca/vim-ref'
 Bundle 'tpope/vim-surround'
 Bundle 'tsukkee/unite-help'
 Bundle 'tyru/open-browser.vim'
+Bundle 'rson/vim-conque.git'
 
 " OS別プラグイン -----------------------
 if has('win32') || has('win64')
@@ -666,7 +667,6 @@ vmap fu <Plug>(openbrowser-open)
 " vimshell
 "====================================
 let g:vimshell_user_prompt = 'fnamemodify(getcwd(), ":~")'
-let g:vimshell_right_prompt = 'vimshell#vcs#info("(%s)-[%b]","(%s)-[%b|%a]")'
 let g:vimshell_enable_smart_case = 1
 
 if has('win32') || has('win64')
@@ -787,8 +787,6 @@ inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><C-g> neocomplcache#undo_completion()
 " 補完候補の共通部分までを補完する
 inoremap <expr><C-l> neocomplcache#complete_common_string()
-" SuperTab like snippets behavior.
-" imap <expr><TAB>  neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
 " C-kを押すと行末まで削除
 inoremap <C-k> <C-o>D
 " C-nでneocomplcache補完
@@ -797,13 +795,6 @@ inoremap <expr><C-n> pumvisible() ? "\<C-n>" : "\<C-x>\<C-u>\<C-p>"
 inoremap <expr><C-p> pumvisible() ? "\<C-p>" : "\<C-p>\<C-n>"
 " 補完候補が出ていたら確定、なければ改行
 inoremap <expr><CR> pumvisible() ? neocomplcache#close_popup() : "<CR>"
-
-" <TAB>: completion.
-" inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-" <C-h>, <BS>: close popup and delete backword char.
-" inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>
-" inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
-" inoremap <expr><C-x><C-o> &filetype == 'vim' ? "\<C-x><C-v><C-p>" : neocomplcache#manual_omni_complete()
 
 " FileType毎のOmni補完を設定
 autocmd FileType python set omnifunc=pythoncomplete#Complete
