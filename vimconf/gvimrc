@@ -31,13 +31,12 @@ if has('win32') || has('win64')
   source $VIMRUNTIME/menu.vim
 endif
 
-" フォントをVLゴシックにする。
+" フォントをConsolasにする。
 if has('mac')
-  set guifont=VL\ Gothic\ Regular:h11
+  set guifont=Consolas:h12
 elseif has('unix')
-  set guifont=VL\ Gothic\ 9
+  set guifont=Consolas\ 9
 elseif has('win32') || has('win64')
-  " Windowsの場合は 等幅メイリオにしておく
   set guifont=Consolas:h8:cSHIFTJIS
 endif
 
