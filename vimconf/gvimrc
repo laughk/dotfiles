@@ -49,6 +49,13 @@ elseif has('win32') || has('win64')
   set transparency=224
 endif
 
+" MacVim-Kaoriya で +perl,+ruby,+pyhtonにする
+if has('gui_macvim')
+  let $PERL_DLL="/usr/bin/perl"
+  let $RUBY_DLL="/usr/bin/ruby"
+  let $PYTHON_DLL="/usr/bin/python"
+endif
+
 " ----------------------------------
 "  GVim のときのみ必要そうになりそうなコマンドマクロ
 " ----------------------------------
