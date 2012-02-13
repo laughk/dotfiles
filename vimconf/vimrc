@@ -18,7 +18,6 @@ endif
 " from VimScript ------------------------
 Bundle 'Align'
 Bundle 'DrawIt'
-" Bundle 'Pydiction'
 Bundle 'pythoncomplete'
 Bundle 'SQLUtilities'
 Bundle 'errormarker.vim'
@@ -50,18 +49,15 @@ Bundle 'thinca/vim-ref'
 Bundle 'tpope/vim-surround'
 Bundle 'tsukkee/unite-help'
 Bundle 'tyru/open-browser.vim'
-Bundle 'rson/vim-conque.git'
 
 " OS別プラグイン -----------------------
 if has('win32') || has('win64')
   " windowsでのみ追加するもの ------
-  " Bundle 'mattn/vim-metarw'
 elseif ! has('win32unix')
   " Cygwin以外のUnix系で追加  ------
   Bundle 'sudo.vim'
 else
   " unix系全般で追加するもの -------
-  " Bundle 'kana/vim-metarw'
 endif
 
 filetype plugin indent on
@@ -271,52 +267,52 @@ nnoremap <C-g><C-b> :<C-u>GrepBuffer<Space><C-r><C-w><Enter>
 "===============================================================================
 " 移動設定 Move
 "===============================================================================
-" 0, 9で行頭、行末へ
+" 0, 9で行頭、行末へ ----------------------------------------
 nmap 1 0
 nmap 0 ^
 nmap 9 $
 
-" spaceで次のbufferへ。back-spaceで前のbufferへ
+" spaceで次のbufferへ。back-spaceで前のbufferへ -------------
 nmap <Space> ;MBEbn<CR>
 nmap <BS> ;MBEbp<CR>
 
-" F2で前のバッファ
-" map <F2> <ESC>;bp<CR>
-" F3で次のバッファ
-" map <F3> <ESC>;bn<CR>
-" F4でバッファを削除する
-" map <F4> <ESC>;bw<CR>
+" F2で前のバッファ ------------------------------------------
+map <F2> <ESC>;bp<CR>
+" F3で次のバッファ ------------------------------------------
+map <F3> <ESC>;bn<CR>
+" F4でバッファを削除する ------------------------------------
+map <F4> <ESC>;bw<CR>
 
-" フレームサイズを怠惰に変更する
+" フレームサイズを怠惰に変更する ----------------------------
 " map <kPlus> <C-W>+
 " map <kMinus> <C-W>-
 
-" 前回終了したカーソル行に移動
+" 前回終了したカーソル行に移動 ------------------------------
 autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
 
-" 最後に編集された位置に移動
+" 最後に編集された位置に移動 --------------------------------
 " nnoremap gb '[
 " nnoremap gp ']
 
-" 対応する括弧に移動
+" 対応する括弧に移動 ----------------------------------------
 nnoremap [ %
 nnoremap ] %
 
-" 最後に変更されたテキストを選択する
+" 最後に変更されたテキストを選択する ------------------------
 " nnoremap gc  `[v`]
 " vnoremap gc ;<C-u>normal gc<Enter>
 " onoremap gc ;<C-u>normal gc<Enter>
 
-" カーソル位置の単語をyankする
+" カーソル位置の単語をyankする ------------------------------
 nnoremap vy vawy
 
-" 矩形選択で自由に移動する
+" 矩形選択で自由に移動する ----------------------------------
 set virtualedit+=block
 
-"ビジュアルモード時vで行末まで選択
+"ビジュアルモード時vで行末まで選択 --------------------------
 vnoremap v $h
 
-" CTRL-hjklでウィンドウ移動
+" CTRL-hjklでウィンドウ移動 ---------------------------------
 nnoremap <C-j> ;<C-w>j
 nnoremap <C-k> ;<C-k>j
 nnoremap <C-l> ;<C-l>j
@@ -326,9 +322,10 @@ nnoremap <C-h> ;<C-h>j
 " エンコーディング関連 Encoding
 "===============================================================================
 " 改行文字
-set ffs=unix,dos,mac
+set ffs=unix,dos,mac "| "
 " デフォルトエンコーディング
 set encoding=utf-8
+set termencoding=utf-8
 
 " 文字コード関連
 " from ずんWiki http://www.kawaz.jp/pukiwiki/?vim#content_1_7
@@ -511,12 +508,6 @@ autocmd BufWritePre * :%s/\s\+$//ge
 " プラグインごとの設定 Plugins
 "===============================================================================
 "====================================
-" YankRing.vim
-"====================================
-" Yankの履歴参照
-" nmap ,y ;YRShow<CR>
-
-"====================================
 " MiniBufExplorer
 "====================================
 " set minibfexp
@@ -614,14 +605,14 @@ nnoremap <Space>gp :<C-u>Git push
 " BufExplorer
 " ====================================
 ""<Leader>l<Space>でBufferList
-" nnoremap <Leader>l<Space> :BufExplorer<CR>
+nnoremap <Leader>l<Space> :BufExplorer<CR>
 
 " ====================================
 "  VTreeExplorer
 " ====================================
 " let g:treeExplVertical=1
 "<Leader>t<Space>でディレクトリツリー表示
-" noremap <Leader>t<Space> :VSTreeExplore<CR>
+noremap <Leader>t<Space> :VSTreeExplore<CR>
 "分割したウィンドウのサイズ
 " let g:treeExplWinSize=30
 
@@ -667,6 +658,7 @@ vmap fu <Plug>(openbrowser-open)
 " vimshell
 "====================================
 let g:vimshell_user_prompt = 'fnamemodify(getcwd(), ":~")'
+let g:vimshell_right_prompt = 'vimshell#vcs#info("(%s)-[%b]","(%s)-[%b|%a]")'
 let g:vimshell_enable_smart_case = 1
 
 if has('win32') || has('win64')
@@ -717,14 +709,12 @@ command! Vs :VimShell
 " neocomplecache.vim
 "====================================
 " 基本設定 -------------------------------------------------------
-" let g:acp_enableAtStartup = 0                         "| AutoComplPopを無効にする
 let g:neocomplcache_enable_at_startup = 1               "| NeoComplCacheを有効にする
 let g:neocomplcache_enable_smart_case = 1               "| smarrt case有効化。 大文字が入力されるまで大文字小文字の区別を無視する
 let g:neocomplcache_enable_camel_case_completion = 1    "| camle caseを有効化。大文字を区切りとしたワイルドカードのように振る舞う
 let g:neocomplcache_enable_underbar_completion = 1      "| _(アンダーバー)区切りの補完を有効化
 let g:neocomplcache_min_syntax_length = 3               "| シンタックスをキャッシュするときの最小文字長を3に
 let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*' "| neocomplcacheを自動的にロックするバッファ名のパターン
-" let g:neocomplcache_enable_quick_match = 1            "| -入力による候補番号の表示
 let g:neocomplcache_enable_auto_select = 1              "| 補完候補の一番先頭を選択状態にする(AutoComplPopと似た動作)
 
 " Define dictionary. -------------------------------------------
@@ -825,8 +815,6 @@ nnoremap <silent> [unite]a  :<C-u>UniteWithCurrentDir -buffer-name=files buffer 
 nnoremap <silent> [unite]f  :<C-u>Unite -buffer-name=files file<CR>
 nnoremap <silent> [unite]b  :<C-u>Unite buffer<CR>
 nnoremap <silent> [unite]m  :<C-u>Unite file_mru<CR>
-
-" nnoremap <silent> [unite]b  :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
 
 autocmd FileType unite call s:unite_my_settings()
 function! s:unite_my_settings()"{{{
