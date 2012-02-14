@@ -51,9 +51,9 @@ endif
 
 " MacVim-Kaoriya で +perl,+ruby,+pyhtonにする
 if has('gui_macvim')
-  let $PERL_DLL="/usr/bin/perl"
-  let $RUBY_DLL="/usr/bin/ruby"
-  let $PYTHON_DLL="/usr/bin/python"
+  let $PERL_DLL="/System/Library/Perl/lib/5.10/libperl.dylib"
+  let $RUBY_DLL="/usr/lib/libruby.dylib"
+  let $PYTHON_DLL="/usr/lib/libpython2.7.dylib"
 endif
 
 " ----------------------------------
