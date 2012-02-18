@@ -2,60 +2,60 @@
 " Vundle の設定
 "===============================================================================
 set nocompatible
-filetype off
+filetype plugin indent off
 
 if has('win32') || has('win64')
-  set rtp+=~/vimfiles/bundle/vundle/
-  call vundle#rc($HOME.'/vimfiles/bundle/')
+  set rtp+=~/vimfiles/bundle/neobundle/
+  call neobundle#rc($HOME.'/vimfiles/bundle/')
 else
-  set rtp+=~/.vim/bundle/vundle/
-  call vundle#rc()
+  set rtp+=~/.vim/bundle/neobundle/
+  call neobundle#rc()
 endif
 
 "============================
 " 以下、追加プラグイン
 "============================
 " from VimScript ------------------------
-Bundle 'Align'
-Bundle 'DrawIt'
-Bundle 'pythoncomplete'
-Bundle 'SQLUtilities'
-Bundle 'errormarker.vim'
-Bundle 'grep.vim'
-Bundle 'css_color.vim'
-Bundle 'surround.vim'
-Bundle 'vtreeexplorer'
+NeoBundle 'Align'
+NeoBundle 'DrawIt'
+NeoBundle 'pythoncomplete'
+NeoBundle 'SQLUtilities'
+NeoBundle 'errormarker.vim'
+NeoBundle 'grep.vim'
+NeoBundle 'css_color.vim'
+NeoBundle 'surround.vim'
+NeoBundle 'vtreeexplorer'
 
 " from Github ---------------------------
-Bundle 'Integriti/pyshell'
-Bundle 'Shougo/neocomplcache'
-Bundle 'Shougo/unite.vim'
-Bundle 'Shougo/vimfiler'
-Bundle 'Shougo/vimproc'
-Bundle 'Shougo/vimshell'
-Bundle 'fholgado/minibufexpl.vim'
-Bundle 'fuenor/qfixgrep'
-Bundle 'fuenor/qfixhowm'
-Bundle 'gmarik/vundle'
-Bundle 'mattn/gist-vim'
-Bundle 'mattn/webapi-vim'
-Bundle 'motemen/git-vim'
-Bundle 'nathanaelkane/vim-indent-guides'
-Bundle 'petdance/vim-perl'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'thinca/vim-ft-markdown_fold'
-Bundle 'thinca/vim-quickrun'
-Bundle 'thinca/vim-ref'
-Bundle 'tpope/vim-surround'
-Bundle 'tsukkee/unite-help'
-Bundle 'tyru/open-browser.vim'
+NeoBundle 'Integriti/pyshell'
+NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/vimfiler'
+NeoBundle 'Shougo/vimproc'
+NeoBundle 'Shougo/vimshell'
+NeoBundle 'fholgado/minibufexpl.vim'
+NeoBundle 'fuenor/qfixgrep'
+NeoBundle 'fuenor/qfixhowm'
+NeoBundle 'gmarik/vundle'
+NeoBundle 'mattn/gist-vim'
+NeoBundle 'mattn/webapi-vim'
+NeoBundle 'motemen/git-vim'
+NeoBundle 'nathanaelkane/vim-indent-guides'
+NeoBundle 'petdance/vim-perl'
+NeoBundle 'scrooloose/nerdcommenter'
+NeoBundle 'thinca/vim-ft-markdown_fold'
+NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'thinca/vim-ref'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'tsukkee/unite-help'
+NeoBundle 'tyru/open-browser.vim'
 
 " OS別プラグイン -----------------------
 if has('win32') || has('win64')
   " windowsでのみ追加するもの ------
 elseif ! has('win32unix')
   " Cygwin以外のUnix系で追加  ------
-  Bundle 'sudo.vim'
+  NeoBundle 'sudo.vim'
 else
   " unix系全般で追加するもの -------
 endif
@@ -413,7 +413,7 @@ command! Sjis Cp932
 " カラー関連 Colors
 "===============================================================================
 " カラースキーム
-:colorscheme elflord
+:colorscheme ron
 
 " ターミナルタイプによるカラー設定
 if &term =~ "xterm-debian" || &term =~ "xterm-xfree86" || &term =~ "xterm-256color"
@@ -877,3 +877,19 @@ let QFixHowm_QuickMemoFile  = "Qmem-00-0000-00-00-000000.howm"         "| クイ
 let QFixHowm_QuickMemoFile1 = "Qmem-00-0000-00-00-000000_utgym.howm"   "| クイックメモのファイル名(utgyn)
 let QFixHowm_QuickMemoFile2 = "Qmem-00-0000-00-00-000000_mp.howm"      "| クイックメモのファイル名(utgyn)
 let QFixHowm_QuickMemoFile3 = "Qmem-00-0000-00-00-000000_private.howm" "| クイックメモのファイル名(utgyn)
+
+" =========================================================
+" errormarker
+" =========================================================
+" キーバインドカスタム ------------------------------------
+nmap <silent> <unique> <Leader>ee :ErrorAtCursor<CR>
+
+" =========================================================
+" Template Include
+" =========================================================
+if has('win32') || has('win64')
+  autocmd BufNewFile *.py 0r $HOME/vimfiles/template/python.py
+else
+  autocmd BufNewFile *.py 0r $HOME/.vim/template/python.py
+endif
+

@@ -12,7 +12,7 @@ mklink /D %homepath%\vimfiles %cd%\vim
 mkdir %cd%\vim\bundle
 
 : Vundle初回導入  ----------------------------------------------
-git clone https://github.com/gmarik/vundle.git %cd%\vim\bundle\vundle
+git clone git://github.com/Shougo/neobundle.vim.git %cd%\vim\bundle\neobundle
 
 : submodule に追加しているプラグインをインストールする --------
 git submoduele update --init

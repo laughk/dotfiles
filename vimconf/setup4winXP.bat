@@ -13,7 +13,7 @@ linkd "%USERPROFILE%\vimfiles" "%CD%\vim"
 mkdir "%CD%\vim\bundle"
 
 : Vundle初回導入 -------------------------------------------------
-git clone https://github.com/gmarik/vundle.git vim\bundle\vundle
+git clone git://github.com/Shougo/neobundle.vim.git vim\bundle\neobundle
 
 : submodule に追加しているプラグインをインストールする -----------
 git submoduele update --init
