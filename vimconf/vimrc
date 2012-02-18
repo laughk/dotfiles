@@ -1,5 +1,5 @@
 "===============================================================================
-" Vundle の設定
+" Neobundle の設定
 "===============================================================================
 set nocompatible
 filetype plugin indent off
@@ -25,6 +25,7 @@ NeoBundle 'grep.vim'
 NeoBundle 'css_color.vim'
 NeoBundle 'surround.vim'
 NeoBundle 'vtreeexplorer'
+NeoBundle 'smartchr'
 
 " from Github ---------------------------
 NeoBundle 'Integriti/pyshell'
@@ -49,6 +50,7 @@ NeoBundle 'thinca/vim-ref'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tsukkee/unite-help'
 NeoBundle 'tyru/open-browser.vim'
+NeoBundle 'corntrace/bufexplorer'
 
 " OS別プラグイン -----------------------
 if has('win32') || has('win64')
@@ -91,6 +93,14 @@ set ttymouse=xterm2
 " Ev/Rvでvimrcの編集と反映
 command! Ev edit $MYVIMRC
 command! Rv source $MYVIMRC
+
+" ファイル別のテンプレートの指定
+if has('win32') || has('win64')
+  autocmd BufNewFile *.py 0r $HOME/vimfiles/template/python.py
+else
+  autocmd BufNewFile *.py 0r $HOME/.vim/template/python.py
+endif
+
 
 "===============================================================================
 " ステータスライン StatusLine
@@ -141,7 +151,7 @@ func! String2Hex(str)
 endfunc
 
 "===============================================================================
-" 表示 Apperance
+" 表示
 "===============================================================================
 set showmatch                                     "| 括弧の対応をハイライト
 set number                                        "| 行番号表示
@@ -322,12 +332,12 @@ nnoremap <C-h> ;<C-h>j
 " エンコーディング関連 Encoding
 "===============================================================================
 " 改行文字
-set ffs=unix,dos,mac "| "
+set ffs=unix,dos,mac
 " デフォルトエンコーディング
 set encoding=utf-8
 set termencoding=utf-8
 
-" 文字コード関連
+" 文字コード関連 ---------------------------------------------------
 " from ずんWiki http://www.kawaz.jp/pukiwiki/?vim#content_1_7
 " 文字コードの自動認識
 if &encoding !=# 'utf-8'
@@ -417,7 +427,6 @@ command! Sjis Cp932
 
 " ターミナルタイプによるカラー設定
 if &term =~ "xterm-debian" || &term =~ "xterm-xfree86" || &term =~ "xterm-256color"
-" if &term =~ "xterm-xfree86" || &term =~ "xterm-256color"
   set t_Co=16
   set t_Sf=^[[3%dm
   set t_Sb=^[[4%dm
@@ -482,8 +491,8 @@ augroup END
 inoremap { {}<LEFT>
 inoremap [ []<LEFT>
 inoremap ( ()<LEFT>
-inoremap " ""<LEFT>
-inoremap ' ''<LEFT>
+" inoremap " ""<LEFT>
+" inoremap ' ''<LEFT>
 " vnoremap { "zdi^V{<C-R>z}<ESC>
 " vnoremap [ "zdi^V[<C-R>z]<ESC>
 " vnoremap ( "zdi^V(<C-R>z)<ESC>
@@ -499,18 +508,11 @@ autocmd BufWritePre * :%s/\s\+$//ge
 " inoremap <expr> ,df strftime('%Y/%m/%d %H:%M:%S')
 " inoremap <expr> ,dd strftime('%Y/%m/%d')
 " inoremap <expr> ,dt strftime('%H:%M:%S')
-
-"===============================================================================
-" その他 Misc
-"===============================================================================
-
+"
 "===============================================================================
 " プラグインごとの設定 Plugins
 "===============================================================================
-"====================================
-" MiniBufExplorer
-"====================================
-" set minibfexp
+" // MiniBufExplorer ==============================================
 " hjklで移動
 let g:miniBufExplMapWindowNavVim=1
 " Put new window above
@@ -524,9 +526,7 @@ let g:miniBufExplMaxSize = 10
 ":TmでMiniBufExplorerの表示トグル
 command! Mt :TMiniBufExplorer
 
-"====================================
-" NERD_commenter.vim
-"====================================
+" // NERD_commenter.vim ==========================================
 " コメントの間にスペースを空ける
 let NERDSpaceDelims = 1
 "<Leader>xでコメントをトグル(NERD_commenter.vim)
@@ -534,41 +534,35 @@ let NERDSpaceDelims = 1
 "未対応ファイルタイプのエラーメッセージを表示しない
 let NERDShutUp=1
 
-" ====================================
-" grep.vim
-" ====================================
+" // grep.vim ===================================================
 " 検索外のディレクトリ、ファイルパターン
 let Grep_Skip_Dirs = '.svn .git .hg'
 let Grep_Skip_Files = '*.bak *~'
 
-"====================================
-" surround.vim
-"====================================
+" // surround.vim ==============================================
 " s, ssで選択範囲を指定文字でくくる
 " nmap s <Plug>Ysurround  " 文字置換とキーがかぶるのでここはあとでちょっと考える。
 " nmap ss <Plug>Yssurround
 
-"====================================
-" smartchr.vim
-"====================================
+" // smartchr.vim =============================================
 " "演算子の間に空白を入れる
-" inoremap <buffer><expr> + smartchr#one_of(' + ', ' ++ ', '+')
-" inoremap <buffer><expr> +=  smartchr#one_of(' += ')
-" inoremap <buffer><expr> - smartchr#one_of(' - ', ' -- ', '-')
-" inoremap <buffer><expr> -=  smartchr#one_of(' -= ')
-" inoremap <buffer><expr> / smartchr#one_of(' / ', ' // ', '/')
-" inoremap <buffer><expr> /=  smartchr#one_of(' /= ')
-" inoremap <buffer><expr> * smartchr#one_of(' * ', ' ** ', '*')
-" inoremap <buffer><expr> *=  smartchr#one_of(' *= ')
-" inoremap <buffer><expr> & smartchr#one_of(' & ', ' && ', '&')
-" inoremap <buffer><expr> % smartchr#one_of(' % ', '%')
-" inoremap <buffer><expr> =>  smartchr#one_of(' => ')
-" inoremap <buffer><expr> <-   smartchr#one_of(' <-  ')
-" inoremap <buffer><expr> <Bar> smartchr#one_of(' <Bar> ', ' <Bar><Bar> ',<Bar>')
-" inoremap <buffer><expr> , smartchr#one_of(', ', ',')
+inoremap <buffer><expr> + smartchr#one_of(' + ', ' ++ ', '+')
+inoremap <buffer><expr> +=  smartchr#one_of(' += ')
+inoremap <buffer><expr> - smartchr#one_of(' - ', ' -- ', '-')
+inoremap <buffer><expr> -=  smartchr#one_of(' -= ')
+inoremap <buffer><expr> / smartchr#one_of(' / ', ' // ', '/')
+inoremap <buffer><expr> /=  smartchr#one_of(' /= ')
+inoremap <buffer><expr> * smartchr#one_of(' * ', ' ** ', '*')
+inoremap <buffer><expr> *=  smartchr#one_of(' *= ')
+inoremap <buffer><expr> & smartchr#one_of(' & ', ' && ', '&')
+inoremap <buffer><expr> % smartchr#one_of(' % ', '%')
+inoremap <buffer><expr> =>  smartchr#one_of(' => ')
+inoremap <buffer><expr> <-   smartchr#one_of(' <-  ')
+inoremap <buffer><expr> <Bar> smartchr#one_of(' <Bar> ', ' <Bar><Bar> ',<Bar>')
+inoremap <buffer><expr> , smartchr#one_of(', ', ',')
 " "3項演算子の場合は、後ろのみ空白を入れる
-" inoremap <buffer><expr> ? smartchr#one_of('? ', '?')
-" inoremap <buffer><expr> : smartchr#one_of(': ', '::', ':')
+inoremap <buffer><expr> ? smartchr#one_of('? ', '?')
+inoremap <buffer><expr> : smartchr#one_of(': ', '::', ':')
 
 "
 " =の場合、単純な代入や比較演算子として入力する場合は前後にスペースをいれる。
@@ -585,9 +579,7 @@ let Grep_Skip_Files = '*.bak *~'
 " " if文直後の(は自動で間に空白を入れる
 " inoremap <buffer><expr> ( search('\<\if\%#', 'bcn')? ' (': '('
 
-" ====================================
-"  git.vim
-" ====================================
+" // git.vim ==============================================
 let g:git_no_map_default = 1
 let g:git_command_edit = 'rightbelow vnew'
 nnoremap <Space>gd :<C-u>GitDiff --cached<Enter>
@@ -601,24 +593,18 @@ nnoremap <Space>gc :<C-u>GitCommit<Enter>
 nnoremap <Space>gC :<C-u>GitCommit --amend<Enter>
 nnoremap <Space>gp :<C-u>Git push
 
-" ====================================
-" BufExplorer
-" ====================================
+" // BufExplorer =========================================
 ""<Leader>l<Space>でBufferList
 nnoremap <Leader>l<Space> :BufExplorer<CR>
 
-" ====================================
-"  VTreeExplorer
-" ====================================
+" // VTreeExplorer =======================================
 " let g:treeExplVertical=1
 "<Leader>t<Space>でディレクトリツリー表示
 noremap <Leader>t<Space> :VSTreeExplore<CR>
 "分割したウィンドウのサイズ
 " let g:treeExplWinSize=30
 
-" ====================================
-" DumbBuf.vim
-" ====================================
+" // DumbBuf.vim ========================================
 ""<Leader>b<Space>でBufferList
 " let dumbbuf_hotkey = '<Leader>b<Space>'
 " let dumbbuf_mappings = {
@@ -631,9 +617,7 @@ noremap <Leader>t<Space> :VSTreeExplore<CR>
 " let dumbbuf_wrap_cursor = 0
 " let dumbbuf_remove_marked_when_close = 1
 
-" ====================================
-"  open-blowser.vim
-" ====================================
+" // open-blowser.vim ==================================
 " " サーバマシンだと別にいらないよな。。。
 " カーソル下のURLをブラウザで開く
 nmap fu <Plug>(openbrowser-open)
@@ -641,22 +625,16 @@ vmap fu <Plug>(openbrowser-open)
 " カーソル下のキーワードをググる
 "nnoremap fs :<C-u>OpenBrowserSearch<Space><C-r><C-w><Enter>
 
-"====================================
-" operator-camelize.vim
-"====================================
+" // operator-camelize.vim =============================
 " camel-caseへの変換
 " map <Leader>u <Plug>(operator-camelize)
 " map <Leader>U <Plug>(operator-decamelize)
 
-"====================================
-" operator-replace.vim
-"====================================
+" // operator-replace.vim ==============================
 " RwなどでYankしてるもので置き換える
 " map R <Plug>(operator-replace)
 
-"====================================
-" vimshell
-"====================================
+" // vimshell =========================================
 let g:vimshell_user_prompt = 'fnamemodify(getcwd(), ":~")'
 let g:vimshell_enable_smart_case = 1
 
@@ -697,16 +675,12 @@ autocmd FileType vimshell
 \| call vimshell#altercmd#define('i','iexe')
 \| call vimshell#altercmd#define('l','ll')
 \| call vimshell#altercmd#define('ll','ls -l')
-" \| call vimshell#hook#set('chpwd', ['g:my_chpwd'])
 \| call vimshell#hook#set('emptycmd',['g:my_emptycmd'])
-" \| call vimshell#hook#set('preprompt', ['g:my_preprompt'])
 \| call vimshell#hook#set('preexec',['g:my_preexec'])
 
 command! Vs :VimShell
 
-"====================================
-" neocomplecache.vim
-"====================================
+" // neocomplecache.vim ===================================
 " 基本設定 -------------------------------------------------------
 let g:neocomplcache_enable_at_startup = 1               "| NeoComplCacheを有効にする
 let g:neocomplcache_enable_smart_case = 1               "| smarrt case有効化。 大文字が入力されるまで大文字小文字の区別を無視する
@@ -802,9 +776,7 @@ endif
 let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
 let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 
-"====================================
-" unite.vim
-"====================================
+" // unite.vim ===============================================
 " The prefix key. -------------------------------------
 nnoremap    [unite]   <Nop>
 nmap    f [unite]
@@ -827,15 +799,11 @@ endfunction"}}}
 
 let g:unite_source_file_mru_limit = 200
 
-" =========================================================
-" Vim-Align
-" =========================================================
+" // Vim-Align =============================================
 " Alignを日本語環境で使用するための設定 -----------------------
 let g:Align_xstrlen = 3
 
-" =========================================================
-" Pydiction
-" =========================================================
+" // Pydiction =============================================
 "  辞書ファイルの場所を指定 -------------------------------------
 if has('win32') || has('win64')
   let g:pydiction_location = $HOME.'/vimfiles/bundle/Pydiction/complete-dict'
@@ -843,23 +811,17 @@ else
   let g:pydiction_location = $HOME.'/.vim/bundle/Pydiction/complete-dict'
 endif
 
-" =========================================================
-" Vimfiler
-" =========================================================
+" // Vimfiler ==============================================
 command! Vf :VimFiler
 
-" =========================================================
-"  indent-guides
-" =========================================================
+" // indent-guides ========================================
 "  インデントのハイライトをデフォルトでONにする。
 let g:indent_guides_enable_on_vim_startup = 1
 "  インデントを少しカスタム
 let g:indent_guides_color_change_percent = 30
 let g:indent_guides_guide_size = 1
 
-" =========================================================
-"  QFixHowm
-" =========================================================
+" // QFixHowm =============================================
 " 保存先の指定
 if has('win32') || has('win64')
   set runtimepath+=~/vimfiles/bundle/qfixhowm
@@ -878,18 +840,7 @@ let QFixHowm_QuickMemoFile1 = "Qmem-00-0000-00-00-000000_utgym.howm"   "| クイ
 let QFixHowm_QuickMemoFile2 = "Qmem-00-0000-00-00-000000_mp.howm"      "| クイックメモのファイル名(utgyn)
 let QFixHowm_QuickMemoFile3 = "Qmem-00-0000-00-00-000000_private.howm" "| クイックメモのファイル名(utgyn)
 
-" =========================================================
-" errormarker
-" =========================================================
+" // errormarker =========================================
 " キーバインドカスタム ------------------------------------
 nmap <silent> <unique> <Leader>ee :ErrorAtCursor<CR>
-
-" =========================================================
-" Template Include
-" =========================================================
-if has('win32') || has('win64')
-  autocmd BufNewFile *.py 0r $HOME/vimfiles/template/python.py
-else
-  autocmd BufNewFile *.py 0r $HOME/.vim/template/python.py
-endif
 
