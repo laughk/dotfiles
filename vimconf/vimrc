@@ -18,7 +18,8 @@ endif
 " from VimScript ------------------------
 NeoBundle 'Align'
 NeoBundle 'DrawIt'
-NeoBundle 'pythoncomplete'
+" NeoBundle 'pythoncomplete'
+NeoBundle 'Pydiction'
 NeoBundle 'SQLUtilities'
 NeoBundle 'errormarker.vim'
 NeoBundle 'grep.vim'
@@ -34,6 +35,7 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimfiler'
 NeoBundle 'Shougo/vimproc'
 NeoBundle 'Shougo/vimshell'
+NeoBundle 'corntrace/bufexplorer'
 NeoBundle 'fholgado/minibufexpl.vim'
 NeoBundle 'fuenor/qfixgrep'
 NeoBundle 'fuenor/qfixhowm'
@@ -50,7 +52,6 @@ NeoBundle 'thinca/vim-ref'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tsukkee/unite-help'
 NeoBundle 'tyru/open-browser.vim'
-NeoBundle 'corntrace/bufexplorer'
 
 " OS別プラグイン -----------------------
 if has('win32') || has('win64')
@@ -94,13 +95,14 @@ set ttymouse=xterm2
 command! Ev edit $MYVIMRC
 command! Rv source $MYVIMRC
 
-" ファイル別のテンプレートの指定
+" ファイル別のテンプレートの指定 ---------------------
 if has('win32') || has('win64')
   autocmd BufNewFile *.py 0r $HOME/vimfiles/template/python.py
+  autocmd BufNewFile *.wsgi 0r $HOME/vimfiles/template/python.py
 else
   autocmd BufNewFile *.py 0r $HOME/.vim/template/python.py
+  autocmd BufNewFile *.wsgi 0r $HOME/.vim/template/python.py
 endif
-
 
 "===============================================================================
 " ステータスライン StatusLine
@@ -340,52 +342,52 @@ set termencoding=utf-8
 " 文字コード関連 ---------------------------------------------------
 " from ずんWiki http://www.kawaz.jp/pukiwiki/?vim#content_1_7
 " 文字コードの自動認識
-if &encoding !=# 'utf-8'
-  set encoding=japan
-  set fileencoding=japan
-endif
-if has('iconv')
-  let s:enc_euc = 'euc-jp'
-  let s:enc_jis = 'iso-2022-jp'
-  " iconvがeucJP-msに対応しているかをチェック
-  if iconv("\x87\x64\x87\x6a", 'cp932', 'eucjp-ms') ==# "\xad\xc5\xad\xcb"
-    let s:enc_euc = 'eucjp-ms'
-    let s:enc_jis = 'iso-2022-jp-3'
-  " iconvがJISX0213に対応しているかをチェック
-  elseif iconv("\x87\x64\x87\x6a", 'cp932', 'euc-jisx0213') ==# "\xad\xc5\xad\xcb"
-    let s:enc_euc = 'euc-jisx0213'
-    let s:enc_jis = 'iso-2022-jp-3'
-  endif
-  " fileencodingsを構築
-  if &encoding ==# 'utf-8'
-    let s:fileencodings_default = &fileencodings
-    let &fileencodings = s:enc_jis .','. s:enc_euc .',cp932'
-    let &fileencodings = &fileencodings .','. s:fileencodings_default
-    unlet s:fileencodings_default
-  else
-    let &fileencodings = &fileencodings .','. s:enc_jis
-    set fileencodings+=utf-8,ucs-2le,ucs-2
-    if &encoding =~# '^\(euc-jp\|euc-jisx0213\|eucjp-ms\)$'
-      set fileencodings+=cp932
-      set fileencodings-=euc-jp
-      set fileencodings-=euc-jisx0213
-      set fileencodings-=eucjp-ms
-      let &encoding = s:enc_euc
-      let &fileencoding = s:enc_euc
-    else
-      let &fileencodings = &fileencodings .','. s:enc_euc
-    endif
-  endif
-" 定数を処分
-  unlet s:enc_euc
-  unlet s:enc_jis
-endif
+" if &encoding !=# 'utf-8'
+  " set encoding=japan
+  " set fileencoding=japan
+" endif
+" if has('iconv')
+  " let s:enc_euc = 'euc-jp'
+  " let s:enc_jis = 'iso-2022-jp'
+  " " iconvがeucJP-msに対応しているかをチェック
+  " if iconv("\x87\x64\x87\x6a", 'cp932', 'eucjp-ms') ==# "\xad\xc5\xad\xcb"
+	" let s:enc_euc = 'eucjp-ms'
+	" let s:enc_jis = 'iso-2022-jp-3'
+  " " iconvがJISX0213に対応しているかをチェック
+  " elseif iconv("\x87\x64\x87\x6a", 'cp932', 'euc-jisx0213') ==# "\xad\xc5\xad\xcb"
+	" let s:enc_euc = 'euc-jisx0213'
+	" let s:enc_jis = 'iso-2022-jp-3'
+  " endif
+  " " fileencodingsを構築
+  " if &encoding ==# 'utf-8'
+	" let s:fileencodings_default = &fileencodings
+	" let &fileencodings = s:enc_jis .','. s:enc_euc .',cp932'
+	" let &fileencodings = &fileencodings .','. s:fileencodings_default
+	" unlet s:fileencodings_default
+  " else
+	" let &fileencodings = &fileencodings .','. s:enc_jis
+	" set fileencodings+=utf-8,ucs-2le,ucs-2
+	" if &encoding =~# '^\(euc-jp\|euc-jisx0213\|eucjp-ms\)$'
+	  " set fileencodings+=cp932
+	  " set fileencodings-=euc-jp
+	  " set fileencodings-=euc-jisx0213
+	  " set fileencodings-=eucjp-ms
+	  " let &encoding = s:enc_euc
+	  " let &fileencoding = s:enc_euc
+	" else
+	  " let &fileencodings = &fileencodings .','. s:enc_euc
+	" endif
+  " endif
+" " 定数を処分
+  " unlet s:enc_euc
+  " unlet s:enc_jis
+" endif
 " 日本語を含まない場合は fileencoding に encoding を使うようにする
 if has('autocmd')
   function! AU_ReCheck_FENC()
-    if &fileencoding =~# 'iso-2022-jp' && search("[^\x01-\x7e]", 'n') == 0
-      let &fileencoding=&encoding
-    endif
+	if &fileencoding =~# 'iso-2022-jp' && search("[^\x01-\x7e]", 'n') == 0
+	  let &fileencoding=&encoding
+	endif
   endfunction
   autocmd BufReadPost * call AU_ReCheck_FENC()
 endif
@@ -407,6 +409,8 @@ autocmd FileType xml :set fileencoding=utf-8
 autocmd FileType java :set fileencoding=utf-8
 autocmd FileType scala :set fileencoding=utf-8
 autocmd FileType sh :set fileencoding=utf-8
+autocmd FileType python :set fileencoding=utf-8
+autocmd FileType conf :set fileencoding=utf-8
 
 " ワイルドカードで表示するときに優先度を低くする拡張子
 set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
@@ -423,7 +427,7 @@ command! Sjis Cp932
 " カラー関連 Colors
 "===============================================================================
 " カラースキーム
-:colorscheme ron
+:colorscheme pablo
 
 " ターミナルタイプによるカラー設定
 if &term =~ "xterm-debian" || &term =~ "xterm-xfree86" || &term =~ "xterm-256color"
@@ -548,9 +552,9 @@ let Grep_Skip_Files = '*.bak *~'
 " "演算子の間に空白を入れる
 inoremap <buffer><expr> + smartchr#one_of(' + ', ' ++ ', '+')
 inoremap <buffer><expr> +=  smartchr#one_of(' += ')
-inoremap <buffer><expr> - smartchr#one_of(' - ', ' -- ', '-')
+" inoremap <buffer><expr> - smartchr#one_of(' - ', ' -- ', '-')
 inoremap <buffer><expr> -=  smartchr#one_of(' -= ')
-inoremap <buffer><expr> / smartchr#one_of(' / ', ' // ', '/')
+" inoremap <buffer><expr> / smartchr#one_of(' / ', ' // ', '/')
 inoremap <buffer><expr> /=  smartchr#one_of(' /= ')
 inoremap <buffer><expr> * smartchr#one_of(' * ', ' ** ', '*')
 inoremap <buffer><expr> *=  smartchr#one_of(' *= ')
@@ -843,4 +847,5 @@ let QFixHowm_QuickMemoFile3 = "Qmem-00-0000-00-00-000000_private.howm" "| クイ
 " // errormarker =========================================
 " キーバインドカスタム ------------------------------------
 nmap <silent> <unique> <Leader>ee :ErrorAtCursor<CR>
+
 
