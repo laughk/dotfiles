@@ -35,6 +35,7 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimfiler'
 NeoBundle 'Shougo/vimproc'
 NeoBundle 'Shougo/vimshell'
+NeoBundle 'Shougo/neocomplcache-snippets-complete'
 NeoBundle 'corntrace/bufexplorer'
 NeoBundle 'fholgado/minibufexpl.vim'
 NeoBundle 'fuenor/qfixgrep'
@@ -772,6 +773,7 @@ autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 autocmd FileType c set omnifunc=ccomplete#Complete
 autocmd FileType ruby set omnifunc=rubycomplete#Complete
+autocmd FileType htmlcheetah set omnifunc=htmlcomplete#CompleteTags
 
 " Enable heavy omni completion.
 if !exists('g:neocomplcache_omni_patterns')
