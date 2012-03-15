@@ -838,6 +838,7 @@ else
 endif
 
 " 基本設定 ----------------------------------------------------------------------------
+let QFixHowm_FileType = 'qfix_memo'                                    "| ファイルタイプの拡張
 let howm_fileencoding = 'utf-8'                                        "| utf8で作成する
 let howm_fileformat = 'unix'                                           "| fileformat は unixで
 let QFixHowm_RecentMode = 2                                            "| エントリのタイムスタンプを自動更新する
@@ -845,6 +846,10 @@ let QFixHowm_QuickMemoFile  = "Qmem-00-0000-00-00-000000.howm"         "| クイ
 let QFixHowm_QuickMemoFile1 = "Qmem-00-0000-00-00-000000_utgym.howm"   "| クイックメモのファイル名(utgyn)
 let QFixHowm_QuickMemoFile2 = "Qmem-00-0000-00-00-000000_mp.howm"      "| クイックメモのファイル名(utgyn)
 let QFixHowm_QuickMemoFile3 = "Qmem-00-0000-00-00-000000_private.howm" "| クイックメモのファイル名(utgyn)
+
+" super pre スクリプトの呼び出し
+nnoremap <silent> g,. :<C-u>call HatenaSuperPreHighlight()<CR>
+
 
 " // errormarker =========================================
 " キーバインドカスタム ------------------------------------
