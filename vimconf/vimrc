@@ -5,10 +5,10 @@ set nocompatible
 filetype plugin indent off
 
 if has('win32') || has('win64')
-  set rtp+=~/vimfiles/bundle/neobundle/
+  set rtp+=~/vimfiles/bundle/neobundle.vim/
   call neobundle#rc($HOME.'/vimfiles/bundle/')
 else
-  set rtp+=~/.vim/bundle/neobundle/
+  set rtp+=~/.vim/bundle/neobundle.vim/
   call neobundle#rc()
 endif
 
@@ -26,16 +26,16 @@ NeoBundle 'grep.vim'
 NeoBundle 'css_color.vim'
 NeoBundle 'surround.vim'
 NeoBundle 'vtreeexplorer'
-NeoBundle 'smartchr'
 
 " from Github ---------------------------
 NeoBundle 'Integriti/pyshell'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimfiler'
-NeoBundle 'Shougo/vimproc'
-NeoBundle 'Shougo/vimshell'
-NeoBundle 'Shougo/neocomplcache-snippets-complete'
+" NeoBundle 'Shougo/vimproc'
+" NeoBundle 'Shougo/vimshell'
+" NeoBundle 'Shougo/neocomplcache-snippets-complete'
+NeoBundle 'Shougo/neobundle.vim'
 NeoBundle 'corntrace/bufexplorer'
 NeoBundle 'fholgado/minibufexpl.vim'
 NeoBundle 'fuenor/qfixgrep'
@@ -548,41 +548,6 @@ let Grep_Skip_Files = '*.bak *~'
 " s, ssで選択範囲を指定文字でくくる
 " nmap s <Plug>Ysurround  " 文字置換とキーがかぶるのでここはあとでちょっと考える。
 " nmap ss <Plug>Yssurround
-
-" // smartchr.vim =============================================
-" "演算子の間に空白を入れる
-inoremap <buffer><expr> + smartchr#one_of(' + ', ' ++ ', '+')
-inoremap <buffer><expr> +=  smartchr#one_of(' += ')
-" inoremap <buffer><expr> - smartchr#one_of(' - ', ' -- ', '-')
-inoremap <buffer><expr> -=  smartchr#one_of(' -= ')
-" inoremap <buffer><expr> / smartchr#one_of(' / ', ' // ', '/')
-inoremap <buffer><expr> /=  smartchr#one_of(' /= ')
-inoremap <buffer><expr> * smartchr#one_of(' * ', ' ** ', '*')
-inoremap <buffer><expr> *=  smartchr#one_of(' *= ')
-inoremap <buffer><expr> & smartchr#one_of(' & ', ' && ', '&')
-inoremap <buffer><expr> % smartchr#one_of(' % ', '%')
-inoremap <buffer><expr> =>  smartchr#one_of(' => ')
-inoremap <buffer><expr> <-   smartchr#one_of(' <-  ')
-inoremap <buffer><expr> <Bar> smartchr#one_of(' <Bar> ', ' <Bar><Bar> ',<Bar>')
-inoremap <buffer><expr> , smartchr#one_of(', ', ',')
-" "3項演算子の場合は、後ろのみ空白を入れる
-inoremap <buffer><expr> ? smartchr#one_of('? ', '?')
-inoremap <buffer><expr> : smartchr#one_of(': ', '::', ':')
-
-"
-" =の場合、単純な代入や比較演算子として入力する場合は前後にスペースをいれる。
-" " 複合演算代入としての入力の場合は、直前のスペースを削除して=を入力
-" inoremap <buffer><expr> = search('\(&\<bar><bar>\<bar>+\<bar>-\<bar>/\<bar>>\<bar><\) \%#', 'bcn')? '<bs>= '  : search('\(*\<bar>!\)\%#', 'bcn') ? '= '  : smartchr#one_of(' = ', ' == ', '=')
-
-" " 下記の文字は連続して現れることがまれなので、二回続けて入力したら改行する
-" inoremap <buffer><expr> } smartchr#one_of('}', '}<cr>')
-" inoremap <buffer><expr> ; smartchr#one_of(';', ';<cr>')
-" "()は空白入れる
-" inoremap <buffer><expr> ( smartchr#one_of('( ')
-" inoremap <buffer><expr> ) smartchr#one_of(' )')
-
-" " if文直後の(は自動で間に空白を入れる
-" inoremap <buffer><expr> ( search('\<\if\%#', 'bcn')? ' (': '('
 
 " // git.vim ==============================================
 let g:git_no_map_default = 1
