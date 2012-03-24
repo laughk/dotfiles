@@ -26,7 +26,7 @@ if [ ! -e ${HOME}/.vim ] ; then
 fi
 
 ## vundle の実態をgithubから取得
-git clone git://github.com/Shougo/neobundle.vim.git vim/bundle/neobundle
+git clone git://github.com/Shougo/neobundle.vim.git vim/bundle/neobundle.vim
 
 ## submodule で管理しているプラグインのアップデート
 git submodule update --init

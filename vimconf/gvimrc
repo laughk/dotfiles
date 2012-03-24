@@ -35,7 +35,7 @@ endif
 if has('mac')
   set guifont=Consolas:h12
 elseif has('unix')
-  set guifont=Consolas\ 9
+  set guifont=Ricty\ 10
 elseif has('win32') || has('win64')
   set guifont=Consolas:h8:cSHIFTJIS
 endif
