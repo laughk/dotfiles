@@ -1,0 +1,65 @@
+
+set nocompatible
+filetype plugin indent off
+
+if has('win32') || has('win64')
+  set rtp+=~/vimfiles/bundle/neobundle.vim/
+  call neobundle#rc($HOME.'/vimfiles/bundle/')
+else
+  set rtp+=~/.vim/bundle/neobundle.vim/
+  call neobundle#rc()
+endif
+
+"============================
+" 以下、追加プラグイン
+"============================
+" from VimScript ------------------------
+NeoBundle 'Align'
+NeoBundle 'DrawIt'
+" NeoBundle 'pythoncomplete'
+NeoBundle 'Pydiction'
+NeoBundle 'SQLUtilities'
+NeoBundle 'errormarker.vim'
+NeoBundle 'grep.vim'
+NeoBundle 'css_color.vim'
+NeoBundle 'surround.vim'
+NeoBundle 'vtreeexplorer'
+
+" from Github ---------------------------
+NeoBundle 'Integriti/pyshell'
+NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/vimfiler'
+NeoBundle 'Shougo/vimproc'
+NeoBundle 'Shougo/vimshell'
+NeoBundle 'Shougo/neocomplcache-snippets-complete'
+NeoBundle 'Shougo/neobundle.vim'
+NeoBundle 'corntrace/bufexplorer'
+NeoBundle 'fholgado/minibufexpl.vim'
+NeoBundle 'fuenor/qfixgrep'
+NeoBundle 'fuenor/qfixhowm'
+NeoBundle 'gmarik/vundle'
+NeoBundle 'mattn/gist-vim'
+NeoBundle 'mattn/webapi-vim'
+NeoBundle 'motemen/git-vim'
+NeoBundle 'nathanaelkane/vim-indent-guides'
+NeoBundle 'petdance/vim-perl'
+NeoBundle 'scrooloose/nerdcommenter'
+NeoBundle 'thinca/vim-ft-markdown_fold'
+NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'thinca/vim-ref'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'tsukkee/unite-help'
+NeoBundle 'tyru/open-browser.vim'
+
+" OS別プラグイン -----------------------
+if has('win32') || has('win64')
+  " windowsでのみ追加するもの ------
+elseif ! has('win32unix')
+  " Cygwin以外のUnix系で追加  ------
+  NeoBundle 'sudo.vim'
+else
+  " unix系全般で追加するもの -------
+endif
+
+filetype plugin indent on
