@@ -196,7 +196,7 @@ inoremap <expr><C-y> neocomplcache#close_popup()
 " 補完をキャンセルしpopupを閉じる
 inoremap <expr><C-e> neocomplcache#cancel_popup()
 " TABで補完できるようにする
-inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+" inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 " undo
 inoremap <expr><C-g> neocomplcache#undo_completion()
 " 補完候補の共通部分までを補完する
