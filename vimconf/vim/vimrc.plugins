@@ -299,4 +299,4 @@ nnoremap <silent> g,. :<C-u>call HatenaSuperPreHighlight()<CR>
 
 " // errormarker =========================================
 " キーバインドカスタム ------------------------------------
-nmap <silent> <unique> <Leader>ee :ErrorAtCursor<CR>
+" nmap <silent> <unique> <Leader>ee :ErrorAtCursor<CR>

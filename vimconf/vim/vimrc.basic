@@ -1,4 +1,5 @@
-
+" Basic ... 基本的な設定を書いておく
+" ------------------------------ + -----------------------------------------------------------------
 set nocompatible                "| Vi互換を殺してVimの機能をフルに使う
 let mapleader = ","             "| キーマップリーダー Leader はここで , にバインドされる。
 set scrolloff=5                 "| スクロール時の余白確保
@@ -26,6 +27,21 @@ set ttymouse=xterm2
 " Ev/Rvでvimrcの編集と反映
 command! Ev edit $MYVIMRC
 command! Rv source $MYVIMRC
+
+" それぞれの設定ファイル編集へのショートカット
+command! Evb  edit $HOME/vimfiles/vimrc.basic
+command! Evcl edit $HOME/vimfiles/vimrc.color
+command! Evn  edit $HOME/vimfiles/vimrc.neobundle
+command! Evcm edit $HOME/vimfiles/vimrc.complete
+command! Even edit $HOME/vimfiles/vimrc.encoding
+command! Evse edit $HOME/vimfiles/vimrc.search
+command! Evst edit $HOME/vimfiles/vimrc.statusline
+command! Evi  edit $HOME/vimfiles/vimrc.indent
+command! Evm  edit $HOME/vimfiles/vimrc.move
+command! Evt  edit $HOME/vimfiles/vimrc.tags
+command! Eved edit $HOME/vimfiles/vimrc.edit
+command! Evp  edit $HOME/vimfiles/vimrc.plugins
+command! Evv  edit $HOME/vimfiles/vimrc.view
 
 " ファイル別のテンプレートの指定 ---------------------
 if has('win32') || has('win64')
