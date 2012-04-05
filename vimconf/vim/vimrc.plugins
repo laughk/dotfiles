@@ -145,17 +145,17 @@ let g:neocomplcache_enable_auto_select = 1              "| 補完候補の一番
 if has('win32') || has('win64')
   let g:neocomplcache_dictionary_filetype_lists = {
     \ 'default' : '',
-    \ 'vimshell' : $HOME.'/vimfiles/_vimshell_hist',
-    \ 'scala' : $HOME.'/vimfiles/bundle/vim-scala/dict/scala.dict',
-    \ 'java' : $HOME.'/vimfiles/dict/java.dict',
-    \ 'c' : $HOME.'/vimfiles/dict/c.dict',
-    \ 'cpp' : $HOME.'/vimfiles/dict/cpp.dict',
-    \ 'javascript' : $HOME.'/vimfiles/dict/javascript.dict',
-    \ 'ocaml' : $HOME.'/vimfiles/dict/ocaml.dict',
-    \ 'perl' : $HOME.'/vimfiles/dict/perl.dict',
-    \ 'php' :  $HOME.'/vimfiles/dict/php.dict',
-    \ 'scheme' : $HOME.'/vimfiles/dict/scheme.dict',
-    \ 'vm' : $HOME.'/vimfiles/dict/vim.dict'
+    \ 'vimshell' : $HOME.'/.vim/_vimshell_hist',
+    \ 'scala' : $HOME.'/.vim/bundle/vim-scala/dict/scala.dict',
+    \ 'java' : $HOME.'/.vim/dict/java.dict',
+    \ 'c' : $HOME.'/.vim/dict/c.dict',
+    \ 'cpp' : $HOME.'/.vim/dict/cpp.dict',
+    \ 'javascript' : $HOME.'/.vim/dict/javascript.dict',
+    \ 'ocaml' : $HOME.'/.vim/dict/ocaml.dict',
+    \ 'perl' : $HOME.'/.vim/dict/perl.dict',
+    \ 'php' :  $HOME.'/.vim/dict/php.dict',
+    \ 'scheme' : $HOME.'/.vim/dict/scheme.dict',
+    \ 'vm' : $HOME.'/.vim/dict/vim.dict'
   \ }
 else
   let g:neocomplcache_dictionary_filetype_lists = {
@@ -182,7 +182,7 @@ endif
 
 " ユーザー定義スニペット保存ディレクトリ -----------------------
 if has('win32') || has('win64')
-  let g:neocomplcache_snippets_dir = $HOME.'/vimfiles/snippets'
+  let g:neocomplcache_snippets_dir = $HOME.'/.vim/snippets'
 else
   let g:neocomplcache_snippets_dir = $HOME.'/.vim/snippets'
 endif
@@ -258,7 +258,7 @@ let g:Align_xstrlen = 3
 " // Pydiction =============================================
 "  辞書ファイルの場所を指定 -------------------------------------
 if has('win32') || has('win64')
-  let g:pydiction_location = $HOME.'/vimfiles/bundle/Pydiction/complete-dict'
+  let g:pydiction_location = $HOME.'/.vim/bundle/Pydiction/complete-dict'
 else
   let g:pydiction_location = $HOME.'/.vim/bundle/Pydiction/complete-dict'
 endif
@@ -276,7 +276,7 @@ let g:indent_guides_guide_size = 1
 " // QFixHowm =============================================
 " 保存先の指定
 if has('win32') || has('win64')
-  set runtimepath+=~/vimfiles/bundle/qfixhowm
+  set runtimepath+=~/.vim/bundle/qfixhowm
   let howm_dir = $HOME.'/Dropbox/QFixHowm'
 else
   set runtimepath+=~/.vim/bundle/qfixhowm

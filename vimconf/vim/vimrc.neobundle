@@ -4,8 +4,8 @@ set nocompatible
 filetype plugin indent off
 
 if has('win32') || has('win64')
-  set rtp+=~/vimfiles/bundle/neobundle.vim/
-  call neobundle#rc($HOME.'/vimfiles/bundle/')
+  set rtp+=~/.vim/bundle/neobundle.vim/
+  call neobundle#rc($HOME.'/.vim/bundle/')
 else
   set rtp+=~/.vim/bundle/neobundle.vim/
   call neobundle#rc()
@@ -20,11 +20,11 @@ NeoBundle 'DrawIt'
 " NeoBundle 'pythoncomplete'
 NeoBundle 'Pydiction'
 NeoBundle 'SQLUtilities'
-NeoBundle 'errormarker.vim'
 NeoBundle 'grep.vim'
 NeoBundle 'css_color.vim'
 NeoBundle 'surround.vim'
 NeoBundle 'vtreeexplorer'
+NeoBundle 'sudo.vim'
 
 " from Github ---------------------------
 NeoBundle 'Integriti/pyshell'
@@ -55,14 +55,5 @@ NeoBundle 'tsukkee/unite-help'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'emonkak/vim-filetype-pukiwiki'
 
-" OS別プラグイン -----------------------
-if has('win32') || has('win64')
-  " windowsでのみ追加するもの ------
-elseif ! has('win32unix')
-  " Cygwin以外のUnix系で追加  ------
-  NeoBundle 'sudo.vim'
-else
-  " unix系全般で追加するもの -------
-endif
 
 filetype plugin indent on
