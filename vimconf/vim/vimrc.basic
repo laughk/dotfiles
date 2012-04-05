@@ -29,24 +29,24 @@ command! Ev edit $MYVIMRC
 command! Rv source $MYVIMRC
 
 " それぞれの設定ファイル編集へのショートカット
-command! Evb  edit $HOME/vimfiles/vimrc.basic
-command! Evcl edit $HOME/vimfiles/vimrc.color
-command! Evn  edit $HOME/vimfiles/vimrc.neobundle
-command! Evcm edit $HOME/vimfiles/vimrc.complete
-command! Even edit $HOME/vimfiles/vimrc.encoding
-command! Evse edit $HOME/vimfiles/vimrc.search
-command! Evst edit $HOME/vimfiles/vimrc.statusline
-command! Evi  edit $HOME/vimfiles/vimrc.indent
-command! Evm  edit $HOME/vimfiles/vimrc.move
-command! Evt  edit $HOME/vimfiles/vimrc.tags
-command! Eved edit $HOME/vimfiles/vimrc.edit
-command! Evp  edit $HOME/vimfiles/vimrc.plugins
-command! Evv  edit $HOME/vimfiles/vimrc.view
+command! Evb  edit $HOME/.vim/vimrc.basic
+command! Evcl edit $HOME/.vim/vimrc.color
+command! Evn  edit $HOME/.vim/vimrc.neobundle
+command! Evcm edit $HOME/.vim/vimrc.complete
+command! Even edit $HOME/.vim/vimrc.encoding
+command! Evse edit $HOME/.vim/vimrc.search
+command! Evst edit $HOME/.vim/vimrc.statusline
+command! Evi  edit $HOME/.vim/vimrc.indent
+command! Evm  edit $HOME/.vim/vimrc.move
+command! Evt  edit $HOME/.vim/vimrc.tags
+command! Eved edit $HOME/.vim/vimrc.edit
+command! Evp  edit $HOME/.vim/vimrc.plugins
+command! Evv  edit $HOME/.vim/vimrc.view
 
 " ファイル別のテンプレートの指定 ---------------------
 if has('win32') || has('win64')
-  autocmd BufNewFile *.py 0r $HOME/vimfiles/template/python.py
-  autocmd BufNewFile *.wsgi 0r $HOME/vimfiles/template/python.py
+  autocmd BufNewFile *.py 0r $HOME/.vim/template/python.py
+  autocmd BufNewFile *.wsgi 0r $HOME/.vim/template/python.py
 else
   autocmd BufNewFile *.py 0r $HOME/.vim/template/python.py
   autocmd BufNewFile *.wsgi 0r $HOME/.vim/template/python.py
