@@ -31,22 +31,22 @@ if has('win32') || has('win64')
   source $VIMRUNTIME/menu.vim
 endif
 
+" マウスを使用できるようにする
+set mouse=a
+set guioptions+=a
+set ttymouse=xterm2
+
 " フォントをConsolasにする。
 if has('mac')
   set guifont=Consolas:h12
 elseif has('unix')
   set guifont=Ricty\ 10
-elseif has('win32') || has('win64')
-  set guifont=Consolas:h8:cSHIFTJIS
 endif
 
 " 半透明に表示する（Mac,Win向け）
 if has ('gui_macvim')
   set imdisable
   set transparency=10
-elseif has('win32') || has('win64')
-  gui
-  set transparency=224
 endif
 
 " MacVim-Kaoriya で +perl,+ruby,+pyhtonにする

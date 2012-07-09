@@ -25,6 +25,9 @@ NeoBundle 'css_color.vim'
 NeoBundle 'surround.vim'
 NeoBundle 'vtreeexplorer'
 NeoBundle 'sudo.vim'
+NeoBundle 'sh.vim'
+NeoBundle 'molokai'
+NeoBundle 'Zenburn'
 
 " from Github ---------------------------
 NeoBundle 'Integriti/pyshell'
@@ -54,6 +57,7 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'tsukkee/unite-help'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'emonkak/vim-filetype-pukiwiki'
+NeoBundle 'altercation/vim-colors-solarized'
 
 
 filetype plugin indent on
