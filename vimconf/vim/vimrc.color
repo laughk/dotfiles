@@ -1,7 +1,7 @@
 " Color ... 色に関する設定を書いておく
 " ------------------------------------------------------------------------
 " カラースキーム
-:colorscheme pablo
+:colorscheme molokai
 
 " ターミナルタイプによるカラー設定
 if &term =~ "xterm-debian" || &term =~ "xterm-xfree86" || &term =~ "xterm-256color"
