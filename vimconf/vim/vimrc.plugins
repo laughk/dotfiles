@@ -1,4 +1,6 @@
-" // MiniBufExplorer ==============================================
+" ++++++++++++++++++++++++++++++++++++++++++++++++++++
+" MiniBufExplorer
+" ++++++++++++++++++++++++++++++++++++++++++++++++++++
 " hjklで移動
 let g:miniBufExplMapWindowNavVim=1
 " Put new window above
@@ -12,7 +14,9 @@ let g:miniBufExplMaxSize = 10
 ":TmでMiniBufExplorerの表示トグル
 command! Mt :TMiniBufExplorer
 
-" // NERD_commenter.vim ==========================================
+" ++++++++++++++++++++++++++++++++++++++++++++++++++++
+" NERD_commenter.vim
+" ++++++++++++++++++++++++++++++++++++++++++++++++++++
 " コメントの間にスペースを空ける
 let NERDSpaceDelims = 1
 "<Leader>xでコメントをトグル(NERD_commenter.vim)
@@ -20,17 +24,23 @@ let NERDSpaceDelims = 1
 "未対応ファイルタイプのエラーメッセージを表示しない
 let NERDShutUp=1
 
-" // grep.vim ===================================================
+" ++++++++++++++++++++++++++++++++++++++++++++++++++++
+" grep.vim
+" ++++++++++++++++++++++++++++++++++++++++++++++++++++
 " 検索外のディレクトリ、ファイルパターン
 let Grep_Skip_Dirs = '.svn .git .hg'
 let Grep_Skip_Files = '*.bak *~'
 
-" // surround.vim ==============================================
+" ++++++++++++++++++++++++++++++++++++++++++++++++++++
+" surround.vim
+" ++++++++++++++++++++++++++++++++++++++++++++++++++++
 " s, ssで選択範囲を指定文字でくくる
 " nmap s <Plug>Ysurround  " 文字置換とキーがかぶるのでここはあとでちょっと考える。
 " nmap ss <Plug>Yssurround
 
-" // git.vim ==============================================
+" ++++++++++++++++++++++++++++++++++++++++++++++++++++
+" git.vim
+" ++++++++++++++++++++++++++++++++++++++++++++++++++++
 let g:git_no_map_default = 1
 let g:git_command_edit = 'rightbelow vnew'
 nnoremap <Space>gd :<C-u>GitDiff --cached<Enter>
@@ -44,48 +54,24 @@ nnoremap <Space>gc :<C-u>GitCommit<Enter>
 nnoremap <Space>gC :<C-u>GitCommit --amend<Enter>
 nnoremap <Space>gp :<C-u>Git push
 
-" // BufExplorer =========================================
+" ++++++++++++++++++++++++++++++++++++++++++++++++++++
+" BufExplorer
+" ++++++++++++++++++++++++++++++++++++++++++++++++++++
 ""<Leader>l<Space>でBufferList
 nnoremap <Leader>l<Space> :BufExplorer<CR>
 
-" // VTreeExplorer =======================================
+" ++++++++++++++++++++++++++++++++++++++++++++++++++++
+" VTreeExplorer
+" ++++++++++++++++++++++++++++++++++++++++++++++++++++
 " let g:treeExplVertical=1
 "<Leader>t<Space>でディレクトリツリー表示
 noremap <Leader>t<Space> :VSTreeExplore<CR>
 "分割したウィンドウのサイズ
 " let g:treeExplWinSize=30
 
-" // DumbBuf.vim ========================================
-""<Leader>b<Space>でBufferList
-" let dumbbuf_hotkey = '<Leader>b<Space>'
-" let dumbbuf_mappings = {
-"     \ 'n': {
-"         \'<Esc>': { 'opt': '<silent>', 'mapto': ':<C-u>close<CR>' }
-"     \}
-"     \}
-" let dumbbuf_single_key  = 1
-" let dumbbuf_updatetime  = 1    " &updatetimeの最小値
-" let dumbbuf_wrap_cursor = 0
-" let dumbbuf_remove_marked_when_close = 1
-
-" // open-blowser.vim ==================================
-" " サーバマシンだと別にいらないよな。。。
-" カーソル下のURLをブラウザで開く
-nmap fu <Plug>(openbrowser-open)
-vmap fu <Plug>(openbrowser-open)
-" カーソル下のキーワードをググる
-"nnoremap fs :<C-u>OpenBrowserSearch<Space><C-r><C-w><Enter>
-
-" // operator-camelize.vim =============================
-" camel-caseへの変換
-" map <Leader>u <Plug>(operator-camelize)
-" map <Leader>U <Plug>(operator-decamelize)
-
-" // operator-replace.vim ==============================
-" RwなどでYankしてるもので置き換える
-" map R <Plug>(operator-replace)
-
-" // vimshell =========================================
+" ++++++++++++++++++++++++++++++++++++++++++++++++++++
+" vimshell
+" ++++++++++++++++++++++++++++++++++++++++++++++++++++
 let g:vimshell_user_prompt = 'fnamemodify(getcwd(), ":~")'
 let g:vimshell_enable_smart_case = 1
 
@@ -131,7 +117,9 @@ autocmd FileType vimshell
 
 command! Vs :VimShell
 
-" // neocomplecache.vim ===================================
+" ++++++++++++++++++++++++++++++++++++++++++++++++++++
+" neocomplecache.vim
+" ++++++++++++++++++++++++++++++++++++++++++++++++++++
 " 基本設定 -------------------------------------------------------
 let g:neocomplcache_enable_at_startup = 1               "| NeoComplCacheを有効にする
 let g:neocomplcache_enable_smart_case = 1               "| smarrt case有効化。 大文字が入力されるまで大文字小文字の区別を無視する
@@ -145,17 +133,17 @@ let g:neocomplcache_enable_auto_select = 1              "| 補完候補の一番
 if has('win32') || has('win64')
   let g:neocomplcache_dictionary_filetype_lists = {
     \ 'default' : '',
-    \ 'vimshell' : $HOME.'/.vim/_vimshell_hist',
-    \ 'scala' : $HOME.'/.vim/bundle/vim-scala/dict/scala.dict',
-    \ 'java' : $HOME.'/.vim/dict/java.dict',
-    \ 'c' : $HOME.'/.vim/dict/c.dict',
-    \ 'cpp' : $HOME.'/.vim/dict/cpp.dict',
-    \ 'javascript' : $HOME.'/.vim/dict/javascript.dict',
-    \ 'ocaml' : $HOME.'/.vim/dict/ocaml.dict',
-    \ 'perl' : $HOME.'/.vim/dict/perl.dict',
-    \ 'php' :  $HOME.'/.vim/dict/php.dict',
-    \ 'scheme' : $HOME.'/.vim/dict/scheme.dict',
-    \ 'vm' : $HOME.'/.vim/dict/vim.dict'
+    \ 'vimshell' : $HOME.'/vimfiles/_vimshell_hist',
+    \ 'scala' : $HOME.'/vimfiles/bundle/vim-scala/dict/scala.dict',
+    \ 'java' : $HOME.'/vimfiles/dict/java.dict',
+    \ 'c' : $HOME.'/vimfiles/dict/c.dict',
+    \ 'cpp' : $HOME.'/vimfiles/dict/cpp.dict',
+    \ 'javascript' : $HOME.'/vimfiles/dict/javascript.dict',
+    \ 'ocaml' : $HOME.'/vimfiles/dict/ocaml.dict',
+    \ 'perl' : $HOME.'/vimfiles/dict/perl.dict',
+    \ 'php' :  $HOME.'/vimfiles/dict/php.dict',
+    \ 'scheme' : $HOME.'/vimfiles/dict/scheme.dict',
+    \ 'vm' : $HOME.'/vimfiles/dict/vim.dict'
   \ }
 else
   let g:neocomplcache_dictionary_filetype_lists = {
@@ -228,7 +216,9 @@ endif
 let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
 let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 
-" // unite.vim ===============================================
+" ++++++++++++++++++++++++++++++++++++++++++++++++++++
+" unite.vim
+" ++++++++++++++++++++++++++++++++++++++++++++++++++++
 " The prefix key. -------------------------------------
 nnoremap    [unite]   <Nop>
 nmap    f [unite]
@@ -251,52 +241,33 @@ endfunction"}}}
 
 let g:unite_source_file_mru_limit = 200
 
-" // Vim-Align =============================================
+" ++++++++++++++++++++++++++++++++++++++++++++++++++++
+" Vim-Align
+" ++++++++++++++++++++++++++++++++++++++++++++++++++++
 " Alignを日本語環境で使用するための設定 -----------------------
 let g:Align_xstrlen = 3
 
-" // Pydiction =============================================
-"  辞書ファイルの場所を指定 -------------------------------------
+" ++++++++++++++++++++++++++++++++++++++++++++++++++++
+" Pydiction
+" ++++++++++++++++++++++++++++++++++++++++++++++++++++
+"  辞書ファイルの場所を指定
 if has('win32') || has('win64')
   let g:pydiction_location = $HOME.'/.vim/bundle/Pydiction/complete-dict'
 else
   let g:pydiction_location = $HOME.'/.vim/bundle/Pydiction/complete-dict'
 endif
 
-" // Vimfiler ==============================================
-command! Vf :VimFiler
-
-" // indent-guides ========================================
+" ++++++++++++++++++++++++++++++++++++++++++++++++++++
+" indent-guides
+" ++++++++++++++++++++++++++++++++++++++++++++++++++++
 "  インデントのハイライトをデフォルトでONにする。
 let g:indent_guides_enable_on_vim_startup = 1
 "  インデントを少しカスタム
 let g:indent_guides_color_change_percent = 30
 let g:indent_guides_guide_size = 1
 
-" // QFixHowm =============================================
-" 保存先の指定
-if has('win32') || has('win64')
-  set runtimepath+=~/.vim/bundle/qfixhowm
-  let howm_dir = $HOME.'/Dropbox/QFixHowm'
-else
-  set runtimepath+=~/.vim/bundle/qfixhowm
-  let howm_dir = $HOME.'/Dropbox/QFixHowm'
-endif
-
-" 基本設定 ----------------------------------------------------------------------------
-let QFixHowm_FileType = 'qfix_memo'                                    "| ファイルタイプの拡張
-let howm_fileencoding = 'utf-8'                                        "| utf8で作成する
-let howm_fileformat = 'unix'                                           "| fileformat は unixで
-let QFixHowm_RecentMode = 2                                            "| エントリのタイムスタンプを自動更新する
-let QFixHowm_QuickMemoFile  = "Qmem-00-0000-00-00-000000.howm"         "| クイックメモのファイル名(デフォルト)
-let QFixHowm_QuickMemoFile1 = "Qmem-00-0000-00-00-000000_utgym.howm"   "| クイックメモのファイル名(utgyn)
-let QFixHowm_QuickMemoFile2 = "Qmem-00-0000-00-00-000000_mp.howm"      "| クイックメモのファイル名(utgyn)
-let QFixHowm_QuickMemoFile3 = "Qmem-00-0000-00-00-000000_private.howm" "| クイックメモのファイル名(utgyn)
-
-" super pre スクリプトの呼び出し
-nnoremap <silent> g,. :<C-u>call HatenaSuperPreHighlight()<CR>
-
-
-" // errormarker =========================================
+" ++++++++++++++++++++++++++++++++++++++++++++++++++++
+" errormarker
+" ++++++++++++++++++++++++++++++++++++++++++++++++++++
 " キーバインドカスタム ------------------------------------
 " nmap <silent> <unique> <Leader>ee :ErrorAtCursor<CR>
