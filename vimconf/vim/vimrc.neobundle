@@ -22,6 +22,7 @@ NeoBundle 'sh.vim'
 NeoBundle 'sudo.vim'
 NeoBundle 'surround.vim'
 NeoBundle 'vtreeexplorer'
+NeoBundle 'mojo.vim'
 
 " from Github ---------------------------
 NeoBundle 'Integriti/pyshell'
