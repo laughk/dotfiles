@@ -1,30 +1,8 @@
-" Color ... 色に関する設定を書いておく
+" 色に関する設定
 " ------------------------------------------------------------------------
-" ターミナルタイプによるカラー設定
-if &term =~ "xterm-debian" || &term =~ "xterm-xfree86" || &term =~ "xterm-256color"
-  set t_Co=16
-  " set t_Sf=^[[3%dm
-  " set t_Sb=^[[4%dm
-elseif &term =~ "xterm-color"
-  set t_Co=8
-  " set t_Sf=^[[3%dm
-  " set t_Sb=^[[4%dm
-endif
-
-"ポップアップメニューのカラーを設定
-hi Pmenu guibg=#666666
-hi PmenuSel guibg=#8cd0d3 guifg=#666666
-hi PmenuSbar guibg=#333333
+set t_Co=256
 
 " ハイライト on
 syntax enable
 " カラースキーム
-set background=dark
-let g:solarized_termcolors=256
-let g:solarized_termtrans=10
-colorscheme solarized
-
-" 補完候補の色づけ for vim7
-hi Pmenu ctermbg=white ctermfg=darkgray
-hi PmenuSel ctermbg=blue ctermfg=white
-hi PmenuSbar ctermbg=0 ctermfg=9
+colorscheme zenburn

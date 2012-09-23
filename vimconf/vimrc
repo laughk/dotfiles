@@ -7,7 +7,6 @@ source ~/.vim/vimrc.statusline "| ステータスライン StatusLine
 source ~/.vim/vimrc.view       "| 表示 view
 source ~/.vim/vimrc.indent     "| インデント Indent
 source ~/.vim/vimrc.complete   "| 補完・履歴 Complete
-source ~/.vim/vimrc.tags       "| タグ関連 Tags
 source ~/.vim/vimrc.search     "| 検索設定 Search
 source ~/.vim/vimrc.move       "| 移動設定 Move
 source ~/.vim/vimrc.encoding   "| エンコーディング関連 Encoding

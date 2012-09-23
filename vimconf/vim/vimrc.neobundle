@@ -3,13 +3,8 @@
 set nocompatible
 filetype plugin indent off
 
-if has('win32') || has('win64')
-  set rtp+=~/.vim/bundle/neobundle.vim/
-  call neobundle#rc($HOME.'/.vim/bundle/')
-else
-  set rtp+=~/.vim/bundle/neobundle.vim/
-  call neobundle#rc()
-endif
+set rtp+=~/.vim/bundle/neobundle.vim/
+call neobundle#rc()
 
 "============================
 " 以下、追加プラグイン
@@ -17,17 +12,16 @@ endif
 " from VimScript ------------------------
 NeoBundle 'Align'
 NeoBundle 'DrawIt'
-" NeoBundle 'pythoncomplete'
 NeoBundle 'Pydiction'
 NeoBundle 'SQLUtilities'
-NeoBundle 'grep.vim'
+NeoBundle 'Zenburn'
 NeoBundle 'css_color.vim'
+NeoBundle 'grep.vim'
+NeoBundle 'molokai'
+NeoBundle 'sh.vim'
+NeoBundle 'sudo.vim'
 NeoBundle 'surround.vim'
 NeoBundle 'vtreeexplorer'
-NeoBundle 'sudo.vim'
-NeoBundle 'sh.vim'
-NeoBundle 'molokai'
-NeoBundle 'Zenburn'
 
 " from Github ---------------------------
 NeoBundle 'Integriti/pyshell'
@@ -35,17 +29,15 @@ NeoBundle 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neocomplcache-snippets-complete'
 NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/vimfiler'
 NeoBundle 'Shougo/vimproc'
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'corntrace/bufexplorer'
+NeoBundle 'emonkak/vim-filetype-pukiwiki'
 NeoBundle 'fholgado/minibufexpl.vim'
 NeoBundle 'fuenor/qfixgrep'
 NeoBundle 'fuenor/qfixhowm'
-NeoBundle 'gmarik/vundle'
 NeoBundle 'mattn/gist-vim'
 NeoBundle 'mattn/webapi-vim'
-" NeoBundle 'motemen/git-vim'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'petdance/vim-perl'
 NeoBundle 'scrooloose/nerdcommenter'
@@ -56,8 +48,5 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tsukkee/unite-help'
 NeoBundle 'tyru/open-browser.vim'
-NeoBundle 'emonkak/vim-filetype-pukiwiki'
-NeoBundle 'altercation/vim-colors-solarized'
-
 
 filetype plugin indent on
