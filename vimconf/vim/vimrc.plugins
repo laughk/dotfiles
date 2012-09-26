@@ -75,18 +75,13 @@ noremap <Leader>t<Space> :VSTreeExplore<CR>
 let g:vimshell_user_prompt = 'fnamemodify(getcwd(), ":~")'
 let g:vimshell_enable_smart_case = 1
 
-if has('win32') || has('win64')
-  " Display user name on Windows.
-  let g:vimshell_prompt = "[".$USERNAME."] $ "
-else
-  " Display user name on Linux.
-  let g:vimshell_prompt = "[".$USER."] $ "
-  call vimshell#set_execute_file('bmp,jpg,png,gif', 'gexeeog')
-  call vimshell#set_execute_file('mp3,m4a,ogg', 'gexe  amarok')
-  let g:vimshell_execute_file_list['zip'] = 'zipinfo'
-  call vimshell#set_execute_file('tgz,gz', 'gzcat')
-  call vimshell#set_execute_file('tbz,bz2', 'bzcat')
-endif
+" Display user name
+let g:vimshell_prompt = "[".$USER."] $ "
+call vimshell#set_execute_file('bmp,jpg,png,gif', 'gexeeog')
+call vimshell#set_execute_file('mp3,m4a,ogg', 'gexe  amarok')
+let g:vimshell_execute_file_list['zip'] = 'zipinfo'
+call vimshell#set_execute_file('tgz,gz', 'gzcat')
+call vimshell#set_execute_file('tbz,bz2', 'bzcat')
 
 function! g:my_chpwd(args, context)
   call vimshell#execute('echo "chpwd"')
@@ -130,37 +125,20 @@ let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*' "| neocomplcacheを自�
 let g:neocomplcache_enable_auto_select = 1              "| 補完候補の一番先頭を選択状態にする(AutoComplPopと似た動作)
 
 " Define dictionary. -------------------------------------------
-if has('win32') || has('win64')
-  let g:neocomplcache_dictionary_filetype_lists = {
-    \ 'default' : '',
-    \ 'vimshell' : $HOME.'/vimfiles/_vimshell_hist',
-    \ 'scala' : $HOME.'/vimfiles/bundle/vim-scala/dict/scala.dict',
-    \ 'java' : $HOME.'/vimfiles/dict/java.dict',
-    \ 'c' : $HOME.'/vimfiles/dict/c.dict',
-    \ 'cpp' : $HOME.'/vimfiles/dict/cpp.dict',
-    \ 'javascript' : $HOME.'/vimfiles/dict/javascript.dict',
-    \ 'ocaml' : $HOME.'/vimfiles/dict/ocaml.dict',
-    \ 'perl' : $HOME.'/vimfiles/dict/perl.dict',
-    \ 'php' :  $HOME.'/vimfiles/dict/php.dict',
-    \ 'scheme' : $HOME.'/vimfiles/dict/scheme.dict',
-    \ 'vm' : $HOME.'/vimfiles/dict/vim.dict'
-  \ }
-else
-  let g:neocomplcache_dictionary_filetype_lists = {
-    \ 'default' : '',
-    \ 'vimshell' : $HOME.'/.vimshell_hist',
-    \ 'scala' : $HOME.'/.vim/bundle/vim-scala/dict/scala.dict',
-    \ 'java' : $HOME.'/.vim/dict/java.dict',
-    \ 'c' : $HOME.'/.vim/dict/c.dict',
-    \ 'cpp' : $HOME.'/.vim/dict/cpp.dict',
-    \ 'javascript' : $HOME.'/.vim/dict/javascript.dict',
-    \ 'ocaml' : $HOME.'/.vim/dict/ocaml.dict',
-    \ 'perl' : $HOME.'/.vim/dict/perl.dict',
-    \ 'php' :  $HOME.'/.vim/dict/php.dict',
-    \ 'scheme' : $HOME.'/.vim/dict/scheme.dict',
-    \ 'vm' : $HOME.'/.vim/dict/vim.dict'
-  \ }
-endif
+let g:neocomplcache_dictionary_filetype_lists = {
+  \ 'default' : '',
+  \ 'vimshell' : $HOME.'/.vimshell_hist',
+  \ 'scala' : $HOME.'/.vim/bundle/vim-scala/dict/scala.dict',
+  \ 'java' : $HOME.'/.vim/dict/java.dict',
+  \ 'c' : $HOME.'/.vim/dict/c.dict',
+  \ 'cpp' : $HOME.'/.vim/dict/cpp.dict',
+  \ 'javascript' : $HOME.'/.vim/dict/javascript.dict',
+  \ 'ocaml' : $HOME.'/.vim/dict/ocaml.dict',
+  \ 'perl' : $HOME.'/.vim/dict/perl.dict',
+  \ 'php' :  $HOME.'/.vim/dict/php.dict',
+  \ 'scheme' : $HOME.'/.vim/dict/scheme.dict',
+  \ 'vm' : $HOME.'/.vim/dict/vim.dict'
+\ }
 
 " Define keyword. -----------------------------------------------
 if !exists('g:neocomplcache_keyword_patterns')
@@ -169,11 +147,7 @@ endif
   let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
 
 " ユーザー定義スニペット保存ディレクトリ -----------------------
-if has('win32') || has('win64')
-  let g:neocomplcache_snippets_dir = $HOME.'/.vim/snippets'
-else
-  let g:neocomplcache_snippets_dir = $HOME.'/.vim/snippets'
-endif
+let g:neocomplcache_snippets_dir = $HOME.'/.vim/snippets'
 
 " スニペット --------------------------------------------------
 imap <C-k> <Plug>(neocomplcache_snippets_expand)
@@ -251,11 +225,7 @@ let g:Align_xstrlen = 3
 " Pydiction
 " ++++++++++++++++++++++++++++++++++++++++++++++++++++
 "  辞書ファイルの場所を指定
-if has('win32') || has('win64')
-  let g:pydiction_location = $HOME.'/.vim/bundle/Pydiction/complete-dict'
-else
-  let g:pydiction_location = $HOME.'/.vim/bundle/Pydiction/complete-dict'
-endif
+let g:pydiction_location = $HOME.'/.vim/bundle/Pydiction/complete-dict'
 
 " ++++++++++++++++++++++++++++++++++++++++++++++++++++
 " indent-guides
@@ -277,3 +247,9 @@ let g:indent_guides_guide_size = 1
 " ++++++++++++++++++++++++++++++++++++++++++++++++++++
 " pl,pmファイルの__DATA__ 箇所のハイライトを有効化
 :let mojo_highlight_data = 1
+
+" ++++++++++++++++++++++++++++++++++++++++++++++++++++
+" Markdonw (vim-ft-markdown_fold)
+" ++++++++++++++++++++++++++++++++++++++++++++++++++++
+" *.md でMarkdonwと認識させる
+autocmd BufNewFile,BufRead *.md set ft=markdown
