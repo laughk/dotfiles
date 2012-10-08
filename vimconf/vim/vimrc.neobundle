@@ -23,6 +23,7 @@ NeoBundle 'sudo.vim'
 NeoBundle 'surround.vim'
 NeoBundle 'vtreeexplorer'
 NeoBundle 'mojo.vim'
+NeoBundle 'xoria256.vim'
 
 " from Github ---------------------------
 NeoBundle 'Integriti/pyshell'
