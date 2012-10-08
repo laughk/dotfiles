@@ -38,10 +38,6 @@ command! Evp  edit $HOME/.vim/vimrc.plugins
 command! Evv  edit $HOME/.vim/vimrc.view
 
 " ファイル別のテンプレートの指定 ---------------------
-if has('win32') || has('win64')
-  autocmd BufNewFile *.py 0r $HOME/.vim/template/python.py
-  autocmd BufNewFile *.wsgi 0r $HOME/.vim/template/python.py
-else
-  autocmd BufNewFile *.py 0r $HOME/.vim/template/python.py
-  autocmd BufNewFile *.wsgi 0r $HOME/.vim/template/python.py
-endif
+autocmd BufNewFile *.py 0r $HOME/.vim/template/python.py
+autocmd BufNewFile *.wsgi 0r $HOME/.vim/template/python.py
+autocmd BufNewFile *.pl 0r $HOME/.vim/template/perl.pl
