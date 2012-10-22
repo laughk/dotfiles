@@ -8,10 +8,8 @@
 "  基本設定 Basics
 " ============================================================
 " OSのクリップボードを使用する
-set clipboard+=unnamed
 set guioptions+=a
-" ヤンクした文字は、システムのクリップボードに入れる
-set clipboard=unnamed
+set clipboard=unnamedplus
 " マウスポインタを表示する。(表示しない場合は mousehide にする)
 set nomousehide
 
@@ -19,7 +17,7 @@ set nomousehide
 "  表示全般の設定
 " ============================================================
 " GVimのカラーテーマの設定
-:colorscheme zenburn
+colorscheme xoria256
 
 " メニューバーを表示しない。
 set guioptions-=m
