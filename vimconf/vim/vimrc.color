@@ -1,8 +1,16 @@
 " 色に関する設定
 " ------------------------------------------------------------------------
+" 256色を有効に。
 set t_Co=256
 
 " ハイライト on
 syntax enable
 " カラースキーム
-colorscheme xoria256
+colorscheme jellybeans
+
+" GnomeTerminalなどのLinuxCUI環境で背景が半透明にならない対策
+" 要 colorscheme後
+if has('unix')
+  hi Normal ctermbg=none
+  hi NonText ctermbg=none
+endif

@@ -24,6 +24,7 @@ NeoBundle 'surround.vim'
 NeoBundle 'vtreeexplorer'
 NeoBundle 'mojo.vim'
 NeoBundle 'xoria256.vim'
+NeoBundle 'Color-Sampler-Pack'
 
 " from Github ---------------------------
 NeoBundle 'Integriti/pyshell'
