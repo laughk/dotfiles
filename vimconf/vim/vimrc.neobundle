@@ -9,25 +9,27 @@ call neobundle#rc()
 "============================
 " 以下、追加プラグイン
 "============================
-" from VimScript ------------------------
+" Text Format -------------------------
 NeoBundle 'Align'
 NeoBundle 'DrawIt'
-NeoBundle 'Pydiction'
 NeoBundle 'SQLUtilities'
-NeoBundle 'Zenburn'
-NeoBundle 'css_color.vim'
-NeoBundle 'grep.vim'
-NeoBundle 'molokai'
-NeoBundle 'sh.vim'
-NeoBundle 'sudo.vim'
-NeoBundle 'surround.vim'
-NeoBundle 'vtreeexplorer'
-NeoBundle 'mojo.vim'
-NeoBundle 'xoria256.vim'
-NeoBundle 'Color-Sampler-Pack'
 
-" from Github ---------------------------
-NeoBundle 'Integriti/pyshell'
+" File Type Def -----------------------
+NeoBundle 'sh.vim'
+NeoBundle 'emonkak/vim-filetype-pukiwiki'
+NeoBundle 'petdance/vim-perl'
+NeoBundle 'thinca/vim-ft-markdown_fold'
+
+" Color Scheme ------------------------
+NeoBundle 'Color-Sampler-Pack'
+NeoBundle 'Zenburn'
+NeoBundle 'molokai'
+NeoBundle 'xoria256.vim'
+
+" Normal Utility ----------------------
+NeoBundle 'grep.vim'
+NeoBundle 'sudo.vim'
+NeoBundle 'vtreeexplorer'
 NeoBundle 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
@@ -35,20 +37,25 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimproc'
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'corntrace/bufexplorer'
-NeoBundle 'emonkak/vim-filetype-pukiwiki'
 NeoBundle 'fholgado/minibufexpl.vim'
-NeoBundle 'fuenor/qfixgrep'
-NeoBundle 'fuenor/qfixhowm'
 NeoBundle 'mattn/gist-vim'
 NeoBundle 'mattn/webapi-vim'
-NeoBundle 'petdance/vim-perl'
 NeoBundle 'scrooloose/nerdcommenter'
-NeoBundle 'thinca/vim-ft-markdown_fold'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tsukkee/unite-help'
-NeoBundle 'tyru/open-browser.vim'
+
+" Edit Utility -------------------------
+NeoBundle 'mojo.vim'
+NeoBundle 'css_color.vim'
+
+" Gui        ---------------------------
+if has('gui_running')
+  NeoBundle 'fuenor/qfixgrep'
+  NeoBundle 'fuenor/qfixhowm'
+  NeoBundle 'tyru/open-browser.vim'
+endif
 
 filetype plugin indent on
