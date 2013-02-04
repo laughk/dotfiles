@@ -6,17 +6,16 @@ windowsブランチをcheckoutして、そちらのREADMEを見てください�
 
 ## Unix系環境
 
-1.manage.sh で大体のセットアップをします。
+1.manage.sh で大体のセットアップをします:
 
-    ```
     ## 通常の場合
     ./manage.sh setup
     
     ## サーバなどのCUIのみ必要の場合
     ./manage.sh -c setup
-    ```
 
-2.セットアップが完了したらvimを起動してみてください。
+2.プラグインのインストール:  
+セットアップが完了したらvimを起動してみてください。  
 最初はエラーが出ますが、無視して起動し、以下のコマンドを実行します。
 
     :NeoBundleInstall
@@ -24,12 +23,11 @@ windowsブランチをcheckoutして、そちらのREADMEを見てください�
 [NeoBundle](https://github.com/Shougo/neobundle.vim)で管理されているプラグインがインストールされます。
 インストールが完了したら、一旦vimを閉じます。
 
-3.vimprocのコンパイル
-インストールされるプラグインでvimshellなどはvimprocが必要になりますが、
-[vimproc](https://github.com/Shougo/vimproc)を使うにはコンパイルをする必要があります。
+3.vimprocのコンパイル:  
+インストールされるプラグインでvimshellなどはvimprocが必要になりますが、  
+[vimproc](https://github.com/Shougo/vimproc)を使うにはコンパイルをする必要があります。  
 以下のようにします。
 
-    ```
     cd ~/.vim/bundle/vimproc
     
     ## Linuxの場合
@@ -37,7 +35,6 @@ windowsブランチをcheckoutして、そちらのREADMEを見てください�
     
     ## Macの場合
     make -f ~/.vim/bundle/vimprco/make_mac.mak
-    ```
 
 vimprocの詳細はリンク先を参照してください。
 
