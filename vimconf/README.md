@@ -20,7 +20,7 @@ windowsブランチをcheckoutして、そちらのREADMEを見てください�
 
     :NeoBundleInstall
 
-[NeoBundle](https://github.com/Shougo/neobundle.vim)で管理されているプラグインがインストールされます。
+[NeoBundle](https://github.com/Shougo/neobundle.vim)で管理されているプラグインがインストールされます。  
 インストールが完了したら、一旦vimを閉じます。
 
 3.vimprocのコンパイル:  
@@ -31,10 +31,10 @@ windowsブランチをcheckoutして、そちらのREADMEを見てください�
     cd ~/.vim/bundle/vimproc
     
     ## Linuxの場合
-    make -f ~/.vim/bundle/vimproc/make_unix.mak
+    make -f make_unix.mak
     
     ## Macの場合
-    make -f ~/.vim/bundle/vimprco/make_mac.mak
+    make -f make_mac.mak
 
 vimprocの詳細はリンク先を参照してください。
 
