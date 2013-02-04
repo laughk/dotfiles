@@ -21,7 +21,7 @@ NeoBundle 'petdance/vim-perl'
 NeoBundle 'thinca/vim-ft-markdown_fold'
 
 " Color Scheme ------------------------
-NeoBundle 'Color-Sampler-Pack'
+NeoBundle 'Colour-Sampler-Pack'
 NeoBundle 'Zenburn'
 NeoBundle 'molokai'
 NeoBundle 'xoria256.vim'
