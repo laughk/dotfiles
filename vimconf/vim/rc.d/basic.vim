@@ -19,23 +19,23 @@ set viminfo='50,<1000,s100,\"50 "| viminfoファイルの設定
 set modelines=0                 "| モードラインは無効
 set formatoptions=q             "| 自動で形成(改行とか)しない, qgで手動でなら可能
 
-" Ev/Rvでvimrcの編集と反映
+" Ev/Rvで編集と反映.vim
 command! Ev edit $MYVIMRC
 command! Rv source $MYVIMRC
 
 " それぞれの設定ファイル編集へのショートカット
-command! Evb  edit $HOME/.vim/vimrc.basic
-command! Evcl edit $HOME/.vim/vimrc.color
-command! Evn  edit $HOME/.vim/vimrc.neobundle
-command! Evcm edit $HOME/.vim/vimrc.complete
-command! Even edit $HOME/.vim/vimrc.encoding
-command! Evse edit $HOME/.vim/vimrc.search
-command! Evst edit $HOME/.vim/vimrc.statusline
-command! Evi  edit $HOME/.vim/vimrc.indent
-command! Evm  edit $HOME/.vim/vimrc.move
-command! Eved edit $HOME/.vim/vimrc.edit
-command! Evp  edit $HOME/.vim/vimrc.plugins
-command! Evv  edit $HOME/.vim/vimrc.view
+command! Evb  edit $HOME/.vim/rc.d/basic.vim
+command! Evcl edit $HOME/.vim/rc.d/color.vim
+command! Evn  edit $HOME/.vim/rc.d/neobundle.vim
+command! Evcm edit $HOME/.vim/rc.d/complete.vim
+command! Even edit $HOME/.vim/rc.d/encoding.vim
+command! Evse edit $HOME/.vim/rc.d/search.vim
+command! Evst edit $HOME/.vim/rc.d/statusline.vim
+command! Evi  edit $HOME/.vim/rc.d/indent.vim
+command! Evm  edit $HOME/.vim/rc.d/move.vim
+command! Eved edit $HOME/.vim/rc.d/edit.vim
+command! Evp  edit $HOME/.vim/rc.d/plugins.vim
+command! Evv  edit $HOME/.vim/rc.d/view.vim
 
 " ファイル別のテンプレートの指定 ---------------------
 autocmd BufNewFile *.py 0r $HOME/.vim/template/python.py

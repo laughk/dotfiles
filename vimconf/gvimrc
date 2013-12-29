@@ -17,7 +17,8 @@ set nomousehide
 "  表示全般の設定
 " ============================================================
 " GVimのカラーテーマの設定
-colorscheme xoria256
+set background=dark
+colorscheme solarized
 
 " メニューバーを表示しない。
 set guioptions-=m
@@ -31,7 +32,7 @@ set ttymouse=xterm2
 if has('mac')
   set guifont=Consolas:h12
 elseif has('unix')
-  set guifont=Ricty\ 10
+  set guifont=Dejavu\ Sans\ Mono\ for\ Powerline\ 10
 endif
 
 " 半透明に表示する（Mac向け）
@@ -66,7 +67,7 @@ set runtimepath+=~/.vim/bundle/qfixhowm
 let howm_dir = $HOME.'/Dropbox/QFixHowm'
 
 " 基本設定 ------------------------- + ---------------------
-let QFixHowm_FileType = 'qfix_memo' "| ファイルタイプの拡張
+let QFixHowm_FileType = 'rst' "| ファイルタイプの拡張
 let howm_fileencoding = 'utf-8'     "| utf8で作成する
 let howm_fileformat = 'unix'        "| fileformat は unixで
 let QFixHowm_RecentMode = 2         "| エントリのタイムスタンプを自動更新する

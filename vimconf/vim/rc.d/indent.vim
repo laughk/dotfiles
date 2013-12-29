@@ -5,12 +5,3 @@ set cindent     "| Cプログラムファイルの自動インデントを始め
 
 " softtabstopはTabキー押し下げ時の挿入される空白の量，0の場合はtabstopと同じ，BSにも影響する
 set tabstop=4 shiftwidth=2 softtabstop=0
-
-if has("autocmd")
-  "ファイルタイプの検索を有効にする
-  filetype plugin on
-  "そのファイルタイプにあわせたインデントを利用する
-  filetype indent on
-  " これらのftではインデントを無効に
-endif
-
