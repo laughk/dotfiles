@@ -13,7 +13,9 @@ augroup MyXML
 augroup END
 
 " 保存時に行末の空白を除去する
-autocmd BufWritePre * :%s/\s\+$//ge
+if ! &filetype=='markdown'
+  autocmd BufWritePre * :%s/\s\+$//ge
+endif
 
 " 日時の自動入力
 inoremap <expr> ,df strftime('%Y/%m/%d %H:%M:%S')

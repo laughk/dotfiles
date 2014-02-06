@@ -9,7 +9,11 @@
 " ============================================================
 " OSのクリップボードを使用する
 set guioptions+=a
-set clipboard=unnamedplus
+if has('mac')
+  set clipboard=unnamed,autoselect
+else
+  set clipboard=unnamedplus
+endif
 " マウスポインタを表示する。(表示しない場合は mousehide にする)
 set nomousehide
 
@@ -30,9 +34,10 @@ set ttymouse=xterm2
 
 " フォントをConsolasにする。
 if has('mac')
-  set guifont=Consolas:h12
+  set guifont=Dejavu\ Sans\ Mono\ for\ Powerline:h14
+  set guifontwide=Osaka\ for\ Powerline:h14
 elseif has('unix')
-  set guifont=Dejavu\ Sans\ Mono\ for\ Powerline\ 10
+  set guifont=Dejavu\ Sans\ Mono\ for\ Powerline\ 12
 endif
 
 " 半透明に表示する（Mac向け）
@@ -67,7 +72,7 @@ set runtimepath+=~/.vim/bundle/qfixhowm
 let howm_dir = $HOME.'/Dropbox/QFixHowm'
 
 " 基本設定 ------------------------- + ---------------------
-let QFixHowm_FileType = 'rst' "| ファイルタイプの拡張
+let QFixHowm_FileType = 'rst'       "| ファイルタイプの拡張
 let howm_fileencoding = 'utf-8'     "| utf8で作成する
 let howm_fileformat = 'unix'        "| fileformat は unixで
 let QFixHowm_RecentMode = 2         "| エントリのタイムスタンプを自動更新する

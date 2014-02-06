@@ -42,8 +42,9 @@ NeoBundle 'grep.vim'
 NeoBundle 'sudo.vim'
 NeoBundle 'vtreeexplorer'
 NeoBundle 'Shougo/neobundle.vim'
-NeoBundleLazy 'Shougo/neocomplete.vim'
+NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimproc', {
   \ 'build' : {
@@ -65,6 +66,8 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'tsukkee/unite-help'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'vim-scripts/fcitx.vim'
+" NeoBundle 'mattn/mkdpreview-vim'
+NeoBundle 'suan/vim-instant-markdown'
 
 " edit Utility -------------------------
 NeoBundle 'css_color.vim', {
@@ -77,7 +80,6 @@ NeoBundle 'css_color.vim', {
 NeoBundle 'fuenor/qfixgrep', { 'gui' : 1 }
 NeoBundle 'fuenor/qfixhowm', { 'gui' : 1 }
 NeoBundle 'tyru/open-browser.vim', { 'gui' : 1 }
-NeoBundle 'suan/vim-instant-markdown', { 'gui' : 1 }
 
 filetype plugin indent on
 
