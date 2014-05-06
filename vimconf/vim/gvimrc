@@ -34,8 +34,8 @@ set ttymouse=xterm2
 
 " フォントをConsolasにする。
 if has('mac')
-  set guifont=Dejavu\ Sans\ Mono\ for\ Powerline:h14
-  set guifontwide=Osaka\ for\ Powerline:h14
+  set guifont=Dejavu\ Sans\ Mono\ for\ Powerline:h13
+  set guifontwide=Osaka\ for\ Powerline:h13
 elseif has('unix')
   set guifont=Dejavu\ Sans\ Mono\ for\ Powerline\ 12
 endif

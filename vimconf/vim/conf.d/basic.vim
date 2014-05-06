@@ -23,18 +23,18 @@ command! Ev edit $MYVIMRC
 command! Rv source $MYVIMRC
 
 " それぞれの設定ファイル編集へのショートカット
-command! Evb  edit $HOME/.vim/rc.d/basic.vim
-command! Evcl edit $HOME/.vim/rc.d/color.vim
-command! Evn  edit $HOME/.vim/rc.d/neobundle.vim
-command! Evcm edit $HOME/.vim/rc.d/complete.vim
-command! Even edit $HOME/.vim/rc.d/encoding.vim
-command! Evse edit $HOME/.vim/rc.d/search.vim
-command! Evst edit $HOME/.vim/rc.d/statusline.vim
-command! Evi  edit $HOME/.vim/rc.d/indent.vim
-command! Evm  edit $HOME/.vim/rc.d/move.vim
-command! Eved edit $HOME/.vim/rc.d/edit.vim
-command! Evp  edit $HOME/.vim/rc.d/plugins.vim
-command! Evv  edit $HOME/.vim/rc.d/view.vim
+command! Evb  edit $HOME/.vim/conf.d/basic.vim
+command! Evcl edit $HOME/.vim/conf.d/color.vim
+command! Evn  edit $HOME/.vim/conf.d/neobundle.vim
+command! Evcm edit $HOME/.vim/conf.d/complete.vim
+command! Even edit $HOME/.vim/conf.d/encoding.vim
+command! Evse edit $HOME/.vim/conf.d/search.vim
+command! Evst edit $HOME/.vim/conf.d/statusline.vim
+command! Evi  edit $HOME/.vim/conf.d/indent.vim
+command! Evm  edit $HOME/.vim/conf.d/move.vim
+command! Eved edit $HOME/.vim/conf.d/edit.vim
+command! Evp  edit $HOME/.vim/conf.d/plugins.vim
+command! Evv  edit $HOME/.vim/conf.d/view.vim
 
 " ファイル別のテンプレートの指定 ---------------------
 autocmd BufNewFile *.py 0r $HOME/.vim/template/python.py
