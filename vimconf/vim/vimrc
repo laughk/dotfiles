@@ -1,0 +1,15 @@
+" Neobundle の設定(プラグイン管理) ----------------------------
+source ~/.vim/conf.d/neobundle.vim
+
+" ---------------------------------- + -----------------------------
+source ~/.vim/conf.d/basic.vim        "| 基本設定 Basics
+source ~/.vim/conf.d/statusline.vim   "| ステータスライン StatusLine
+source ~/.vim/conf.d/view.vim         "| 表示 view
+source ~/.vim/conf.d/indent.vim       "| インデント Indent
+source ~/.vim/conf.d/complete.vim     "| 補完・履歴 Complete
+source ~/.vim/conf.d/search.vim       "| 検索設定 Search
+source ~/.vim/conf.d/move.vim         "| 移動設定 Move
+source ~/.vim/conf.d/encoding.vim     "| エンコーディング関連 Encoding
+source ~/.vim/conf.d/color.vim        "| カラー関連 Colors
+source ~/.vim/conf.d/edit.vim         "| 編集関連 Edit
+source ~/.vim/conf.d/plugins.vim      "| プラグインごとの設定 Plugins
