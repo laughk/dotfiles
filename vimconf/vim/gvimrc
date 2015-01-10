@@ -34,8 +34,9 @@ set ttymouse=xterm2
 
 " フォントをConsolasにする。
 if has('mac')
-  set guifont=Dejavu\ Sans\ Mono\ for\ Powerline:h13
-  set guifontwide=Osaka\ for\ Powerline:h13
+  " set guifont=Dejavu\ Sans\ Mono\ for\ Powerline:h13
+  " set guifontwide=Osaka\ for\ Powerline:h13
+  set guifont=Ricty\ for\ Powerline:h13
 elseif has('unix')
   set guifont=Dejavu\ Sans\ Mono\ for\ Powerline\ 12
 endif
@@ -69,10 +70,10 @@ vmap fu <Plug>(openbrowser-open)
 " ++++++++++++++++++++++++++++++++++++++++
 " 保存先の指定
 set runtimepath+=~/.vim/bundle/qfixhowm
-let howm_dir = $HOME.'/Dropbox/QFixHowm'
+let howm_dir = $HOME.'/Documents/QFixHowm'
 
 " 基本設定 ------------------------- + ---------------------
-let QFixHowm_FileType = 'rst'       "| ファイルタイプの拡張
+let QFixHowm_FileType = 'markdown'  "| ファイルタイプの拡張
 let howm_fileencoding = 'utf-8'     "| utf8で作成する
 let howm_fileformat = 'unix'        "| fileformat は unixで
 let QFixHowm_RecentMode = 2         "| エントリのタイムスタンプを自動更新する

@@ -72,43 +72,43 @@ noremap <Leader>t<Space> :VSTreeExplore<CR>
 " ++++++++++++++++++++++++++++++++++++++++++++++++++++
 " vimshell
 " ++++++++++++++++++++++++++++++++++++++++++++++++++++
-let g:vimshell_user_prompt = 'fnamemodify(getcwd(), ":~")'
-let g:vimshell_enable_smart_case = 1
+" let g:vimshell_user_prompt = 'fnamemodify(getcwd(), ":~")'
+" let g:vimshell_enable_smart_case = 1
 
-" Display user name
-let g:vimshell_prompt = "[".$USER."] $ "
-call vimshell#set_execute_file('bmp,jpg,png,gif', 'gexeeog')
-call vimshell#set_execute_file('mp3,m4a,ogg', 'gexe  amarok')
-let g:vimshell_execute_file_list['zip'] = 'zipinfo'
-call vimshell#set_execute_file('tgz,gz', 'gzcat')
-call vimshell#set_execute_file('tbz,bz2', 'bzcat')
+" " Display user name
+" let g:vimshell_prompt = "[".$USER."] $ "
+" call vimshell#set_execute_file('bmp,jpg,png,gif', 'gexeeog')
+" call vimshell#set_execute_file('mp3,m4a,ogg', 'gexe  amarok')
+" let g:vimshell_execute_file_list['zip'] = 'zipinfo'
+" call vimshell#set_execute_file('tgz,gz', 'gzcat')
+" call vimshell#set_execute_file('tbz,bz2', 'bzcat')
 
-function! g:my_chpwd(args, context)
-  call vimshell#execute('echo "chpwd"')
-endfunction
-function! g:my_emptycmd(cmdline, context)
-  call vimshell#execute('echo "emptycmd"')
-  return a:cmdline
-endfunction
-function! g:my_preprompt(args, context)
-  call vimshell#execute('echo "preprompt"')
-endfunction
-function! g:my_preexec(cmdline, context)
-  call vimshell#execute('echo "preexec"')
+" function! g:my_chpwd(args, context)
+  " call vimshell#execute('echo "chpwd"')
+" endfunction
+" function! g:my_emptycmd(cmdline, context)
+  " call vimshell#execute('echo "emptycmd"')
+  " return a:cmdline
+" endfunction
+" function! g:my_preprompt(args, context)
+  " call vimshell#execute('echo "preprompt"')
+" endfunction
+" function! g:my_preexec(cmdline, context)
+  " call vimshell#execute('echo "preexec"')
 
-  if a:cmdline =~# '^\s*diff\>'
-    call vimshell#set_syntax('diff')
-  endif
-  return a:cmdline
-endfunction
+  " if a:cmdline =~# '^\s*diff\>'
+    " call vimshell#set_syntax('diff')
+  " endif
+  " return a:cmdline
+" endfunction
 
-autocmd FileType vimshell
-\ call vimshell#altercmd#define('g','git')
-\| call vimshell#altercmd#define('i','iexe')
-\| call vimshell#altercmd#define('l','ll')
-\| call vimshell#altercmd#define('ll','ls -l')
-\| call vimshell#hook#set('emptycmd',['g:my_emptycmd'])
-\| call vimshell#hook#set('preexec',['g:my_preexec'])
+" autocmd FileType vimshell
+" \ call vimshell#altercmd#define('g','git')
+" \| call vimshell#altercmd#define('i','iexe')
+" \| call vimshell#altercmd#define('l','ll')
+" \| call vimshell#altercmd#define('ll','ls -l')
+" \| call vimshell#hook#set('emptycmd',['g:my_emptycmd'])
+" \| call vimshell#hook#set('preexec',['g:my_preexec'])
 
 command! Vs :VimShell
 
@@ -257,3 +257,9 @@ let g:indent_guides_guide_size = 1
 " ++++++++++++++++++++++++++++++++++++++++++++++++++++
 " *.md でMarkdonwと認識させる
 autocmd BufNewFile,BufRead *.md set ft=markdown
+
+" vim-Instant-Markdown
+" +++++++++++++++++++++++++++++++++++++++++++++++++++
+let g:instant_markdown_autostart = 0
+" command! mp call s:previewMarkdown()
+command! Ip :InstantMarkdownPreview

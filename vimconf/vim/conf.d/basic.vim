@@ -18,6 +18,12 @@ set showmode                    "| 現在のモードを表示
 set viminfo='50,<1000,s100,\"50 "| viminfoファイルの設定
 set formatoptions=q             "| 自動で形成(改行とか)しない, qgで手動でなら可能
 
+if has('mac')
+  set clipboard=unnamed,autoselect
+else
+  set clipboard=unnamedplus
+endif
+
 " Ev/Rvで編集と反映.vim
 command! Ev edit $MYVIMRC
 command! Rv source $MYVIMRC
