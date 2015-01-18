@@ -29,6 +29,7 @@ NeoBundle 'altercation/vim-colors-solarized'
 
 " Python -----------------------------
 " NeoBundle 'kevinw/pyflakes-vim'
+NeoBundle 'scrooloose/syntastic'
 NeoBundleLazy 'jmcantrell/vim-virtualenv', {
   \ 'autoload' : {
   \ 'filetypes' : [ 'python', 'python3', 'djangohtml', 'htmljinja' ]
@@ -46,15 +47,18 @@ NeoBundleLazy 'lambdalisue/vim-pyenv', {
   \  'filetypes': ['python', 'python3'],
   \}
 \}
+NeoBundle 'Mudox/vim-chameleon'
+NeoBundle 'sophacles/vim-bundle-mako'
 
 " Normal Utility ----------------------
 NeoBundle 'grep.vim'
 NeoBundle 'sudo.vim'
-NeoBundle 'vtreeexplorer'
+NeoBundle 'YankRing.vim'
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/vimfiler.vim'
 NeoBundle 'Shougo/vimproc', {
   \ 'build' : {
   \     'cygwin' : 'make -f make_cygwin.mak',
