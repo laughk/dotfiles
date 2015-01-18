@@ -1,0 +1,96 @@
+export HIST_STAMPS="yyyy-mm-dd"
+export SAVEHIST=10000000
+
+autoload -U compinit
+compinit -u
+
+PATH="${HOME}/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH
+export MANPATH="/usr/local/man:${MANPATH}"
+export PYTHONSTARTUP=${HOME}/.pythonstartup.py
+
+# alias
+# --------------------------------------------------------
+alias tmux="tmux -2"
+alias find="gfind"
+if [[ $(uname) = Darwin ]] ; then
+  alias ls='ls -GF'
+  alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
+  alias mvim="/Applications/MacVim.app/Contents/MacOS/mvim"
+else
+  alias ls='ls --color=auto -F'
+fi
+
+
+## tmux + SSH
+# --------------------------------------------------------
+function ssh_tmux() {
+
+  tmux set-option default-terminal "screen" \; \
+       new-window -n $(echo $@ | perl -ple 's/(^|\s)-[^\s] *[^\s]+//g' | cut -d" " -f2 ) "exec ssh $(echo $@)" \; \
+       run-shell        "[[ ! -d ${HOME}/.tmuxlog/#W/$(date +%Y-%m/%d) ]] && mkdir -p ${HOME}/.tmuxlog/#W/$(date +%Y-%m/%d)" \; \
+       pipe-pane        "cat >> ${HOME}/.tmuxlog/#W/$(date +%Y-%m/%d/%H%M%S.log)" \; \
+       display-message  "Started logging to ${HOME}/.tmuxlog/#W/$(date +%Y-%m/%d/%H%M%S.log)"
+
+}
+
+if [[ ${TERM} = screen ]] ||  [[ ${TERM} = screen-256color ]] ; then
+  compdef ssh_tmux=ssh
+  alias ssh=ssh_tmux
+fi
+
+
+# for ghq+peco
+# ------------------------------------------------------
+export GOPATH=/Users/usr0600351
+# unbind key
+bindkey -r '^J'
+bindkey -r '^O'
+#
+# peco + snippets
+#
+function peco-snippets() {
+
+  local SNIPPETS=$(grep -v '^#' ~/.snippets | peco --query "${LBUFFER}" | tr -d '\n' | pbcopy )
+  zle clear-screen
+
+}
+
+zle -N peco-snippets
+bindkey '^x^s' peco-snippets
+
+
+# for XXenv
+# ------------------------------------------------------
+# for pyenv
+export PYENV_ROOT="${HOME}/.pyenv"
+PATH="${PYENV_ROOT}/bin:${PATH}"
+if which pyenv > /dev/null ; then
+  eval "$( pyenv init - )"
+  eval "$( pyenv virtualenv-init -)"
+fi
+# for rbenv
+if which rbenv > /dev/null ; then
+  eval "$(rbenv init -)"
+  PATH="/usr/local/opt/rbenv/shims:${PATH}"
+fi
+# for plenv
+if which plenv > /dev/null; then
+  eval "$(plenv init -)"
+  PATH="${HOME}/.plenv/shims:${PATH}"
+fi
+export PATH
+
+# for docker
+# ------------------------------------------------------
+export DOCKER_HOST="tcp://192.168.59.103:2376"
+export DOCKER_CERT_PATH="${HOME}/.boot2docker/certs/boot2docker-vm"
+export DOCKER_TLS_VERIFY=1
+
+# antigen
+# ------------------------------------------------------
+source ~/.dotfiles/zsh/zshrc.antigen
+
+if [[ -f ~/.dotfiles/zsh/zshrc.secret ]] ; then
+  source ~/.dotfiles/zsh/zshrc.secret
+fi
