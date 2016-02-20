@@ -1,15 +1,7 @@
 #!/bin/bash
-# Default Config
-# -----------------------------------------------------
-SCRIPT_NAME=${0##*/}
-SCRIPT_DIR="$(cd $(dirname $0) && pwd )"
-MODE="help"
-MODE_GUI="off"
-VIMVERSION=$( vim --version | awk 'NR ==1 {print $5}' )
 
 # Functions
 # -----------------------------------------------------
-
 # setup
 function setup() {
   ln -svf ~/.dotfiles/vim ~/.vim
