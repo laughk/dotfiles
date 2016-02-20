@@ -31,7 +31,7 @@ command! Rv source $MYVIMRC
 " それぞれの設定ファイル編集へのショートカット
 command! Evb  edit $HOME/.vim/conf.d/basic.vim
 command! Evcl edit $HOME/.vim/conf.d/color.vim
-command! Evn  edit $HOME/.vim/conf.d/neobundle.vim
+command! Epg  edit $HOME/.vim/conf.d/plug.vim
 command! Evcm edit $HOME/.vim/conf.d/complete.vim
 command! Even edit $HOME/.vim/conf.d/encoding.vim
 command! Evse edit $HOME/.vim/conf.d/search.vim
