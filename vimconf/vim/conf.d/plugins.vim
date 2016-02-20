@@ -25,20 +25,6 @@ let NERDSpaceDelims = 1
 let NERDShutUp=1
 
 " ++++++++++++++++++++++++++++++++++++++++++++++++++++
-" grep.vim
-" ++++++++++++++++++++++++++++++++++++++++++++++++++++
-" 検索外のディレクトリ、ファイルパターン
-let Grep_Skip_Dirs = '.svn .git .hg'
-let Grep_Skip_Files = '*.bak *~'
-
-" ++++++++++++++++++++++++++++++++++++++++++++++++++++
-" surround.vim
-" ++++++++++++++++++++++++++++++++++++++++++++++++++++
-" s, ssで選択範囲を指定文字でくくる
-" nmap s <Plug>Ysurround  " 文字置換とキーがかぶるのでここはあとでちょっと考える。
-" nmap ss <Plug>Yssurround
-
-" ++++++++++++++++++++++++++++++++++++++++++++++++++++
 " git.vim
 " ++++++++++++++++++++++++++++++++++++++++++++++++++++
 let g:git_no_map_default = 1
@@ -59,58 +45,6 @@ nnoremap <Space>gp :<C-u>Git push
 " ++++++++++++++++++++++++++++++++++++++++++++++++++++
 ""<Leader>l<Space>でBufferList
 nnoremap <Leader>l<Space> :BufExplorer<CR>
-
-" ++++++++++++++++++++++++++++++++++++++++++++++++++++
-" VTreeExplorer
-" ++++++++++++++++++++++++++++++++++++++++++++++++++++
-" let g:treeExplVertical=1
-"<Leader>t<Space>でディレクトリツリー表示
-noremap <Leader>t<Space> :VSTreeExplore<CR>
-"分割したウィンドウのサイズ
-" let g:treeExplWinSize=30
-
-" ++++++++++++++++++++++++++++++++++++++++++++++++++++
-" vimshell
-" ++++++++++++++++++++++++++++++++++++++++++++++++++++
-" let g:vimshell_user_prompt = 'fnamemodify(getcwd(), ":~")'
-" let g:vimshell_enable_smart_case = 1
-
-" " Display user name
-" let g:vimshell_prompt = "[".$USER."] $ "
-" call vimshell#set_execute_file('bmp,jpg,png,gif', 'gexeeog')
-" call vimshell#set_execute_file('mp3,m4a,ogg', 'gexe  amarok')
-" let g:vimshell_execute_file_list['zip'] = 'zipinfo'
-" call vimshell#set_execute_file('tgz,gz', 'gzcat')
-" call vimshell#set_execute_file('tbz,bz2', 'bzcat')
-
-" function! g:my_chpwd(args, context)
-  " call vimshell#execute('echo "chpwd"')
-" endfunction
-" function! g:my_emptycmd(cmdline, context)
-  " call vimshell#execute('echo "emptycmd"')
-  " return a:cmdline
-" endfunction
-" function! g:my_preprompt(args, context)
-  " call vimshell#execute('echo "preprompt"')
-" endfunction
-" function! g:my_preexec(cmdline, context)
-  " call vimshell#execute('echo "preexec"')
-
-  " if a:cmdline =~# '^\s*diff\>'
-    " call vimshell#set_syntax('diff')
-  " endif
-  " return a:cmdline
-" endfunction
-
-" autocmd FileType vimshell
-" \ call vimshell#altercmd#define('g','git')
-" \| call vimshell#altercmd#define('i','iexe')
-" \| call vimshell#altercmd#define('l','ll')
-" \| call vimshell#altercmd#define('ll','ls -l')
-" \| call vimshell#hook#set('emptycmd',['g:my_emptycmd'])
-" \| call vimshell#hook#set('preexec',['g:my_preexec'])
-
-command! Vs :VimShell
 
 " ++++++++++++++++++++++++++++++++++++++++++++++++++++
 " neocomplecache.vim
@@ -225,41 +159,3 @@ let g:unite_source_file_mru_limit = 200
 " Alignを日本語環境で使用するための設定 -----------------------
 let g:Align_xstrlen = 3
 
-" ++++++++++++++++++++++++++++++++++++++++++++++++++++
-" Pydiction
-" ++++++++++++++++++++++++++++++++++++++++++++++++++++
-"  辞書ファイルの場所を指定
-let g:pydiction_location = $HOME.'/.vim/bundle/Pydiction/complete-dict'
-
-" ++++++++++++++++++++++++++++++++++++++++++++++++++++
-" indent-guides
-" ++++++++++++++++++++++++++++++++++++++++++++++++++++
-"  インデントのハイライトをデフォルトでONにする。
-let g:indent_guides_enable_on_vim_startup = 1
-"  インデントを少しカスタム
-let g:indent_guides_color_change_percent = 30
-let g:indent_guides_guide_size = 1
-
-" ++++++++++++++++++++++++++++++++++++++++++++++++++++
-" errormarker
-" ++++++++++++++++++++++++++++++++++++++++++++++++++++
-" キーバインドカスタム ------------------------------------
-" nmap <silent> <unique> <Leader>ee :ErrorAtCursor<CR>
-
-" ++++++++++++++++++++++++++++++++++++++++++++++++++++
-" Mojo.vim
-" ++++++++++++++++++++++++++++++++++++++++++++++++++++
-" pl,pmファイルの__DATA__ 箇所のハイライトを有効化
-:let mojo_highlight_data = 1
-
-" ++++++++++++++++++++++++++++++++++++++++++++++++++++
-" Markdonw (vim-ft-markdown_fold)
-" ++++++++++++++++++++++++++++++++++++++++++++++++++++
-" *.md でMarkdonwと認識させる
-autocmd BufNewFile,BufRead *.md set ft=markdown
-
-" vim-Instant-Markdown
-" +++++++++++++++++++++++++++++++++++++++++++++++++++
-let g:instant_markdown_autostart = 0
-" command! mp call s:previewMarkdown()
-command! Ip :InstantMarkdownPreview
