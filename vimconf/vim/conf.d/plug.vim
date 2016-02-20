@@ -63,5 +63,6 @@ Plug 'rodjek/vim-puppet'
 Plug 'fuenor/qfixgrep'
 Plug 'fuenor/qfixhowm'
 Plug 'Yggdroot/indentLine'
+Plug 'pearofducks/ansible-vim'
 
 call plug#end()
