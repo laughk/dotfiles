@@ -1,5 +1,5 @@
 " Neobundle の設定(プラグイン管理) ----------------------------
-source ~/.vim/conf.d/neobundle.vim
+source ~/.vim/conf.d/plug.vim
 
 " ---------------------------------- + -----------------------------
 source ~/.vim/conf.d/basic.vim        "| 基本設定 Basics
