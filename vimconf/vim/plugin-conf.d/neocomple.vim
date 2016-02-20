@@ -1,38 +1,12 @@
-" ++++++++++++++++++++++++++++++++++++++++++++++++++++
-" MiniBufExplorer
-" ++++++++++++++++++++++++++++++++++++++++++++++++++++
-" hjklで移動
-let g:miniBufExplMapWindowNavVim=1
-" Put new window above
-let g:miniBufExplSplitBelow=0
-let g:miniBufExplMapWindowNavArrows=1
-let g:miniBufExplMapCTabSwitchBufs=1
-let g:miniBufExplModSelTarget=1
-let g:miniBufExplSplitToEdge=1
-let g:miniBufExplMaxSize = 10
-
-":TmでMiniBufExplorerの表示トグル
-command! Mt :TMiniBufExplorer
-
-" ++++++++++++++++++++++++++++++++++++++++++++++++++++
-" NERD_commenter.vim
-" ++++++++++++++++++++++++++++++++++++++++++++++++++++
-" コメントの間にスペースを空ける
-let NERDSpaceDelims = 1
-"<Leader>xでコメントをトグル(NERD_commenter.vim)
-" map <Leader>x, c<space>
-"未対応ファイルタイプのエラーメッセージを表示しない
-let NERDShutUp=1
-
-" ++++++++++++++++++++++++++++++++++++++++++++++++++++
-" BufExplorer
-" ++++++++++++++++++++++++++++++++++++++++++++++++++++
-""<Leader>l<Space>でBufferList
-nnoremap <Leader>l<Space> :BufExplorer<CR>
-
-" ++++++++++++++++++++++++++++++++++++++++++++++++++++
-" neocomple.vim
-" ++++++++++++++++++++++++++++++++++++++++++++++++++++
+"  _        _______  _______  _______  _______  _______  _______  _        _______
+" ( (    /|(  ____ \(  ___  )(  ____ \(  ___  )(       )(  ____ )( \      (  ____ \
+" |  \  ( || (    \/| (   ) || (    \/| (   ) || () () || (    )|| (      | (    \/
+" |   \ | || (__    | |   | || |      | |   | || || || || (____)|| |      | (__
+" | (\ \) ||  __)   | |   | || |      | |   | || |(_)| ||  _____)| |      |  __)
+" | | \   || (      | |   | || |      | |   | || |   | || (      | |      | (
+" | )  \  || (____/\| (___) || (____/\| (___) || )   ( || )      | (____/\| (____/\
+" |/    )_)(_______/(_______)(_______/(_______)|/     \||/       (_______/(_______/
+"
 " 基本設定 -------------------------------------------------------
 let g:acp_enableAtStartup = 0                         "| AutoComplPopを無効にする
 let g:neocomplete#enable_at_startup = 1               "| neocomplteを有効にする
@@ -100,46 +74,4 @@ if !exists('g:neocomplete#source#omni#input_patterns')
 endif
 let g:neocomplete#source#omni#input_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
 let g:neocomplete#source#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-
-" ++++++++++++++++++++++++++++++++++++++++++++++++++++
-" neosnippet.vim
-" ++++++++++++++++++++++++++++++++++++++++++++++++++++
-" ユーザー定義スニペット保存ディレクトリ -----------------------
-let g:neosnippet#snippets_directory = $HOME.'/.vim/snippets'
-
-" " スニペット --------------------------------------------------
-imap <C-k> <Plug>(neosnippet_expand_or_jump)
-smap <C-k> <Plug>(neosnippet_expand_or_jump)
-xmap <C-k> <Plug>(neosnippet_expand_target)
-
-" ++++++++++++++++++++++++++++++++++++++++++++++++++++
-" unite.vim
-" ++++++++++++++++++++++++++++++++++++++++++++++++++++
-" The prefix key. -------------------------------------
-nnoremap    [unite]   <Nop>
-nmap    f [unite]
-
-nnoremap [unite]u  :<C-u>Unite<Space>
-nnoremap <silent> [unite]a  :<C-u>UniteWithCurrentDir -buffer-name=files buffer file_mru bookmark file<CR>
-nnoremap <silent> [unite]f  :<C-u>Unite -buffer-name=files file<CR>
-nnoremap <silent> [unite]b  :<C-u>Unite buffer<CR>
-nnoremap <silent> [unite]m  :<C-u>Unite file_mru<CR>
-
-autocmd FileType unite call s:unite_my_settings()
-function! s:unite_my_settings()"{{{
-  " Overwrite settings. ------------------------
-  imap <buffer> jj      <Plug>(unite_insert_leave)
-  nnoremap <silent><buffer> <C-k> :<C-u>call unite#mappings#do_action('preview')<CR>
-  imap <buffer> <C-w>     <Plug>(unite_delete_backward_path)
-  " Start insert. ------------------------------
-  let g:unite_enable_start_insert = 1
-endfunction"}}}
-
-let g:unite_source_file_mru_limit = 200
-
-" ++++++++++++++++++++++++++++++++++++++++++++++++++++
-" Vim-Align
-" ++++++++++++++++++++++++++++++++++++++++++++++++++++
-" Alignを日本語環境で使用するための設定 -----------------------
-let g:Align_xstrlen = 3
 
