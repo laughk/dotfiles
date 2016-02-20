@@ -21,7 +21,7 @@ set nomousehide
 "  表示全般の設定
 " ============================================================
 " GVimのカラーテーマの設定
-set background=dark
+set background=light
 colorscheme solarized
 
 " メニューバーを表示しない。
@@ -38,7 +38,8 @@ if has('mac')
   " set guifontwide=Osaka\ for\ Powerline:h13
   set guifont=Ricty\ for\ Powerline:h13
 elseif has('unix')
-  set guifont=Dejavu\ Sans\ Mono\ for\ Powerline\ 12
+  set guifont=Dejavu\ Sans\ Mono\ for\ Powerline\ 10
+  set guifont=Hack\ 10
 endif
 
 " 半透明に表示する（Mac向け）

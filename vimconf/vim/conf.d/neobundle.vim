@@ -17,19 +17,21 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " Text Format -------------------------
 NeoBundle 'Align'
 NeoBundle 'DrawIt'
-NeoBundle 'SQLUtilities'
 
 " File Type Def -----------------------
 NeoBundle 'sh.vim'
-NeoBundle 'petdance/vim-perl'
 
 " Color Scheme ------------------------
 NeoBundle 'molokai'
 NeoBundle 'altercation/vim-colors-solarized'
 
 " Python -----------------------------
-" NeoBundle 'kevinw/pyflakes-vim'
 NeoBundle 'scrooloose/syntastic'
+NeoBundleLazy 'kevinw/pyflakes-vim', {
+  \ 'autoload' : {
+  \ 'filetypes' : [ 'python', 'python3', 'djangohtml', 'htmljinja' ]
+  \ },
+\}
 NeoBundleLazy 'jmcantrell/vim-virtualenv', {
   \ 'autoload' : {
   \ 'filetypes' : [ 'python', 'python3', 'djangohtml', 'htmljinja' ]
@@ -41,23 +43,17 @@ NeoBundleLazy 'davidhalter/jedi-vim', {
   \ "filetypes": [ "python", "python3" ]
   \},
 \}
-NeoBundleLazy 'lambdalisue/vim-pyenv', {
-  \ 'depends': ['davidhalter/jedi-vim'],
-  \ 'autoload': {
-  \  'filetypes': ['python', 'python3'],
-  \}
-\}
 NeoBundle 'Mudox/vim-chameleon'
 NeoBundle 'sophacles/vim-bundle-mako'
 
 " Normal Utility ----------------------
-NeoBundle 'grep.vim'
 NeoBundle 'sudo.vim'
 NeoBundle 'YankRing.vim'
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'Shougo/unite.vim'
+NeoBundle 'tsukkee/unite-help'
 NeoBundle 'Shougo/vimfiler.vim'
 NeoBundle 'Shougo/vimproc', {
   \ 'build' : {
@@ -69,27 +65,22 @@ NeoBundle 'Shougo/vimproc', {
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'corntrace/bufexplorer'
 NeoBundle 'fholgado/minibufexpl.vim'
-NeoBundle 'mattn/gist-vim'
-NeoBundle 'mattn/webapi-vim'
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'thinca/vim-ref'
-
-
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'idanarye/vim-merginal'
 NeoBundle 'gregsexton/gitv'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'tsukkee/unite-help'
 NeoBundle 'bling/vim-airline'
-NeoBundle 'vim-scripts/fcitx.vim'
-" NeoBundle 'mattn/mkdpreview-vim'
-" NeoBundle 'suan/vim-instant-markdown'
+NeoBundle 'vim-airline/vim-airline-themes'
 NeoBundle 'kannokanno/previm'
 NeoBundle 'tyru/open-browser.vim'
+if has('unix')
+  NeoBundle 'vim-scripts/fcitx.vim'
+endif
 
 " edit Utility -------------------------
-NeoBundle 'css_color.vim', {
+NeoBundleLazy 'css_color.vim', {
   \ 'autoload' : {
   \   'filetypes' : [ 'css' ]
   \  },
