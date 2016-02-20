@@ -3,7 +3,7 @@
 ## Configure 
 # --------------------------------------------------------
 ZSH_CONFIG_ROOT="${HOME}/.dotfiles/zsh/conf.d"
-ZSH_INCLDE_CONF=( zplug base alias seacret anyframe )
+ZSH_INCLDE_CONF=( zplug base alias seacret anyframe virtualenv )
 
 ## function
 # --------------------------------------------------------
