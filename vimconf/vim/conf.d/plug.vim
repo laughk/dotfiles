@@ -20,6 +20,7 @@ Plug 'vim-scripts/Align'
 " Color Scheme ------------------------
 Plug 'lsdr/monokai'
 Plug 'altercation/vim-colors-solarized'
+Plug 'junegunn/seoul256.vim'
 
 " Python -----------------------------
 Plug 'scrooloose/syntastic'
@@ -50,6 +51,7 @@ Plug 'tsukkee/unite-help'
 Plug 'tyru/open-browser.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'vim-scripts/YankRing.vim'
+Plug 'junegunn/fzf'
 if has('unix')
   Plug 'vim-scripts/fcitx.vim'
 endif
@@ -60,5 +62,6 @@ Plug 'puppetlabs/puppet-syntax-vim', {'for': ['puppet']}
 Plug 'rodjek/vim-puppet'
 Plug 'fuenor/qfixgrep'
 Plug 'fuenor/qfixhowm'
+Plug 'Yggdroot/indentLine'
 
 call plug#end()

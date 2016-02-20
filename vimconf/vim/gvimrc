@@ -21,7 +21,7 @@ set nomousehide
 " ============================================================
 " GVimのカラーテーマの設定
 set background=light
-colorscheme solarized
+colorscheme seoul256
 
 " メニューバーを表示しない。
 set guioptions-=m
