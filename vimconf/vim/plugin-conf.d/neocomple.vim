@@ -58,7 +58,7 @@ inoremap <expr><C-p> pumvisible() ? "\<C-p>" : "\<C-p>\<C-n>"
 inoremap <expr><CR> pumvisible() ? neocomplete#close_popup() : "<CR>"
 
 " FileType毎のOmni補完を設定
-autocmd FileType python set omnifunc=pythoncomplete#Complete
+autocmd FileType python setlocal omnifunc=jedi#completions
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
@@ -75,3 +75,6 @@ endif
 let g:neocomplete#source#omni#input_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
 let g:neocomplete#source#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 
+let g:jedi#completions_enabled = 0
+let g:jedi#auto_vim_configuration = 0
+let g:neocomplete#source#omni#input_patterns.python = '\h\w*\|[^. \t]\.\w*'
