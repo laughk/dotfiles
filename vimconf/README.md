@@ -1,26 +1,25 @@
-# このVim設定ファイルのセットアップ方法
-このリポジトリを適当な場所にcloneして、以下の手順を行なってください。
+## Windows
 
-## Windows環境の場合
-windowsブランチをcheckoutして、そちらのREADMEを見てください。
+7.4 以上で `mklink` コマンドで
+
+```
+%USERPROFILE%\vimfilesd <===> このリポジトリの dotifile/vimconf/vim
+```
+
+みたいな感じでシムリンク貼れば動くかもしれないけど最近windowsでこの設定を使ってないのでわかりません
+
+
 
 ## Unix系環境
 
-1. vim-setup.sh で大体のセットアップをします:
+```sh
+./vim-setup.sh
+```
 
-    ```sh
-    ## 通常の場合
-    ./vim-setup.sh setup
+消したい時
 
-    ## サーバなどでgvimrcが不要な場合
-    ./vim-setup.sh -c setup
-    ```
+```sh
+./vim-setup.sh clean
+```
 
-2. プラグインのインストール:  
-セットアップ後初回は以下のコマンドで起動。  
-`NeoBundle`経由でプラグインのインストール, `vimproc`のコンパイルが始まります。
-
-    ```sh
-    vim +NeoBundleInstall
-    ```
-
+やれば消えるけど、やってることは `~/.vim` を unlink するだけ。
