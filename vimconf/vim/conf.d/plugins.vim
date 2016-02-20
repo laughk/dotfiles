@@ -31,7 +31,7 @@ let NERDShutUp=1
 nnoremap <Leader>l<Space> :BufExplorer<CR>
 
 " ++++++++++++++++++++++++++++++++++++++++++++++++++++
-" neocomplecache.vim
+" neocomple.vim
 " ++++++++++++++++++++++++++++++++++++++++++++++++++++
 " 基本設定 -------------------------------------------------------
 let g:acp_enableAtStartup = 0                         "| AutoComplPopを無効にする
