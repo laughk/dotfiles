@@ -3,7 +3,6 @@
 "  基本はvimrcだけどGUIで必要なものはこちらに集めてある
 "                                                       //
 
-
 " ============================================================
 "  基本設定 Basics
 " ============================================================
@@ -32,7 +31,6 @@ set mouse=a
 set guioptions+=a
 set ttymouse=xterm2
 
-" フォントをConsolasにする。
 if has('mac')
   " set guifont=Dejavu\ Sans\ Mono\ for\ Powerline:h13
   " set guifontwide=Osaka\ for\ Powerline:h13
