@@ -10,17 +10,16 @@ zplug "b4b4r07/zplug"
 zplug "plugins/git",       from:oh-my-zsh, if:"which git"
 zplug "plugins/mercurial", from:oh-my-zsh, if:"which hg"
 zplug "plugins/vagrant",   from:oh-my-zsh, if:"which vagrant"
-zplug "plugins/ruby",      from:oh-my-zsh, if:"which ruby"
-zplug "plugins/gem",       from:oh-my-zsh, if:"which gem"
-zplug "plugins/bundler",   from:oh-my-zsh, if:"which bundle"
-zplug "plugins/rbenv",     from:oh-my-zsh, if:"which rbenv"
+zplug "plugins/ruby",      from:oh-my-zsh
+zplug "plugins/gem",       from:oh-my-zsh
+zplug "plugins/bundler",   from:oh-my-zsh
+zplug "plugins/rbenv",     from:oh-my-zsh
 zplug "plugins/python",    from:oh-my-zsh, if:"which python"
 zplug "plugins/pip",       from:oh-my-zsh, if:"which pip"
 zplug "plugins/npm",       from:oh-my-zsh, if:"which npm"
 zplug "plugins/sudo",      from:oh-my-zsh
 zplug "plugins/tumx",      from:oh-my-zsh, if:"which tmux"
 zplug "mollifier/anyframe"
-zplug 'motemen/ghq',       of:"zsh/*",     if:"which ghq"
 zplug "zsh-users/zsh-syntax-highlighting", nice:10
 
 # theme

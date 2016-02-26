@@ -64,5 +64,6 @@ Plug 'fuenor/qfixgrep'
 Plug 'fuenor/qfixhowm'
 Plug 'Yggdroot/indentLine'
 Plug 'pearofducks/ansible-vim'
+Plug 'kchmck/vim-coffee-script', {'for': ['coffee']}
 
 call plug#end()
