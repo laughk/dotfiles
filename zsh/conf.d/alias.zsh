@@ -2,7 +2,7 @@
 
 
 alias tmux="tmux -2"
-alias py_active="source venv/bin/activate"
+alias pyactive="source venv/bin/activate"
 
 if [[ $(uname) = Darwin ]] ; then
   # Macでだけ必要なもの
