@@ -14,8 +14,8 @@ zplug "plugins/ruby",      from:oh-my-zsh
 zplug "plugins/gem",       from:oh-my-zsh
 zplug "plugins/bundler",   from:oh-my-zsh
 zplug "plugins/rbenv",     from:oh-my-zsh
-zplug "plugins/python",    from:oh-my-zsh, if:"which python"
-zplug "plugins/pip",       from:oh-my-zsh, if:"which pip"
+zplug "plugins/python",    from:oh-my-zsh
+zplug "plugins/pip",       from:oh-my-zsh
 zplug "plugins/npm",       from:oh-my-zsh, if:"which npm"
 zplug "plugins/sudo",      from:oh-my-zsh
 zplug "plugins/tumx",      from:oh-my-zsh, if:"which tmux"
