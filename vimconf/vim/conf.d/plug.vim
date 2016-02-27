@@ -36,6 +36,7 @@ Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimfiler.vim'
+Plug 'justinmk/vim-dirvish'
 Plug 'Shougo/vimproc', {'do': 'make'}
 Plug 'Shougo/vimshell'
 Plug 'corntrace/bufexplorer'
@@ -64,5 +65,6 @@ Plug 'fuenor/qfixgrep'
 Plug 'fuenor/qfixhowm'
 Plug 'Yggdroot/indentLine'
 Plug 'pearofducks/ansible-vim'
+Plug 'vim-scripts/gitignore.vim'
 
 call plug#end()
