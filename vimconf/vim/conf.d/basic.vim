@@ -17,6 +17,7 @@ set showcmd                     "| コマンドをステータス行に表示
 set showmode                    "| 現在のモードを表示
 set viminfo='50,<1000,s100,\"50 "| viminfoファイルの設定
 set formatoptions=q             "| 自動で形成(改行とか)しない, qgで手動でなら可能
+set undodir=~/.vimundo          "| undofile のパスを指定
 
 if has('mac')
   set clipboard=unnamed,autoselect

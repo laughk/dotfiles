@@ -66,5 +66,6 @@ Plug 'fuenor/qfixhowm'
 Plug 'Yggdroot/indentLine'
 Plug 'pearofducks/ansible-vim'
 Plug 'vim-scripts/gitignore.vim'
+Plug 'kchmck/vim-coffee-script', {'for': ['coffee']}
 
 call plug#end()
