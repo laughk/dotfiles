@@ -31,7 +31,6 @@ Plug 'Mudox/vim-chameleon'
 Plug 'sophacles/vim-bundle-mako'
 
 " Normal Utility ----------------------
-Plug 'Shougo/neocomplete.vim'
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'Shougo/unite.vim'
@@ -55,6 +54,11 @@ Plug 'vim-scripts/YankRing.vim'
 Plug 'junegunn/fzf'
 if has('unix')
   Plug 'vim-scripts/fcitx.vim'
+endif
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim'
+else
+  Plug 'Shougo/neocomplete.vim'
 endif
 
 " edit Utility -------------------------

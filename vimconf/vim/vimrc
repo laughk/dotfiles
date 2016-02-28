@@ -1,7 +1,8 @@
-" Neobundle の設定(プラグイン管理) ----------------------------
+" プラグイン管理 
+" ----------------------------
 source ~/.vim/conf.d/plug.vim
 
-" ---------------------------------- + -----------------------------
+" ------------------------------------ + -----------------------------
 source ~/.vim/conf.d/basic.vim        "| 基本設定 Basics
 source ~/.vim/conf.d/statusline.vim   "| ステータスライン StatusLine
 source ~/.vim/conf.d/view.vim         "| 表示 view
