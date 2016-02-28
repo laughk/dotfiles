@@ -1,2 +1,4 @@
 zsh/conf.d/secret.zsh
 .*.un~
+.netrwhist
+.*-rplugin~
