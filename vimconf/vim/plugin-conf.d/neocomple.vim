@@ -18,18 +18,8 @@ let g:neocomplete#lock_buffer_name_pattern = '\*ku\*' "| neocomplcacheを自動�
 
 " Define dictionary. -------------------------------------------
 let g:neocomplete#source#dictionary#dictionaries = {
-  \ 'default' : '',
-  \ 'vimshell' : $HOME.'/.vimshell_hist',
-  \ 'scala' : $HOME.'/.vim/bundle/vim-scala/dict/scala.dict',
-  \ 'java' : $HOME.'/.vim/dict/java.dict',
-  \ 'c' : $HOME.'/.vim/dict/c.dict',
-  \ 'cpp' : $HOME.'/.vim/dict/cpp.dict',
-  \ 'javascript' : $HOME.'/.vim/dict/javascript.dict',
-  \ 'ocaml' : $HOME.'/.vim/dict/ocaml.dict',
-  \ 'perl' : $HOME.'/.vim/dict/perl.dict',
-  \ 'php' :  $HOME.'/.vim/dict/php.dict',
-  \ 'scheme' : $HOME.'/.vim/dict/scheme.dict',
-  \ 'vm' : $HOME.'/.vim/dict/vim.dict'
+  \ 'default'    : '',
+  \ 'java'       : $HOME.'/.vim/dict/java.dict',
 \ }
 
 " Define keyword. -----------------------------------------------
@@ -43,7 +33,7 @@ inoremap <expr><C-y> neocomplete#close_popup()
 " 補完をキャンセルしpopupを閉じる
 inoremap <expr><C-e> neocomplete#cancel_popup()
 " TABで補完できるようにする
-" inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 " undo
 inoremap <expr><C-g> neocomplete#undo_completion()
 " 補完候補の共通部分までを補完する
