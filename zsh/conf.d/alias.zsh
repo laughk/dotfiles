@@ -16,3 +16,8 @@ else
   alias ls='ls --color=auto -F'
 fi
 
+
+# neovim が使えるならそちらを使う
+if which nvim > /dev/null 2>&1 ; then
+  alias vim=nvim
+fi
