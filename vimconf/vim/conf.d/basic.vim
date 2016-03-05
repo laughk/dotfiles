@@ -20,7 +20,11 @@ set formatoptions=q             "| 自動で形成(改行とか)しない, qgで
 set undodir=~/.vimundo          "| undofile のパスを指定
 
 if has('mac')
-  set clipboard=unnamed,autoselect
+  if has('nvim')
+    set clipboard+=unnamedplus
+  else
+    set clipboard=unnamed,autoselect
+  endif
 else
   set clipboard=unnamedplus
 endif

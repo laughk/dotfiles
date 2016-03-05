@@ -52,7 +52,7 @@ Plug 'tyru/open-browser.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'vim-scripts/YankRing.vim'
 Plug 'junegunn/fzf'
-if has('unix')
+if has('unix') && !has('mac')
   Plug 'vim-scripts/fcitx.vim'
 endif
 if has('nvim')
@@ -71,5 +71,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'pearofducks/ansible-vim'
 Plug 'vim-scripts/gitignore.vim'
 Plug 'kchmck/vim-coffee-script', {'for': ['coffee']}
+Plug 'junegunn/vim-emoji'
+Plug '13k/vim-nginx'
 
 call plug#end()
