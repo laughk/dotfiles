@@ -56,6 +56,7 @@ if has('unix') && !has('mac')
 endif
 if has('nvim')
   Plug 'Shougo/deoplete.nvim'
+  Plug 'zchee/deoplete-jedi'
 else
   Plug 'Shougo/neocomplete.vim'
 endif
