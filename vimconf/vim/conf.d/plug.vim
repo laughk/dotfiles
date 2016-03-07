@@ -33,7 +33,6 @@ Plug 'sophacles/vim-bundle-mako'
 " Normal Utility ----------------------
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
-Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimfiler.vim'
 Plug 'justinmk/vim-dirvish'
 Plug 'Shougo/vimproc', {'do': 'make'}
@@ -47,11 +46,11 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'thinca/vim-quickrun'
 Plug 'thinca/vim-ref'
 Plug 'tpope/vim-fugitive'
-Plug 'tsukkee/unite-help'
 Plug 'tyru/open-browser.vim'
 Plug 'itchyny/lightline.vim'
-Plug 'vim-scripts/YankRing.vim'
 Plug 'junegunn/fzf'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'LeafCage/yankround.vim'
 if has('unix') && !has('mac')
   Plug 'vim-scripts/fcitx.vim'
 endif
