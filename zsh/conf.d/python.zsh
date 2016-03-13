@@ -1,5 +1,6 @@
 #! zsh
 
+
 [[ -f ${HOME}/.pythonstartup.py ]] && {
   export PYTHONSTARTUP=${HOME}/.pythonstartup.py
 }

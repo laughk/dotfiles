@@ -73,5 +73,6 @@ Plug 'vim-scripts/gitignore.vim'
 Plug 'kchmck/vim-coffee-script', {'for': ['coffee']}
 Plug 'junegunn/vim-emoji'
 Plug '13k/vim-nginx'
+Plug 'rking/ag.vim'
 
 call plug#end()
