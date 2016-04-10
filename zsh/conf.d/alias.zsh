@@ -14,6 +14,11 @@ if [[ $(uname) = Darwin ]] ; then
 else
   # Linux(Mac以外, Gnu系)で必要なもの
   alias ls='ls --color=auto -F'
+  # for desktop linux (mozc_tool)
+  [[ -f /usr/lib/mozc/mozc_tool ]] && {
+    alias mozc-config="/usr/lib/mozc/mozc_tool --mode=config_dialog"
+    alias mozc-dict="/usr/lib/mozc/mozc_tool --mode=dictionary_tool"
+  }
 fi
 
 
