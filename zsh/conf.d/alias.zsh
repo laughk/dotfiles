@@ -21,6 +21,10 @@ else
   }
 fi
 
+# colordiff があるならそちらを使う
+if which colordiff > /dev/null 2>&1 ; then
+  alias diff=colordiff
+fi
 
 # neovim が使えるならそちらを使う
 if which nvim > /dev/null 2>&1 ; then
