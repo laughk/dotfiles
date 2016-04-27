@@ -1,0 +1,14 @@
+#! sh
+xmodmap $HOME/.Xmodmap
+
+
+USE_IM=fcitx
+export GTK_IM_MODULE=${USE_IM}
+export QT_IM_MODULE=${USE_IM}
+export XMODIFIERS="@im=${USE_IM}"
+
+gsettings \
+  set \
+    org.gnome.settings-daemon.plugins.xsettings \
+    overrides \
+    "{'Gtk/IMModule':<'${USE_IM}'>}"
