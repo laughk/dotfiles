@@ -7,7 +7,7 @@
 source ${HOME}/.zplug/zplug
 
 zplug "b4b4r07/zplug"
-zplug "plugins/git",       from:oh-my-zsh, if:"which git"
+zplug "plugins/git",       from:oh-my-zsh, nice:10, if:"which git"
 zplug "plugins/mercurial", from:oh-my-zsh, if:"which hg"
 zplug "plugins/vagrant",   from:oh-my-zsh
 zplug "plugins/ruby",      from:oh-my-zsh
