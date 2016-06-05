@@ -19,6 +19,7 @@ zplug "plugins/pip",       from:oh-my-zsh
 zplug "plugins/npm",       from:oh-my-zsh, if:"which npm"
 zplug "plugins/sudo",      from:oh-my-zsh
 zplug "plugins/tumx",      from:oh-my-zsh, if:"which tmux"
+zplug "plugins/github",    from:oh-my-zsh, if:"which hub"
 zplug "mollifier/anyframe"
 zplug "zsh-users/zsh-syntax-highlighting", nice:10
 
