@@ -26,7 +26,7 @@ zplug "zsh-users/zsh-syntax-highlighting", nice:10
 if [[ -f ~/.zshtheme ]] ; then
   source ~/.zshtheme
 else
-  zplug "themes/ys",         from:oh-my-zsh
+  zplug "themes/ys", from:oh-my-zsh
 fi
 
 # Install plugins if there are plugins that have not been installed
