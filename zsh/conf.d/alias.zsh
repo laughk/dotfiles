@@ -11,6 +11,9 @@ if [[ $(uname) = Darwin ]] ; then
   alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
   alias mvim="/Applications/MacVim.app/Contents/MacOS/mvim"
   alias gvim=mvim
+  if which htop > /dev/null 2>&1 ; then
+    alias top=htop
+  fi
 else
   # Linux(Mac以外, Gnu系)で必要なもの
   alias ls='ls --color=auto -F'
