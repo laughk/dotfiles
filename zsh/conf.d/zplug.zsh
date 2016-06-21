@@ -1,12 +1,11 @@
 #! zsh
 
 [[ ! -d ${HOME}/.zplug ]] && {
-  git clone -b v1 https://github.com/b4b4r07/zplug ~/.zplug
+  git clone https://github.com/b4b4r07/zplug ~/.zplug
 }
 
-source ${HOME}/.zplug/zplug
+source ${HOME}/.zplug/init.zsh
 
-#zplug "b4b4r07/zplug"
 zplug "plugins/git",       from:oh-my-zsh, nice:10, if:"which git"
 zplug "plugins/mercurial", from:oh-my-zsh, if:"which hg"
 zplug "plugins/vagrant",   from:oh-my-zsh
