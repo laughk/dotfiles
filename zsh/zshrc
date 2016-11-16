@@ -4,7 +4,7 @@
 # --------------------------------------------------------
 ZSH_CONFIG_ROOT="${HOME}/.dotfiles/zsh/conf.d"
 ZSH_INCLDE_CONF=(
-  zplug base alias seacret anyframe python ruby secret
+  zplug base alias seacret anyframe python ruby perl node secret
 )
 
 ## function
