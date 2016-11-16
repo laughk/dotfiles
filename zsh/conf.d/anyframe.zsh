@@ -8,11 +8,10 @@ bindkey '^xd' anyframe-widget-cdr
 
 ## history 操作
 ### そのまま実行する
-bindkey '^xr' anyframe-widget-execute-history
-bindkey '^x^r' anyframe-widget-execute-history
+bindkey '^r' anyframe-widget-execute-history
 ### 表示のみ
-bindkey '^xi' anyframe-widget-put-history
-bindkey '^x^i' anyframe-widget-put-history
+bindkey '^xr' anyframe-widget-put-history
+bindkey '^x^r' anyframe-widget-put-history
 
 ### プロセスをkillする
 bindkey '^xk' anyframe-widget-kill
