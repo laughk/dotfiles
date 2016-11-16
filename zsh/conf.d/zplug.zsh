@@ -29,6 +29,13 @@ else
   zplug "themes/ys", from:oh-my-zsh
 fi
 
+# cli tool
+zplug "stedolan/jq",      as:command, from:gh-r, frozen:1
+zplug "motemen/ghq",      as:command, from:gh-r, rename-to:"ghq"
+zplug "juneguun/fzf-bin", as:command, from:gh-r, rename-to:"fzf"
+zplug "monochromegane/the_platinum_searcher", \
+  as:command, from:gh-r, rename-to:"pt"
+
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
   printf "Install? [y/N]: "
