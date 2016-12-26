@@ -1,4 +1,7 @@
-PATH="$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH"
-export PATH
+RBENV_PREFIX="$HOME/.rbenv"
 
-eval "$(rbenv init -)"
+if which rbenv 2>/dev/null ; then
+  PATH="$RBENV_PREFIX/bin:$RBENV_PREFIX/.rbenv/shims:$PATH"
+  export PATH
+  eval "$(rbenv init -)"
+fi
