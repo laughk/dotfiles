@@ -1,5 +1,14 @@
 zstyle ":anyframe:selector:" use fzf
-zstyle ":anyframe:selector:fzf:" command 'fzf --no-sort --tac'
+
+INCREMENTAL_COMMAND_OPT=' --no-sort --tac'
+if [[ $TERM =~ screen.* ]] ; then
+  INCREMENTAL_COMMAND=fzf-tmux
+else
+  INCREMENTAL_COMMAND=fzf
+fi
+
+zstyle ":anyframe:selector:fzf:" \
+  command "$INCREMENTAL_COMMAND $INCREMENTAL_COMMAND_OPT"
 
 ## 移動したことのあるディレクトリへ移動
 # ----------------------------------------------
@@ -29,3 +38,4 @@ bindkey '^x^g' anyframe-widget-cd-ghq-repository
 # ---------------------------------------------
 bindkey '^xb' anyframe-widget-insert-git-branch
 bindkey '^x^b' anyframe-widget-checkout-git-branch
+

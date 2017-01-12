@@ -6,7 +6,7 @@
 
 source ${HOME}/.zplug/init.zsh
 
-zplug "plugins/git",       from:oh-my-zsh, nice:10, if:"which git"
+zplug "plugins/git",       from:oh-my-zsh, defer:10, if:"which git"
 zplug "plugins/mercurial", from:oh-my-zsh, if:"which hg"
 zplug "plugins/vagrant",   from:oh-my-zsh
 zplug "plugins/ruby",      from:oh-my-zsh
@@ -20,7 +20,7 @@ zplug "plugins/sudo",      from:oh-my-zsh
 zplug "plugins/tumx",      from:oh-my-zsh, if:"which tmux"
 zplug "plugins/github",    from:oh-my-zsh, if:"which hub"
 zplug "mollifier/anyframe"
-zplug "zsh-users/zsh-syntax-highlighting", nice:10
+zplug "zsh-users/zsh-syntax-highlighting", defer:10
 
 # theme
 if [[ -f ~/.zshtheme ]] ; then
@@ -33,8 +33,11 @@ fi
 zplug "stedolan/jq",      as:command, from:gh-r, frozen:1
 zplug "motemen/ghq",      as:command, from:gh-r, rename-to:"ghq"
 zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:"fzf"
+zplug "junegunn/fzf",     as:command, use:"bin/fzf-tmux"
+zplug "mackerelio/mkr",   as:command, from:gh-r, rename-to:"mkr", use:"*linux_amd64*"
 zplug "monochromegane/the_platinum_searcher", \
   as:command, from:gh-r, rename-to:"pt"
+
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
