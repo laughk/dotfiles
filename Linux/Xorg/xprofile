@@ -1,7 +1,17 @@
 #! sh
+
+# Xmodmap
+# -----------------------------------
 xmodmap $HOME/.Xmodmap
 
+# Xresource
+# -----------------------------------
+[[ -f $HOME/.Xresources ]] && {
+  xrdb -merge -I$HOME ~/.Xresources
+}
 
+# IME
+# -----------------------------------
 USE_IM=fcitx
 export GTK_IM_MODULE=${USE_IM}
 export QT_IM_MODULE=${USE_IM}
@@ -14,6 +24,8 @@ gsettings \
     overrides \
     "{'Gtk/IMModule':<'${USE_IM}'>}"
 
+# Xprofile local
+# ----------------------------------
 [[ -f $HOME/.xprofile.local ]] && {
   source ~/.xprofile.local
 }
