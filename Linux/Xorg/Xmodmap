@@ -1,6 +1,15 @@
+! 右 Altキーを Zenkaku_Hankaku に割り当てる
 clear mod1
 keycode 108 = Zenkaku_Hankaku
 add    mod1 = Alt_L Meta_L
+
+! Menu キーを 右Superキーに割り当てる
+remove mod4 = Super_R
+remove control = Control_R
+! keycode 135 = Super_R
+keycode 105 = Super_R
+add mod4 = Super_R
+add control = Control_R
 
 ! for natural scroll
 ! pointer = 1 2 3 5 4 7 6 8 9 10 11 12
