@@ -63,8 +63,6 @@ endif
 
 " edit Utility -------------------------
 Plug 'css_color.vim',                {'for': ['css']}
-Plug 'puppetlabs/puppet-syntax-vim', {'for': ['puppet']}
-Plug 'rodjek/vim-puppet'
 Plug 'fuenor/qfixgrep'
 Plug 'fuenor/qfixhowm'
 Plug 'Yggdroot/indentLine'
