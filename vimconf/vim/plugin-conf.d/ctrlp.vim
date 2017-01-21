@@ -1,4 +1,4 @@
-let g:ctrlp_cmd = 'CtrlPCurFile'
+" let g:ctrlp_cmd = 'CtrlPCurFile'
 
 if executable('pt')
   let g:ctrlp_use_caching=0
