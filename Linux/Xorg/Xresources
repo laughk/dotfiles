@@ -3,3 +3,4 @@
 ! -------------------------------------------------
 
 #include ".Xresources.d/urxvt"
+#include ".Xresources.d/urxvt-Tomorrow_Night_Eighties"

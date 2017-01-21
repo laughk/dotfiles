@@ -7,7 +7,7 @@ xmodmap $HOME/.Xmodmap
 # Xresource
 # -----------------------------------
 [[ -f $HOME/.Xresources ]] && {
-  xrdb -merge -I$HOME ~/.Xresources
+  /usr/bin/xrdb -merge -I$HOME ~/.Xresources
 }
 
 # IME
