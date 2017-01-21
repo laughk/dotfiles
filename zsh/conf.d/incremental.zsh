@@ -39,3 +39,16 @@ bindkey '^x^g' anyframe-widget-cd-ghq-repository
 bindkey '^xb' anyframe-widget-insert-git-branch
 bindkey '^x^b' anyframe-widget-checkout-git-branch
 
+
+## ssh-add
+# -----------------------------------------------
+function __put_ssh_add() {
+
+  ls -1 ~/.ssh/pem.d/*.pem |
+    anyframe-selector-auto |
+    anyframe-action-put ssh-add
+
+}
+
+zle -N __put_ssh_add
+bindkey '^x^i' __put_ssh_add

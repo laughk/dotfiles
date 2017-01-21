@@ -13,7 +13,6 @@ ZSH_INCLDE_CONF=(
   ruby
   perl
   node
-  ssh
   secret
 )
 

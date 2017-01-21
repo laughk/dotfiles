@@ -8,6 +8,9 @@ export HISTSIZE=$SAVEHIST
 # history を共有
 setopt share_history
 
+# 対話シェル内でコメントアウトを使えるように
+setopt interactivecomments
+
 # 補完を強化
 autoload -U compinit
 compinit -u
