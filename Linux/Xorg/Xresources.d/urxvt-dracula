@@ -1,0 +1,44 @@
+!
+! Generated with :
+! XRDB2Xreources.py
+!
+Urxvt*.foreground:  #f8f8f2
+Urxvt*.background:  [95]#1e1f29
+Urxvt*.cursorColor: #bbbbbb
+!
+! Black
+URxvt*.color0:      #000000
+URxvt*.color8:      #555555
+!
+! Red
+URxvt*.color1:      #ff5555
+URxvt*.color9:      #ff5555
+!
+! Green
+URxvt*.color2:      #50fa7b
+URxvt*.color10:     #50fa7b
+!
+! Yellow
+Urxvt*.color3:      #f1fa8c
+Urxvt*.color11:     #f1fa8c
+!
+! Blue
+URxvt*.color4:      #bd93f9
+URxvt*.color12:     #bd93f9
+!
+! Magenta
+URxvt*.color5:      #ff79c6
+URxvt*.color13:     #ff79c6
+!
+! Cyan
+URxvt*.color6:      #8be9fd
+URxvt*.color14:     #8be9fd
+!
+! White
+URxvt*.color7:      #bbbbbb
+URxvt*.color15:     #ffffff
+!
+! Bold, Italic, Underline
+URxvt*.colorBD:     #ffffff
+!*.colorIT:
+!*.colorUL:
