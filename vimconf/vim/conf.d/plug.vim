@@ -21,6 +21,7 @@ Plug 'vim-scripts/Align'
 Plug 'lsdr/monokai'
 Plug 'altercation/vim-colors-solarized'
 Plug 'junegunn/seoul256.vim'
+Plug 'AlessandroYorba/Alduin'
 
 " Python -----------------------------
 Plug 'scrooloose/syntastic'

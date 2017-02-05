@@ -17,3 +17,8 @@ source ~/.vim/conf.d/edit.vim         "| 編集関連 Edit
 " プラグインごとの設定 を読み込む
 set runtimepath+=~/.vim/
 runtime! plugin-conf.d/*.vim
+
+" 特定の環境固有の設定をよみこむ
+if filereadable(expand('~/.local-conf.vim'))
+  source ~/.local-conf.vim
+endif

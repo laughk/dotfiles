@@ -16,4 +16,5 @@ else
   set background=dark
 endif
 
-colorscheme seoul256
+colorscheme alduin
+highlight Normal ctermbg=none
