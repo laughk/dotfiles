@@ -22,6 +22,7 @@ Plug 'lsdr/monokai'
 Plug 'altercation/vim-colors-solarized'
 Plug 'junegunn/seoul256.vim'
 Plug 'AlessandroYorba/Alduin'
+Plug 'davidklsn/vim-sialoquent'
 
 " Python -----------------------------
 Plug 'scrooloose/syntastic'
@@ -36,6 +37,7 @@ Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'Shougo/vimfiler.vim'
 Plug 'justinmk/vim-dirvish'
+Plug 'cocopon/vaffle.vim'
 Plug 'Shougo/vimproc', {'do': 'make'}
 Plug 'Shougo/vimshell'
 Plug 'corntrace/bufexplorer'
@@ -48,10 +50,12 @@ Plug 'thinca/vim-quickrun'
 Plug 'thinca/vim-ref'
 Plug 'tpope/vim-fugitive'
 Plug 'tyru/open-browser.vim'
+Plug 'tyru/open-browser-github.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'LeafCage/yankround.vim'
+Plug 'vim-scripts/SQLUtilities'
 if has('unix') && !has('mac')
   Plug 'vim-scripts/fcitx.vim'
 endif
@@ -64,9 +68,8 @@ endif
 
 " edit Utility -------------------------
 Plug 'css_color.vim',                {'for': ['css']}
-Plug 'fuenor/qfixgrep'
-Plug 'fuenor/qfixhowm'
 Plug 'Yggdroot/indentLine'
+Plug 'elzr/vim-json'
 Plug 'pearofducks/ansible-vim'
 Plug 'vim-scripts/gitignore.vim'
 Plug 'kchmck/vim-coffee-script', {'for': ['coffee']}
@@ -74,5 +77,6 @@ Plug 'junegunn/vim-emoji'
 Plug '13k/vim-nginx'
 Plug 'mileszs/ack.vim'
 Plug 'gko/vim-coloresque'
+Plug 'glidenote/memolist.vim'
 
 call plug#end()

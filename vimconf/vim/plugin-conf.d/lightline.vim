@@ -1,5 +1,5 @@
 let g:lightline = {
-    \ 'colorscheme': 'solarized',
+    \ 'colorscheme': 'sialoquent',
     \ 'active': {
     \   'left': [ ['mode', 'paste' ],
     \             [ 'fugitive', 'virtualenv', 'filename', 'readonly' ] ],

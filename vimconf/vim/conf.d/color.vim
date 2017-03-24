@@ -16,5 +16,5 @@ else
   set background=dark
 endif
 
-colorscheme alduin
+colorscheme sialoquent
 highlight Normal ctermbg=none
