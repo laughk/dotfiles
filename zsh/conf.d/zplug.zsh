@@ -41,6 +41,7 @@ zplug "motemen/2b0656be9e2acf32b35d", \
   as:command, from:gist, use:"mkr-hosts-tsv"
 zplug "ReSTARTR/ec2-ls-hosts", as:command, from:gh-r, \
   rename-to:"ec2-ls-hosts", use:"*linux-amd64*"
+zplug "feiz/dcon", as:command, from:gist, rename:"dcon"
 
 
 # Install plugins if there are plugins that have not been installed

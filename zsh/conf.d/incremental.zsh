@@ -1,6 +1,6 @@
 zstyle ":anyframe:selector:" use fzf
 
-INCREMENTAL_COMMAND_OPT=' --no-sort --tac'
+INCREMENTAL_COMMAND_OPT=' --no-sort'
 if [[ $TERM =~ screen.* ]] ; then
   INCREMENTAL_COMMAND=fzf-tmux
 else
