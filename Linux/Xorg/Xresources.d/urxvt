@@ -5,7 +5,7 @@
 ! Basic
 ! -------------------------------------------------
 URxvt.loginShell:           true
-URxvt.saveLines:            500000
+URxvt.saveLines:            100000
 URxvt.internalBorder:       3
 URxvt.lineSpace:            0
 
