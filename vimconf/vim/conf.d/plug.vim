@@ -25,8 +25,8 @@ Plug 'AlessandroYorba/Alduin'
 Plug 'davidklsn/vim-sialoquent'
 
 " Python -----------------------------
-Plug 'scrooloose/syntastic'
-Plug 'kevinw/pyflakes-vim',       {'for': ['python', 'python3', 'djangohtml', 'htmljinja']}
+"Plug 'scrooloose/syntastic'
+Plug 'w0rp/ale'
 Plug 'jmcantrell/vim-virtualenv', {'for': ['python', 'python3', 'djangohtml', 'htmljinja']}
 Plug 'davidhalter/jedi-vim',      {'for': ['python', 'python3']}
 Plug 'Mudox/vim-chameleon'
@@ -36,10 +36,8 @@ Plug 'sophacles/vim-bundle-mako'
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'Shougo/vimfiler.vim'
-Plug 'justinmk/vim-dirvish'
 Plug 'cocopon/vaffle.vim'
 Plug 'Shougo/vimproc', {'do': 'make'}
-Plug 'Shougo/vimshell'
 Plug 'corntrace/bufexplorer'
 Plug 'fholgado/minibufexpl.vim'
 Plug 'gregsexton/gitv'
@@ -54,6 +52,7 @@ Plug 'tyru/open-browser-github.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'mileszs/ack.vim'
 Plug 'LeafCage/yankround.vim'
 Plug 'vim-scripts/SQLUtilities'
 if has('unix') && !has('mac')

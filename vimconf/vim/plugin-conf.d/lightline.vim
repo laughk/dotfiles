@@ -2,7 +2,8 @@ let g:lightline = {
     \ 'colorscheme': 'sialoquent',
     \ 'active': {
     \   'left': [ ['mode', 'paste' ],
-    \             [ 'fugitive', 'virtualenv', 'filename', 'readonly' ] ],
+    \             [ 'fugitive', 'virtualenv', 'filename', 'readonly' ],
+    \             [ 'ale' ] ],
     \ },
     \ 'component_function': {
     \   'readonly': 'LightLineReadonly',
@@ -10,6 +11,7 @@ let g:lightline = {
     \   'fugitive': 'LightLineFugitive',
     \   'virtualenv': 'LightLineActiveVirtualenv',
     \   'filename': 'LightLineFilename',
+    \   'ale': 'ALEGetStatusLine',
     \ },
     \ 'separetor': { 'left': '', 'right': ''},
     \ 'subseparator': { 'left': '|', 'right': '|' },
@@ -52,4 +54,9 @@ function! LightLineFilename()
     \  &ft == 'vimshell' ? vimshell#get_status_string() :
     \ '' != expand('%:t') ? expand('%:t') : '[No Name]') .
     \ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
+endfunction
+
+" for Ale Status
+function! ALEStatus()
+  return ALEGetStatusLine()
 endfunction
