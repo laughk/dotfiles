@@ -66,7 +66,6 @@ else
 endif
 
 " edit Utility -------------------------
-Plug 'css_color.vim',                {'for': ['css']}
 Plug 'Yggdroot/indentLine'
 Plug 'elzr/vim-json'
 Plug 'pearofducks/ansible-vim'

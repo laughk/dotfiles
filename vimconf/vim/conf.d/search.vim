@@ -8,3 +8,9 @@ set hlsearch   "| 検索文字をハイライト
 
 "Escの2回押しでハイライト消去
 nmap <ESC><ESC> :nohlsearch<CR><ESC>
+
+" 選択範囲を検索
+" visualmod で z/, z?
+" see http://vim-jp.org/vim-users-jp/2009/08/31/Hack-65.html
+vnoremap z/ <ESC>/\%V
+vnoremap z? <ESC>?\%V
