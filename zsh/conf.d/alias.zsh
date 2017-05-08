@@ -2,7 +2,6 @@
 
 
 alias tmux="tmux -2"
-alias pyactive="source venv/bin/activate"
 alias cp='cp -v'
 alias mv='mv -v'
 alias rm='rm -v'
@@ -20,7 +19,7 @@ if [[ $(uname) = Darwin ]] ; then
 else
   # Linux(Mac以外, Gnu系)で必要なもの
   alias ls='ls --color=auto -F'
-  alias open='xdg-open'
+  alias open='gio open'
   # for desktop linux (mozc_tool)
   [[ -f /usr/lib/mozc/mozc_tool ]] && {
     alias mozc-config="/usr/lib/mozc/mozc_tool --mode=config_dialog"
@@ -37,3 +36,15 @@ fi
 if which nvim > /dev/null 2>&1 ; then
   alias vim=nvim
 fi
+
+
+# vevn/virtualenv の activate
+
+function _pyactivate(){
+  local venv_name=${1:-venv}
+
+  [[ -d ${venv_name} ]] && {
+    source ${venv_name}/bin/activate
+  }
+}
+alias pyactive=_pyactivate

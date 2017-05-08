@@ -6,6 +6,6 @@
 }
 
 if which virtualenvwrapper.sh > /dev/null 2>&1 ; then
-  export WORKON_HOME=${HOME}/.virtualenvs
+  export WORKON_HOME=${HOME}/.venvs
   source $(which virtualenvwrapper.sh)
 fi

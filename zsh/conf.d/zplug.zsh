@@ -1,7 +1,8 @@
 #! zsh
 
 [[ ! -d ${HOME}/.zplug ]] && {
-  git clone https://github.com/b4b4r07/zplug ~/.zplug
+  ## install zplug
+  curl -sL --proto-redir -all,https https://zplug.sh/installer | zsh
 }
 
 source ${HOME}/.zplug/init.zsh
@@ -30,9 +31,10 @@ else
 fi
 
 # cli tool
+# --------------------------------------------------------------------
 zplug "stedolan/jq",      as:command, from:gh-r, frozen:1
 zplug "motemen/ghq",      as:command, from:gh-r, rename-to:"ghq"
-zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:"fzf"
+zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:"fzf", use:"*linux_amd64*"
 zplug "junegunn/fzf",     as:command, use:"bin/fzf-tmux"
 zplug "mackerelio/mkr",   as:command, from:gh-r, rename-to:"mkr", use:"*linux_amd64*"
 zplug "monochromegane/the_platinum_searcher", \
@@ -41,10 +43,11 @@ zplug "motemen/2b0656be9e2acf32b35d", \
   as:command, from:gist, use:"mkr-hosts-tsv"
 zplug "ReSTARTR/ec2-ls-hosts", as:command, from:gh-r, \
   rename-to:"ec2-ls-hosts", use:"*linux-amd64*"
-zplug "feiz/dcon", as:command, from:gist, rename:"dcon"
+zplug "kohkimakimoto/essh", as:command, from:gh-r, rename-to:"essh", use:"*linux_amd64*"
 
 
 # Install plugins if there are plugins that have not been installed
+# -------------------------------------------------------------------
 if ! zplug check --verbose; then
   printf "Install? [y/N]: "
   if read -q; then
