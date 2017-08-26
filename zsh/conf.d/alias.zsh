@@ -5,6 +5,7 @@ alias tmux="tmux -2"
 alias cp='cp -v'
 alias mv='mv -v'
 alias rm='rm -v'
+alias mkdir='mkdir -v'
 
 if [[ $(uname) = Darwin ]] ; then
   # Macでだけ必要なもの
