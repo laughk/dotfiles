@@ -2,33 +2,19 @@
 
 [[ ! -d ${HOME}/.zplug ]] && {
   ## install zplug
-  curl -sL --proto-redir -all,https https://zplug.sh/installer | zsh
+  curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh| zsh
 }
 
 source ${HOME}/.zplug/init.zsh
 
-zplug "plugins/git",       from:oh-my-zsh, defer:3, if:"which git"
-zplug "plugins/mercurial", from:oh-my-zsh, if:"which hg"
-zplug "plugins/vagrant",   from:oh-my-zsh
-zplug "plugins/ruby",      from:oh-my-zsh
-zplug "plugins/gem",       from:oh-my-zsh
-zplug "plugins/bundler",   from:oh-my-zsh
-zplug "plugins/rbenv",     from:oh-my-zsh
-zplug "plugins/python",    from:oh-my-zsh
-zplug "plugins/pip",       from:oh-my-zsh
+# Third Party Plugins
+# --------------------------------------------------------------------
+zplug "plugins/vagrant",   from:oh-my-zsh, if:"which vagrant"
 zplug "plugins/npm",       from:oh-my-zsh, if:"which npm"
 zplug "plugins/sudo",      from:oh-my-zsh
 zplug "plugins/tumx",      from:oh-my-zsh, if:"which tmux"
-zplug "plugins/github",    from:oh-my-zsh, if:"which hub"
 zplug "mollifier/anyframe"
 zplug "zsh-users/zsh-syntax-highlighting", defer:3
-
-# theme
-if [[ -f ~/.zshtheme ]] ; then
-  source ~/.zshtheme
-else
-  zplug "themes/ys", from:oh-my-zsh
-fi
 
 # cli tool
 # --------------------------------------------------------------------
@@ -45,6 +31,13 @@ zplug "ReSTARTR/ec2-ls-hosts", as:command, from:gh-r, \
   rename-to:"ec2-ls-hosts", use:"*linux-amd64*"
 zplug "kohkimakimoto/essh", as:command, from:gh-r, rename-to:"essh", use:"*linux_amd64*"
 
+# theme
+# --------------------------------------------------------------------
+if [[ -f ~/.zshtheme ]] ; then
+  source ~/.zshtheme
+else
+  zplug "themes/ys", from:oh-my-zsh
+fi
 
 # Install plugins if there are plugins that have not been installed
 # -------------------------------------------------------------------
@@ -54,6 +47,7 @@ if ! zplug check --verbose; then
     echo; zplug install
   fi
 fi
+
 
 # Then, source plugins and add commands to $PATH
 zplug load --verbose

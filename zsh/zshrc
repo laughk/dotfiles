@@ -1,34 +1,29 @@
 #! zsh
 
-## Configure
-# --------------------------------------------------------
+# Configure
+# -----------------------------
 ZSH_CONFIG_ROOT="${HOME}/.dotfiles/zsh/conf.d"
 ZSH_INCLDE_CONF=(
-  zplug
-  base
-  alias
-  secret
+  base alias completion
   incremental
-  python
-  ruby
-  perl
-  node
+  python ruby perl node ssh
   secret
 )
 
-## function
-# --------------------------------------------------------
-function include_conf() {
-  local _zsh_config_root=${1:-"${HOME}/.dotfiles/zsh/conf.d"}
+# Function
+# -------------------------------------
+function __check_exist_and_source() {
 
-  for conf in ${ZSH_INCLDE_CONF}
-  do
-    [[ -f ${_zsh_config_root}/${conf}.zsh ]] && {
-      source ${_zsh_config_root}/${conf}.zsh
-    }
-  done
+  local target=$1
+  [[ -f ${target}  ]] && source ${target}
+
 }
 
-## main
-# --------------------------------------------------------
-include_conf ${ZSH_CONFIG_ROOT}
+
+# Main
+# ------------------------------------------
+source ${HOME}/.dotfiles/zsh/zplug-config.zsh
+
+for conf in ${ZSH_INCLDE_CONF} ; do
+  __check_exist_and_source ${ZSH_CONFIG_ROOT}/${conf}.zsh
+done
