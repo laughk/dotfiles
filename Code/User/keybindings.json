@@ -1,0 +1,16 @@
+// Place your key bindings in this file to overwrite the defaults
+[
+{ "key": "/",        "command": "actions.find",
+                        "when": "editorTextFocus && vim.active && !inDebugRepl && vim.mode != 'Insert'" },
+{ "key": "ctrl+f",   "command": "-actions.find" },
+{ "key": "ctrl+f",   "command": "actions.find",
+                        "when": "!terminalFocus || !editorTextFocus" },
+{ "key": "ctrl+f",   "command": "cursorPageDown",
+                        "when": "editorTextFocus && vim.active && !inDebugRepl && vim.mode != 'Insert'" },
+{ "key": "ctrl+e",   "command": "-workbench.action.quickOpen" },
+{ "key": "ctrl+e",   "command": "workbench.action.quickOpen",
+                        "when": "!terminalFocus" },
+{ "key": "ctrl+j",   "command": "-workbench.action.togglePanel" },
+{ "key": "ctrl+j",   "command": "workbench.action.togglePanel",
+                        "when": "!terminalFocus" }
+]

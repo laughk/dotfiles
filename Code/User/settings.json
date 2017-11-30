@@ -1,0 +1,37 @@
+{
+    "workbench.colorTheme": "Material-last",
+    "workbench.iconTheme": "simple-icons",
+    
+    "editor.fontFamily": "Cica",
+    "editor.fontSize": 18,
+    "terminal.integrated.fontSize": 18,
+
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": true,
+
+    "vim.useSystemClipboard": true,
+    "vim.enableNeovim": true,
+
+    "window.zoomLevel": 0,
+    "extensions.ignoreRecommendations": false,
+
+    // see. 
+    // https://stackoverflow.com/questions/38713405/how-to-config-vscode-to-open-files-always-in-a-new-tab
+    "workbench.editor.enablePreview": false,
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/*.pyc": true,
+        "**/__pycache__": true,
+        "**/.idea": true,
+        "**/.vagrant": true,
+        "**/.vscode": true,
+        "**/venv": true
+    },
+    "workbench.panel.location": "right"
+}
