@@ -6,7 +6,8 @@ ZSH_CONFIG_ROOT="${HOME}/.dotfiles/zsh/conf.d"
 ZSH_INCLDE_CONF=(
   base alias completion
   incremental
-  python ruby perl node ssh
+  python ruby perl node ssh golang
+  envtool
   secret
 )
 
@@ -27,3 +28,6 @@ source ${HOME}/.dotfiles/zsh/zplug-config.zsh
 for conf in ${ZSH_INCLDE_CONF} ; do
   __check_exist_and_source ${ZSH_CONFIG_ROOT}/${conf}.zsh
 done
+
+
+export PATH="$HOME/.sc/bin:$PATH"
