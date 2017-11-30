@@ -16,5 +16,8 @@ else
   set background=dark
 endif
 
-colorscheme sialoquent
+set termguicolors
+colorscheme breezy
+let python_highlight_all=1
+
 highlight Normal ctermbg=none

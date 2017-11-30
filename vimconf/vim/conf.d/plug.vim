@@ -23,6 +23,8 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'junegunn/seoul256.vim'
 Plug 'AlessandroYorba/Alduin'
 Plug 'davidklsn/vim-sialoquent'
+Plug 'trevordmiller/nova-vim'
+Plug 'fneu/breezy'
 
 " Python -----------------------------
 "Plug 'scrooloose/syntastic'
@@ -35,11 +37,9 @@ Plug 'sophacles/vim-bundle-mako'
 " Normal Utility ----------------------
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
-Plug 'Shougo/vimfiler.vim'
-Plug 'cocopon/vaffle.vim'
 Plug 'Shougo/vimproc', {'do': 'make'}
 Plug 'corntrace/bufexplorer'
-Plug 'fholgado/minibufexpl.vim'
+Plug 'ap/vim-buftabline'
 Plug 'gregsexton/gitv'
 Plug 'idanarye/vim-merginal'
 Plug 'kannokanno/previm'
@@ -51,6 +51,7 @@ Plug 'tyru/open-browser.vim'
 Plug 'tyru/open-browser-github.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mileszs/ack.vim'
 Plug 'LeafCage/yankround.vim'
@@ -64,6 +65,10 @@ if has('nvim')
 else
   Plug 'Shougo/neocomplete.vim'
 endif
+Plug 'scrooloose/nerdtree'
+Plug 'jsfaint/gen_tags.vim'
+Plug 'thinca/vim-qfreplace'
+Plug 'ryanoasis/vim-devicons'
 
 " edit Utility -------------------------
 Plug 'Yggdroot/indentLine'
@@ -74,7 +79,12 @@ Plug 'kchmck/vim-coffee-script', {'for': ['coffee']}
 Plug 'junegunn/vim-emoji'
 Plug '13k/vim-nginx'
 Plug 'mileszs/ack.vim'
-Plug 'gko/vim-coloresque'
+Plug 'chrisbra/Colorizer'
 Plug 'glidenote/memolist.vim'
+Plug 'Vimjas/vim-python-pep8-indent'
+Plug 'leafgarland/typescript-vim'
+
+" Syntax -------------------------------
+Plug 'hashivim/vim-terraform'
 
 call plug#end()
