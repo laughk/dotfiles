@@ -5,6 +5,14 @@ export HISTFILE=${HOME}/.zsh_history
 export HIST_STAMPS="yyyy-mm-dd"
 export SAVEHIST=10000000
 export HISTSIZE=$SAVEHIST
+if which nvim > /dev/null 2>&1 ; then
+  export EDITOR=nvim
+elif which nvim > /dev/null 2>&1 ; then
+  export EDITOR=vim
+fi
+# EDITOR の値が vim の場合、tmux 内で Vim Mode で起するのでその対策
+# see. http://web-salad.hateblo.jp/entry/2014/12/07/090000
+bindkey -e
 
 # history を共有
 setopt share_history
@@ -28,3 +36,7 @@ zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 PATH="${HOME}/.bin:${PATH}"
 export PATH
 export MANPATH="/usr/local/man:${MANPATH}"
+
+# disable C-s and C-q
+stty stop undef
+stty start undef

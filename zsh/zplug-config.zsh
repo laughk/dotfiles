@@ -11,7 +11,6 @@ source ${HOME}/.zplug/init.zsh
 # --------------------------------------------------------------------
 zplug "plugins/vagrant",   from:oh-my-zsh, if:"which vagrant"
 zplug "plugins/npm",       from:oh-my-zsh, if:"which npm"
-zplug "plugins/sudo",      from:oh-my-zsh
 zplug "plugins/tumx",      from:oh-my-zsh, if:"which tmux"
 zplug "mollifier/anyframe"
 zplug "zsh-users/zsh-syntax-highlighting", defer:3
@@ -27,8 +26,8 @@ zplug "monochromegane/the_platinum_searcher", \
   as:command, from:gh-r, rename-to:"pt"
 zplug "motemen/2b0656be9e2acf32b35d", \
   as:command, from:gist, use:"mkr-hosts-tsv"
-zplug "ReSTARTR/ec2-ls-hosts", as:command, from:gh-r, \
-  rename-to:"ec2-ls-hosts", use:"*linux-amd64*"
+#zplug "ReSTARTR/ec2-ls-hosts", as:command, from:gh-r, \
+#  rename-to:"ec2-ls-hosts", use:"*linux-amd64*"
 zplug "kohkimakimoto/essh", as:command, from:gh-r, rename-to:"essh", use:"*linux_amd64*"
 
 # theme

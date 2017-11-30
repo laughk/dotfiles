@@ -38,6 +38,12 @@ if which nvim > /dev/null 2>&1 ; then
   alias vim=nvim
 fi
 
+# VS Code の terminal では vim は使わないようにする
+if [[ $TERM_PROGRAM = "vscode" ]] ; then
+  alias vim=code
+  alias nvim=code
+fi
+
 
 # vevn/virtualenv の activate
 
