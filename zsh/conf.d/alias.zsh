@@ -34,9 +34,10 @@ if which colordiff > /dev/null 2>&1 ; then
 fi
 
 # neovim が使えるならそちらを使う
-if which nvim > /dev/null 2>&1 ; then
-  alias vim=nvim
-fi
+#   2017-12-07 neovim が終了時に固まるので一旦普通の vim を使う
+# if which nvim > /dev/null 2>&1 ; then
+#   alias vim=nvim
+# fi
 
 # VS Code の terminal では vim は使わないようにする
 if [[ $TERM_PROGRAM = "vscode" ]] ; then
@@ -55,3 +56,4 @@ function _pyactivate(){
   }
 }
 alias pyactive=_pyactivate
+

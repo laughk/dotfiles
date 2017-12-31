@@ -10,9 +10,7 @@
     "python.linting.flake8Enabled": true,
 
     "vim.useSystemClipboard": true,
-    "vim.enableNeovim": true,
 
-    "window.zoomLevel": 0,
     "extensions.ignoreRecommendations": false,
 
     // see. 
@@ -33,5 +31,6 @@
         "**/.vscode": true,
         "**/venv": true
     },
-    "workbench.panel.location": "right"
+    "window.zoomLevel": "10%",
+    "git.autofetch": true
 }

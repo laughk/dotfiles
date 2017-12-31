@@ -1,7 +1,8 @@
 " 色に関する設定
 " ------------------------------------------------------------------------
-" 256色を有効に。
-set t_Co=256
+set termguicolors
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 " ハイライト on
 syntax enable
@@ -16,8 +17,5 @@ else
   set background=dark
 endif
 
-set termguicolors
 colorscheme breezy
 let python_highlight_all=1
-
-highlight Normal ctermbg=none

@@ -43,7 +43,6 @@ Plug 'ap/vim-buftabline'
 Plug 'gregsexton/gitv'
 Plug 'idanarye/vim-merginal'
 Plug 'kannokanno/previm'
-Plug 'scrooloose/nerdcommenter'
 Plug 'thinca/vim-quickrun'
 Plug 'thinca/vim-ref'
 Plug 'tpope/vim-fugitive'
@@ -61,14 +60,18 @@ if has('unix') && !has('mac')
 endif
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': 'UpdateRemotePlugins' }
-  Plug 'zchee/deoplete-jedi'
 else
-  Plug 'Shougo/neocomplete.vim'
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
 endif
+Plug 'zchee/deoplete-jedi'
 Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
 Plug 'jsfaint/gen_tags.vim'
 Plug 'thinca/vim-qfreplace'
 Plug 'ryanoasis/vim-devicons'
+Plug 'lambdalisue/gina.vim'
 
 " edit Utility -------------------------
 Plug 'Yggdroot/indentLine'
@@ -81,10 +84,12 @@ Plug '13k/vim-nginx'
 Plug 'mileszs/ack.vim'
 Plug 'chrisbra/Colorizer'
 Plug 'glidenote/memolist.vim'
+Plug 'fuenor/qfixgrep'
 Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'leafgarland/typescript-vim'
 
 " Syntax -------------------------------
 Plug 'hashivim/vim-terraform'
+Plug 'hdima/python-syntax'
 
 call plug#end()

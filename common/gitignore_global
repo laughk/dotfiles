@@ -126,3 +126,21 @@ $RECYCLE.BIN/
 *.lnk
 
 # }}}
+
+.ptconfig.toml
+
+static/src/common/**/*.js
+static/src/host/**/*.js
+static/src/cleaner/**/*.js
+static/src/common/**/*.js.map
+static/src/host/**/*.js.map
+static/src/cleaner/**/*.js.map
+
+vagrant/
+Vagrantfile
+.vagrant
+*.retry
+venv/
+*_suitebook_staging.sql
+*_suitebook_staging.tar.gz
+build-eb-python27-playbook/
