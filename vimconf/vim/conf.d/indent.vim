@@ -9,3 +9,7 @@ set tabstop=4 shiftwidth=2 softtabstop=0
 " 基本的には soft tab を使いたい
 set expandtab
 
+augroup GolangIndent
+  autocmd!
+  autocmd BufNewFile,BufRead *.go setlocal tabstop=4 shiftwidth=4 noexpandtab
+augroup END

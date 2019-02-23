@@ -1,6 +1,6 @@
 {
     "workbench.colorTheme": "Material-last",
-    "workbench.iconTheme": "simple-icons",
+    "workbench.iconTheme": "material-icon-theme",
     
     "editor.fontFamily": "Cica",
     "editor.fontSize": 18,
@@ -31,6 +31,8 @@
         "**/.vscode": true,
         "**/venv": true
     },
-    "window.zoomLevel": "10%",
-    "git.autofetch": true
+    "window.zoomLevel": 0,
+    "git.autofetch": true,
+
+    "go.gopath": "/home/laughk/.go"
 }

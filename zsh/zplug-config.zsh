@@ -21,11 +21,10 @@ zplug "stedolan/jq",      as:command, from:gh-r, frozen:1
 zplug "motemen/ghq",      as:command, from:gh-r, rename-to:"ghq"
 zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:"fzf", use:"*linux_amd64*"
 zplug "junegunn/fzf",     as:command, use:"bin/fzf-tmux"
-zplug "mackerelio/mkr",   as:command, from:gh-r, rename-to:"mkr", use:"*linux_amd64*"
 zplug "monochromegane/the_platinum_searcher", \
   as:command, from:gh-r, rename-to:"pt"
-zplug "motemen/2b0656be9e2acf32b35d", \
-  as:command, from:gist, use:"mkr-hosts-tsv"
+#zplug "motemen/2b0656be9e2acf32b35d", \
+#  as:command, from:gist, use:"mkr-hosts-tsv"
 #zplug "ReSTARTR/ec2-ls-hosts", as:command, from:gh-r, \
 #  rename-to:"ec2-ls-hosts", use:"*linux-amd64*"
 zplug "kohkimakimoto/essh", as:command, from:gh-r, rename-to:"essh", use:"*linux_amd64*"

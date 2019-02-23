@@ -1,0 +1,32 @@
+# black
+black=#282a2e
+hl_black=#373b41
+
+# red
+red=#a54242
+hl_red=#cc6666
+
+# green
+green=#8c9440
+hl_green=#b5bd68
+
+# yellow
+yellow=#de935f
+hl_yellow=#f0c674
+
+# blue
+blue=#5f819d
+hl_blue=#81a2be
+
+# magenta
+magenta=#85678f
+hl_magenta=#b294bb
+
+# cyan
+cyan=#5e8d87
+hl_cyan=#8abeb7
+
+# white
+white=#707880
+hl_white=#c5c8c6
+

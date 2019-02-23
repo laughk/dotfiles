@@ -48,6 +48,4 @@ command! Evp  edit $HOME/.vim/conf.d/plugins.vim
 command! Evv  edit $HOME/.vim/conf.d/view.vim
 
 " ファイル別のテンプレートの指定 ---------------------
-autocmd BufNewFile *.py 0r $HOME/.vim/template/python.py
-autocmd BufNewFile *.wsgi 0r $HOME/.vim/template/python.py
 autocmd BufNewFile *.pl 0r $HOME/.vim/template/perl.pl

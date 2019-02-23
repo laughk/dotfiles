@@ -126,7 +126,7 @@ interval = 5
 date =
 date-alt = "%d/%m/%Y"
 
-time = "%a %b %d, %I:%M %p "
+time = "%Y-%m-%d %H:%M:%S (%a)"
 
 time-alt = %H:%M
 
