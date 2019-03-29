@@ -66,6 +66,9 @@ Plug 'jsfaint/gen_tags.vim'
 Plug 'thinca/vim-qfreplace'
 Plug 'ryanoasis/vim-devicons'
 Plug 'lambdalisue/gina.vim'
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'lighttiger2505/deoplete-vim-lsp'
 
 if has('unix') && !has('mac')
   Plug 'vim-scripts/fcitx.vim'

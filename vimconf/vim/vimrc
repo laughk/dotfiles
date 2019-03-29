@@ -13,6 +13,7 @@ source ~/.vim/conf.d/move.vim         "| 移動設定 Move
 source ~/.vim/conf.d/encoding.vim     "| エンコーディング関連 Encoding
 source ~/.vim/conf.d/color.vim        "| カラー関連 Colors
 source ~/.vim/conf.d/edit.vim         "| 編集関連 Edit
+source ~/.vim/conf.d/golang.vim
 
 " プラグインごとの設定 を読み込む
 set runtimepath+=~/.vim/

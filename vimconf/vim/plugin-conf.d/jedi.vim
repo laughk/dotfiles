@@ -12,7 +12,7 @@ let g:jedi#smart_auto_mappings = 0
 let g:jedi#completions_enabled = 0
 " let g:jedi#goto_command = '<Leader>'
 "
-nnoremap <Leader>d  :call jedi#goto()<CR>
+"nnoremap <Leader>d  :call jedi#goto()<CR>
 
 " for ale
 " from https://qiita.com/lighttiger2505/items/9a36c5b4035dd469134c

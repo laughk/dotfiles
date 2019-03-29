@@ -39,6 +39,15 @@ bindkey '^x^g' anyframe-widget-cd-ghq-repository
 bindkey '^xb' anyframe-widget-insert-git-branch
 bindkey '^x^b' anyframe-widget-checkout-git-branch
 
+## GOPATH 配下のリポジトリに移動
+function __goto_go_directory() {
+  \ls -d ${GOPATH}/src/github.com/*/*(N-/) \
+    | fzf  \
+    | anyframe-action-execute cd --
+}
+zle -N __goto_go_directory
+bindkey '^x^p' __goto_go_directory
+
 
 ## ssh-add
 # -----------------------------------------------
