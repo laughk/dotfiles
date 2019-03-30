@@ -16,8 +16,3 @@ augroup END
 if ! &filetype=='markdown'
   autocmd BufWritePre * :%s/\s\+$//ge
 endif
-
-" 日時の自動入力
-"inoremap <expr> ,df strftime('%Y/%m/%d %H:%M:%S')
-"inoremap <expr> ,dd strftime('%Y/%m/%d')
-"inoremap <expr> ,dt strftime('%H:%M:%S')

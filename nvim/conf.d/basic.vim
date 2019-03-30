@@ -46,6 +46,3 @@ command! Evm  edit $HOME/.vim/conf.d/move.vim
 command! Eved edit $HOME/.vim/conf.d/edit.vim
 command! Evp  edit $HOME/.vim/conf.d/plugins.vim
 command! Evv  edit $HOME/.vim/conf.d/view.vim
-
-" ファイル別のテンプレートの指定 ---------------------
-autocmd BufNewFile *.pl 0r $HOME/.vim/template/perl.pl
