@@ -19,7 +19,6 @@ Plug 'vim-scripts/Align'
 
 " Color Scheme ------------------------
 Plug 'lsdr/monokai'
-" Plug 'altercation/vim-colors-solarized'
 Plug 'iCyMind/NeoSolarized'
 Plug 'junegunn/seoul256.vim'
 Plug 'AlessandroYorba/Alduin'
@@ -29,7 +28,6 @@ Plug 'fneu/breezy'
 Plug 'arcticicestudio/nord-vim'
 
 " Python -----------------------------
-"Plug 'scrooloose/syntastic'
 Plug 'w0rp/ale'
 Plug 'davidhalter/jedi-vim'
 Plug 'Vimjas/vim-python-pep8-indent', {'for': ['python', 'python3']}
@@ -38,8 +36,6 @@ Plug 'Vimjas/vim-python-pep8-indent', {'for': ['python', 'python3']}
 Plug 'diepm/vim-rest-console'
 
 " Normal Utility ----------------------
-Plug 'Shougo/neosnippet'
-Plug 'Shougo/neosnippet-snippets'
 Plug 'Shougo/vimproc', {'do': 'make'}
 Plug 'corntrace/bufexplorer'
 Plug 'ap/vim-buftabline'
@@ -55,8 +51,6 @@ Plug 'tyru/open-browser-github.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'mileszs/ack.vim'
 Plug 'LeafCage/yankround.vim'
 Plug 'mattn/vim-sqlfmt'
 Plug 'zchee/deoplete-jedi'
@@ -73,24 +67,15 @@ Plug 'lighttiger2505/deoplete-vim-lsp'
 if has('unix') && !has('mac')
   Plug 'vim-scripts/fcitx.vim'
 endif
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': 'UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
+Plug 'Shougo/deoplete.nvim', { 'do': 'UpdateRemotePlugins' }
 
 " edit Utility -------------------------
 Plug 'Yggdroot/indentLine'
 Plug 'elzr/vim-json'
-Plug 'pearofducks/ansible-vim'
 Plug 'vim-scripts/gitignore.vim'
 Plug 'junegunn/vim-emoji'
 Plug '13k/vim-nginx'
 Plug 'chrisbra/Colorizer'
-Plug 'glidenote/memolist.vim'
-Plug 'fuenor/qfixgrep'
 Plug 'leafgarland/typescript-vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'lambdalisue/lista.nvim'
@@ -100,5 +85,6 @@ Plug 'hashivim/vim-terraform'
 Plug 'hdima/python-syntax'
 Plug 'aklt/plantuml-syntax'
 Plug 'mechatroner/rainbow_csv'
+Plug 'pearofducks/ansible-vim'
 
 call plug#end()

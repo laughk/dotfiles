@@ -7,9 +7,9 @@ set encoding=utf-8
 set termencoding=utf-8
 
 " □とか○の文字があってもカーソル位置がずれないようにする
-if exists('&ambiwidth')
-  set ambiwidth=double
-endif
+" if exists('&ambiwidth')
+  " set ambiwidth=double
+" endif
 
 " ワイルドカードで表示するときに優先度を低くする拡張子
 set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc

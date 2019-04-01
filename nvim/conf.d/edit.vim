@@ -1,5 +1,14 @@
 " 編集に関する設定
 " -----------------------------------------------------------------
+set smartindent "| 新しい行を開始したときに、新しい行のインデントを現在行と同じ量にする。
+set cindent     "| Cプログラムファイルの自動インデントを始める
+
+" softtabstopはTabキー押し下げ時の挿入される空白の量，0の場合はtabstopと同じ，BSにも影響する
+set tabstop=4 shiftwidth=2 softtabstop=0
+
+" 基本的には soft tab を使いたい
+set expandtab
+
 " insertモードを抜けるとIMEオフ
 set noimdisable
 set iminsert=0 imsearch=0
