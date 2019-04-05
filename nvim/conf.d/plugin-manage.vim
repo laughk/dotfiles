@@ -63,11 +63,11 @@ Plug 'lambdalisue/gina.vim'
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'lighttiger2505/deoplete-vim-lsp'
+Plug 'Shougo/deoplete.nvim', { 'do': 'UpdateRemotePlugins' }
 
 if has('unix') && !has('mac')
   Plug 'vim-scripts/fcitx.vim'
 endif
-Plug 'Shougo/deoplete.nvim', { 'do': 'UpdateRemotePlugins' }
 
 " edit Utility -------------------------
 Plug 'Yggdroot/indentLine'
