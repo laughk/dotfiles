@@ -61,8 +61,7 @@ Plug 'thinca/vim-qfreplace'
 Plug 'ryanoasis/vim-devicons'
 Plug 'lambdalisue/gina.vim'
 Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'lighttiger2505/deoplete-vim-lsp'
+Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 Plug 'Shougo/deoplete.nvim', { 'do': 'UpdateRemotePlugins' }
 
 if has('unix') && !has('mac')
