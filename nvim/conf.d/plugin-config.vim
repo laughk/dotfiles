@@ -25,21 +25,20 @@ let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 command! -bang -nargs=* GGrep
   \ call fzf#vim#grep('git grep --line-number '.shellescape(<q-args>), 0, <bang>0)
 
-" Similarly, we can apply it to fzf#vim#grep. To use ripgrep instead of ag:
-command! -bang -nargs=* Rg
-  \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
-  \   <bang>0 ? fzf#vim#with_preview('up:60%')
-  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
-  \   <bang>0)
-
 " Similarly, we can apply it to fzf#vim#grep. To use pt instead of ag:
+" https://blog.fakiyer.com/entry/2017/08/06/222936
+function! s:find_git_root()
+  return system('git rev-parse --show-toplevel 2> /dev/null')[:-2]
+endfunction
 command! -bang -nargs=* Pt
   \ call fzf#vim#grep(
-  \   'pt --color --ignore="venv*/" '.shellescape(<q-args>), 1,
+  \   'pt --column --ignore=.git  --ignore="venv*/ --global-gitignore --color" '.shellescape(<q-args>), 1,
   \   <bang>0 ? fzf#vim#with_preview('up:60%')
-  \           : fzf#vim#with_preview('right:50%:wrap', '?'),
+  \           : fzf#vim#with_preview({ 'dir': s:find_git_root() }),
   \   <bang>0)
+
+command! -bang -nargs=? -complete=dir Files
+\ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
 
 
 nnoremap [fzf] <Nop>
