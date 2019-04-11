@@ -36,33 +36,27 @@ Plug 'Vimjas/vim-python-pep8-indent', {'for': ['python', 'python3']}
 Plug 'diepm/vim-rest-console'
 
 " Normal Utility ----------------------
-Plug 'Shougo/vimproc', {'do': 'make'}
-Plug 'corntrace/bufexplorer'
+Plug 'LeafCage/yankround.vim'
 Plug 'ap/vim-buftabline'
-Plug 'gregsexton/gitv'
-Plug 'idanarye/vim-merginal'
+Plug 'corntrace/bufexplorer'
+Plug 'itchyny/lightline.vim'
+Plug 'jsfaint/gen_tags.vim'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
 Plug 'kannokanno/previm'
+Plug 'lambdalisue/gina.vim'
+Plug 'mattn/vim-sqlfmt'
+Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+Plug 'ryanoasis/vim-devicons'
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree'
+Plug 'thinca/vim-qfreplace'
 Plug 'thinca/vim-quickrun'
 Plug 'thinca/vim-ref'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
-Plug 'tyru/open-browser.vim'
 Plug 'tyru/open-browser-github.vim'
-Plug 'itchyny/lightline.vim'
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
-Plug 'LeafCage/yankround.vim'
-Plug 'mattn/vim-sqlfmt'
-Plug 'zchee/deoplete-jedi'
-Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/nerdcommenter'
-Plug 'jsfaint/gen_tags.vim'
-Plug 'thinca/vim-qfreplace'
-Plug 'ryanoasis/vim-devicons'
-Plug 'lambdalisue/gina.vim'
-Plug 'prabirshrestha/async.vim'
-Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
-Plug 'Shougo/deoplete.nvim', { 'do': 'UpdateRemotePlugins' }
+Plug 'tyru/open-browser.vim'
 
 if has('unix') && !has('mac')
   Plug 'vim-scripts/fcitx.vim'
