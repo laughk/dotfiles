@@ -40,6 +40,9 @@ command! -bang -nargs=* Pt
 command! -bang -nargs=? -complete=dir Files
 \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
 
+command! -bang -nargs=? -complete=dir GitFiles
+\ call fzf#vim#gitfiles(<q-args>, fzf#vim#with_preview(), <bang>0)
+
 
 nnoremap [fzf] <Nop>
 nmap f [fzf]
