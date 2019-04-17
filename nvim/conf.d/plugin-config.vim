@@ -218,6 +218,29 @@ let NERDTreeIgnore = ['\.pyc$']
 map <Leader>n :NERDTreeToggle<CR>
 map <Leader>N :NERDTreeFind<CR>
 
+" Vaffle
+" ======================================
+let g:vaffle_auto_cd = 1
+let g:vaffle_open_selected_split_position = 'rightbelow'
+let g:vaffle_open_selected_vsplit_position = 'rightbelow'
+
+nnoremap vf :Vaffle<CR>
+
+function! s:customize_vaffle_mappings() abort
+  " Customize key mappings here
+  nmap <buffer> <Bslash> <Plug>(vaffle-open-root)
+  nmap <buffer> K        <Plug>(vaffle-mkdir)
+  nmap <buffer> N        <Plug>(vaffle-new-file)
+  nmap <buffer> so       <Plug>(vaffle-open-selected-split)
+  nmap <buffer> vo       <Plug>(vaffle-open-selected-vsplit)
+endfunction
+
+augroup vimrc_vaffle
+  autocmd!
+  autocmd FileType vaffle call s:customize_vaffle_mappings()
+augroup END
+
+
 "  plugin-conf.d/vim-buffergator.vim 
 " ===================================
 nnoremap gt :bnext<CR>
