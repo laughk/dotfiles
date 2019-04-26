@@ -39,10 +39,19 @@ bindkey '^x^g' anyframe-widget-cd-ghq-repository
 bindkey '^xb' anyframe-widget-insert-git-branch
 bindkey '^x^b' anyframe-widget-checkout-git-branch
 
+## git リポジトリ内のディレクトリ移動
+function __goto_dir_in_git_repository() {
+  git ls-files | awk -F/ '{$NF = ""; print $0}' | sed 's; ;/;g' | sort | uniq \
+    | $INCREMENTAL_COMMAND \
+    | anyframe-action-execute cd --
+}
+zle -N __goto_dir_in_git_repository
+bindkey '^x^f' __goto_dir_in_git_repository
+
 ## GOPATH 配下のリポジトリに移動
 function __goto_go_directory() {
   \ls -d ${GOPATH}/src/github.com/*/*(N-/) \
-    | fzf  \
+    | $INCREMENTAL_COMMAND  \
     | anyframe-action-execute cd --
 }
 zle -N __goto_go_directory
@@ -61,3 +70,19 @@ function __put_ssh_add() {
 
 zle -N __put_ssh_add
 bindkey '^x^i' __put_ssh_add
+
+# pet
+# ------------------------------------------------
+function prev() {
+  PREV=$(fc -lrn | head -n 1)
+  sh -c "pet new `printf %q "$PREV"`"
+}
+
+function pet-select() {
+  BUFFER=$(pet search --query "$LBUFFER")
+  CURSOR=$#BUFFER
+  zle redisplay
+}
+zle -N pet-select
+stty -ixon
+bindkey '^x^s' pet-select
