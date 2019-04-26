@@ -1,4 +1,8 @@
 {
+
+  "python.linting.pylintEnabled": false,
+  "python.linting.flake8Enabled": true,
+
   "suggest.triggerAfterInsertEnter": true,
   "suggest.timeout": 500,
   "languageserver": {

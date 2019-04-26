@@ -3,11 +3,6 @@
 " Alignを日本語環境で使用するための設定 -----------------------
 let g:Align_xstrlen = 3
 
-
-"  plugin-conf.d/css-color.vim 
-" ===================================
-let g:cssColorVimDoNotMessMyUpdatetime = 1
-
 "  plugin-conf.d/deoplete-jedi.vim 
 " ===================================
 let g:python_host_prog = '/usr/bin/python2'
@@ -240,13 +235,6 @@ augroup vimrc_vaffle
   autocmd FileType vaffle call s:customize_vaffle_mappings()
 augroup END
 
-
-"  plugin-conf.d/vim-buffergator.vim 
-" ===================================
-nnoremap gt :bnext<CR>
-nnoremap Gt :bprev<CR>
-
-let g:buftabline_numbers = 1
 
 "  plugin-conf.d/vim-emoji.vim 
 " ===================================

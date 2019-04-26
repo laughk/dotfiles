@@ -1,5 +1,6 @@
 " 色に関する設定
 " ------------------------------------------------------------------------
+colorscheme iceberg
 set termguicolors
 
 " ハイライト on
@@ -9,7 +10,6 @@ syntax enable
 let g:neosolarized_contrast = "high"
 let g:neosolarized_visibility = "high"
 
-colorscheme nova
 if has('gui_running')
   set background=light
 else

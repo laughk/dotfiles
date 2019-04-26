@@ -5,6 +5,7 @@ set scrolloff=5                 "| スクロール時の余白確保
 set textwidth=0                 "| 一行に長い文章を書いていても自動折り返しをしない
 set nobackup                    "| バックアップ取らない
 set autoread                    "| 他で書き換えられたら自動で読み直す
+set autochdir                   "| カレントバッファのファイルがあるディレクトリに自動で移動する
 set noswapfile                  "| スワップファイル作らない
 set hidden                      "| 編集中でも他のファイルを開けるようにする
 set backspace=indent,eol,start  "| バックスペースでなんでも消せるように
@@ -24,6 +25,10 @@ set wildmode=list:full          "| リスト表示，最長マッチ
 set history=1000                "| コマンド・検索パターンの履歴数
 set complete+=k                 "| 補完に辞書ファイル追加
 
+" Buffer の移動ショートカット
+nnoremap bt :bnext<CR>
+nnoremap Bt :bprev<CR>
+
 if has('mac')
   set clipboard+=unnamedplus
 else
@@ -37,11 +42,8 @@ command! Rv source $MYVIMRC
 " それぞれの設定ファイル編集へのショートカット
 command! Evb  edit $HOME/.config/nvim/conf.d/basic.vim
 command! Evcl edit $HOME/.config/nvim/conf.d/color.vim
-command! Epg  edit $HOME/.config/nvim/conf.d/plug.vim
+command! Epm  edit $HOME/.config/nvim/conf.d/plugin-manage.vim
+command! Epc  edit $HOME/.config/nvim/conf.d/plugin-config.vim
 command! Even edit $HOME/.config/nvim/conf.d/encoding.vim
-command! Evse edit $HOME/.config/nvim/conf.d/search.vim
-command! Evi  edit $HOME/.config/nvim/conf.d/indent.vim
-command! Evm  edit $HOME/.config/nvim/conf.d/move.vim
 command! Eved edit $HOME/.config/nvim/conf.d/edit.vim
-command! Evp  edit $HOME/.config/nvim/conf.d/plugins.vim
 command! Evv  edit $HOME/.config/nvim/conf.d/view.vim

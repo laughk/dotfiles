@@ -26,6 +26,7 @@ Plug 'davidklsn/vim-sialoquent'
 Plug 'trevordmiller/nova-vim'
 Plug 'fneu/breezy'
 Plug 'arcticicestudio/nord-vim'
+Plug 'cocopon/iceberg.vim'
 
 " Python -----------------------------
 Plug 'w0rp/ale'
@@ -37,7 +38,7 @@ Plug 'diepm/vim-rest-console'
 
 " Normal Utility ----------------------
 Plug 'LeafCage/yankround.vim'
-Plug 'ap/vim-buftabline'
+Plug 'ap/vim-css-color'
 Plug 'cocopon/vaffle.vim'
 Plug 'corntrace/bufexplorer'
 Plug 'itchyny/lightline.vim'
