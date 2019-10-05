@@ -24,3 +24,13 @@ augroup END
         " nmap <silent> K  :LspHover<CR>
         " nmap <silent> <Leader>s :LspDocumentSymbol<CR>
 " endif
+"
+
+function! s:cd_git_root_dir()
+    if(system('git rev-parse --is-inside-work-tree') == "true\n")
+        return ':cd ' . system('git rev-parse --show-cdup') . '\<CR>'
+    else
+        echoerr '!!!current directory is outside git working tree!!!'
+    endif
+endfunction
+nnoremap  <expr><Leader>G <SID>cd_git_root_dir()

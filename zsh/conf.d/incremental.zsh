@@ -79,9 +79,9 @@ function prev() {
 }
 
 function pet-select() {
-  BUFFER=$(pet search --query "$LBUFFER")
-  CURSOR=$#BUFFER
-  zle redisplay
+  pet search --query "$LBUFFER" \
+    | $INCREMENTAL_COMMAND \
+    | anyframe-action-execute
 }
 zle -N pet-select
 stty -ixon

@@ -18,7 +18,12 @@ let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 "" Command for git grep
 " - fzf#vim#grep(command, with_column, [options], [fullscreen])
 command! -bang -nargs=* GGrep
-  \ call fzf#vim#grep('git grep --line-number '.shellescape(<q-args>), 0, <bang>0)
+  \ call fzf#vim#grep(
+  \   'git grep --line-number '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview({ 'dir': s:find_git_root() }),
+  \   <bang>0)
+
 
 " Similarly, we can apply it to fzf#vim#grep. To use pt instead of ag:
 " https://blog.fakiyer.com/entry/2017/08/06/222936
@@ -203,16 +208,6 @@ let NERDSpaceDelims = 1
 "未対応ファイルタイプのエラーメッセージを表示しない
 let NERDShutUp=1
 
-"  plugin-conf.d/nerdtess.vim 
-" ===================================
-let g:NERDTreeDirArrowExpandable = '▸'
-let g:NERDTreeDirArrowCollapsible = '▾'
-
-let NERDTreeIgnore = ['\.pyc$']
-
-map <Leader>n :NERDTreeToggle<CR>
-map <Leader>N :NERDTreeFind<CR>
-
 " Vaffle
 " ======================================
 let g:vaffle_auto_cd = 1
@@ -348,3 +343,13 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+
+" vim rest console
+" =================================
+let s:vrc_auto_format_response_patterns = {
+  \ 'json': 'python -m json.tool',
+\}
+let g:vrc_output_buffer_name = '__VRC_OUTPUT.json'
+let g:vrc_curl_opts = {
+  \ '-i':''
+\}

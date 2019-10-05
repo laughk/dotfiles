@@ -48,7 +48,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'kannokanno/previm'
 Plug 'lambdalisue/gina.vim'
 Plug 'mattn/vim-sqlfmt'
-Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ryanoasis/vim-devicons'
 Plug 'scrooloose/nerdcommenter'
 Plug 'thinca/vim-qfreplace'
@@ -64,7 +64,7 @@ if has('unix') && !has('mac')
 endif
 
 " edit Utility -------------------------
-Plug 'Yggdroot/indentLine'
+Plug 'nathanaelkane/vim-indent-guides'
 Plug 'elzr/vim-json'
 Plug 'vim-scripts/gitignore.vim'
 Plug 'junegunn/vim-emoji'
@@ -80,5 +80,6 @@ Plug 'hdima/python-syntax'
 Plug 'aklt/plantuml-syntax'
 Plug 'mechatroner/rainbow_csv'
 Plug 'pearofducks/ansible-vim'
+Plug 'posva/vim-vue'
 
 call plug#end()

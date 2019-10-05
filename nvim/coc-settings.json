@@ -2,6 +2,8 @@
 
   "python.linting.pylintEnabled": false,
   "python.linting.flake8Enabled": true,
+  "python.jediEnabled": false,
+  "python.linting.flake8Path": "/usr/bin/flake8",
 
   "suggest.triggerAfterInsertEnter": true,
   "suggest.timeout": 500,
@@ -10,6 +12,20 @@
       "command": "gopls",
       "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
       "filetypes": ["go"]
+    },
+    "terraform": {
+      "command": "terraform-lsp",
+      "filetypes": ["terraform"],
+      "initializationOptions": {}
     }
+  },
+
+  "yaml.schemas": {
+    "http://json.schemastore.org/swagger-2.0": [
+      "*swagger.yaml",
+      "*swagger.yml",
+      "*swagger/src/**/*.yaml",
+      "*swagger/src/**/*.yml"
+    ]
   }
 }

@@ -9,6 +9,7 @@ source ~/.config/nvim/conf.d/encoding.vim     "| エンコーディング関連 
 source ~/.config/nvim/conf.d/color.vim        "| カラー関連 Colors
 source ~/.config/nvim/conf.d/edit.vim         "| 編集関連 Edit
 source ~/.config/nvim/conf.d/develop.vim
+source ~/.config/nvim/conf.d/filetypes.vim
 source ~/.config/nvim/conf.d/plugin-config.vim  "| Plugin のための設定
 
 " 特定の環境固有の設定をよみこむ
