@@ -1,6 +1,3 @@
-__check_exist_and_source /usr/share/git/completion/git-completion.zsh
-__check_exist_and_source /usr/bin/aws_zsh_completer.sh
-
 # pip zsh completion start
 function _pip_completion {
   local words cword
