@@ -23,7 +23,12 @@ function __check_exist_and_source() {
 
 # Main
 # ------------------------------------------
-source ${HOME}/.dotfiles/zsh/zplug-config.zsh
+### Added by Zplugin's installer
+source "$HOME/.zplugin/bin/zplugin.zsh"
+autoload -Uz _zplugin
+(( ${+_comps} )) && _comps[zplugin]=_zplugin
+### End of Zplugin installer's chunk
+source ${HOME}/.dotfiles/zsh/zplugin-conf.zsh
 
 for conf in ${ZSH_INCLDE_CONF} ; do
   __check_exist_and_source ${ZSH_CONFIG_ROOT}/${conf}.zsh
