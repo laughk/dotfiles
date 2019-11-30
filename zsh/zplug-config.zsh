@@ -28,6 +28,8 @@ zplug "monochromegane/the_platinum_searcher", \
 #zplug "ReSTARTR/ec2-ls-hosts", as:command, from:gh-r, \
 #  rename-to:"ec2-ls-hosts", use:"*linux-amd64*"
 zplug "kohkimakimoto/essh", as:command, from:gh-r, rename-to:"essh", use:"*linux_amd64*"
+zplug "sachaos/note", as:command, from:gh-r, rename-to:"note", use:"*note_linux_amd64*"
+zplug "ochinchina/supervisord", as:command, from:gh-r, rename-to:"go-supervisord", use:"*linux_amd64*"
 
 # theme
 # --------------------------------------------------------------------

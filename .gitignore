@@ -2,3 +2,4 @@ zsh/conf.d/secret.zsh
 .*.un~
 .netrwhist
 .*-rplugin~
+nvim/plugged/
