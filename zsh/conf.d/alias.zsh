@@ -57,3 +57,6 @@ function _pyactivate(){
 }
 alias pyactive=_pyactivate
 
+[[ -n $TMUX ]] && {
+  alias fzf=fzf-tmux 
+}

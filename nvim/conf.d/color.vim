@@ -1,6 +1,6 @@
 " 色に関する設定
 " ------------------------------------------------------------------------
-colorscheme iceberg
+colorscheme nord
 set termguicolors
 
 " ハイライト on

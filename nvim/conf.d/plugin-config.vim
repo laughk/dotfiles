@@ -136,7 +136,7 @@ let g:ale_python_flake8_options = '-m flake8'
 "  plugin-conf.d/lightline.vim 
 " ===================================
 let g:lightline = {
-    \ 'colorscheme': 'sialoquent',
+    \ 'colorscheme': 'dogrun',
     \ 'active': {
     \   'left': [ ['mode', 'paste' ],
     \             [ 'cocstatus', 'fugitive', 'virtualenv', 'filename', 'readonly' ],

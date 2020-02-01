@@ -27,6 +27,7 @@ Plug 'trevordmiller/nova-vim'
 Plug 'fneu/breezy'
 Plug 'arcticicestudio/nord-vim'
 Plug 'cocopon/iceberg.vim'
+Plug 'wadackel/vim-dogrun'
 
 " Python -----------------------------
 Plug 'w0rp/ale'
@@ -48,6 +49,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'kannokanno/previm'
 Plug 'lambdalisue/gina.vim'
 Plug 'mattn/vim-sqlfmt'
+Plug 'mattn/vim-goimports'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ryanoasis/vim-devicons'
 Plug 'scrooloose/nerdcommenter'
