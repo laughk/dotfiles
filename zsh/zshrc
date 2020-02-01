@@ -1,5 +1,14 @@
 #! zsh
 
+# Main
+# ------------------------------------------
+### Added by Zplugin's installer
+source "$HOME/.zinit/bin/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+### End of Zplugin installer's chunk
+source ${HOME}/.dotfiles/zsh/zinit-conf.zsh
+
 # Configure
 # -----------------------------
 ZSH_CONFIG_ROOT="${HOME}/.dotfiles/zsh/conf.d"
@@ -20,19 +29,15 @@ function __check_exist_and_source() {
 
 }
 
-
-# Main
-# ------------------------------------------
-### Added by Zplugin's installer
-source "$HOME/.zplugin/bin/zplugin.zsh"
-autoload -Uz _zplugin
-(( ${+_comps} )) && _comps[zplugin]=_zplugin
-### End of Zplugin installer's chunk
-source ${HOME}/.dotfiles/zsh/zplugin-conf.zsh
-
 for conf in ${ZSH_INCLDE_CONF} ; do
   __check_exist_and_source ${ZSH_CONFIG_ROOT}/${conf}.zsh
 done
 
-
 export PATH="$HOME/.sc/bin:$PATH"
+
+# The next line updates PATH for the Google Cloud SDK.
+#if [ -f '/home/laughk/.local/src/google-cloud-sdk/path.zsh.inc' ]; then source '/home/laughk/.local/src/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+# if [ -f '/home/laughk/.local/src/google-cloud-sdk/completion.zsh.inc' ]; then source '/home/laughk/.local/src/google-cloud-sdk/completion.zsh.inc'; fi
+
