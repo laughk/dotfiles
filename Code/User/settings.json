@@ -1,38 +1,97 @@
 {
-    "workbench.colorTheme": "Material-last",
+    "[go]": {
+        "editor.snippetSuggestions": "none",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": true
+        }
+    },
+    "gopls": {
+        "usePlaceholders": true, // add parameter placeholders when completing a function
+
+        // Experimental settings
+        "completeUnimported": true, // autocomplete unimported packages
+        "deepCompletion": true     // enable deep completion
+    },
+    "go.languageServerFlags": [
+        "-rpc.trace", // for more detailed debug logging
+        "serve",
+        "--debug=localhost:6060", // to investigate memory usage, see profiles 
+    ],
+    "go.languageServerExperimentalFeatures": {
+         "format": true,
+         "autoComplete": true,
+         "rename": true,
+         "goToDefinition": true,
+         "hover": true,
+         "signatureHelp": true,
+         "goToTypeDefinition": true,
+         "goToImplementation": true,
+         "documentSymbols": true,
+         "workspaceSymbols": true,
+         "findReferences": true
+    },
+    "go.toolsEnvVars": {"GO111MODULE": "on"},
+    "files.eol": "\n", // formatting only supports LF line endings
+    "editor.fontFamily": "'Cica', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+    "debug.console.fontSize": 18,
+    "terminal.integrated.fontFamily": "'Cica', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
     "workbench.iconTheme": "material-icon-theme",
-    
-    "editor.fontFamily": "Cica",
-    "editor.fontSize": 18,
-    "terminal.integrated.fontSize": 18,
-
-    "python.linting.pylintEnabled": false,
-    "python.linting.flake8Enabled": true,
-
-    "vim.useSystemClipboard": true,
-
-    "extensions.ignoreRecommendations": false,
-
-    // see. 
-    // https://stackoverflow.com/questions/38713405/how-to-config-vscode-to-open-files-always-in-a-new-tab
-    "workbench.editor.enablePreview": false,
-    "workbench.editor.enablePreviewFromQuickOpen": false,
-
+    "workbench.colorTheme": "One Monokai",
     "files.exclude": {
-        "**/.git": true,
-        "**/.svn": true,
-        "**/.hg": true,
-        "**/CVS": true,
-        "**/.DS_Store": true,
-        "**/*.pyc": true,
-        "**/__pycache__": true,
-        "**/.idea": true,
-        "**/.vagrant": true,
-        "**/.vscode": true,
         "**/venv": true
     },
-    "window.zoomLevel": 0,
+    "terminal.integrated.fontSize": 17,
+    "editor.stablePeek": true,
+    "workbench.editor.enablePreview": false,
+    "diffEditor.renderSideBySide": true,
+    "open-in-browser.default": "xdg-open",
     "git.autofetch": true,
+    "terminal.external.linuxExec": "alacritty",
 
-    "go.gopath": "/home/laughk/.go"
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": true,
+    "python.terminal.activateEnvInCurrentTerminal": true,
+    "python.venvFolders": [
+        "**/venv"
+    ],
+    "vim.useSystemClipboard": true,
+    "vim.easymotionMarkerFontFamily": "Cica",
+    "vim.normalModeKeyBindings": [
+        {"before": ["/"], "commands": ["actions.find"]}
+    ],
+    "vim.leader": ",",
+    "window.zoomLevel": 1,
+    "rest-client.fontSize": 18,
+    "python.venvPath": "~/.venvs",
+    "editor.renderWhitespace": "all",
+    "editor.renderControlCharacters": true,
+    "editor.fontSize": 16,
+    "docker.dockerComposeBuild": false,
+    "taskExplorer.enableWorkspace": false,
+    "taskExplorer.enableTsc": false,
+    "taskExplorer.enableSideBar": true,
+    "taskExplorer.enableRuby": false,
+    "taskExplorer.enableNsis": false,
+    "taskExplorer.enablePowershell": false,
+    "taskExplorer.enablePerl": false,
+    "taskExplorer.enablePython": false,
+    "taskExplorer.enableGulp": false,
+    "taskExplorer.enableGrunt": false,
+    "taskExplorer.enableGradle": false,
+    "taskExplorer.enableBatch": false,
+    "taskExplorer.enableBash": false,
+    "taskExplorer.enableAppPublisher": false,
+    "taskExplorer.enableAnt": false,
+    "taskExplorer.enableAnsiconForAnt": false,
+    "taskExplorer.pathToMake": "$HOME/.bin/aia-make.sh",
+    "go.useLanguageServer": true,
+    "opn-in-browser.default": "Chromium",
+    "breadcrumbs.enabled": true,
+    "window.titleBarStyle": "custom",
+    "timeline.showView": true,
+    "diffEditor.ignoreTrimWhitespace": true,
+    "typescript.implementationsCodeLens.enabled": true,
+    "terminal.integrated.allowChords": false
 }
