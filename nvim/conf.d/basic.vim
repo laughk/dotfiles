@@ -35,6 +35,10 @@ else
   set clipboard=unnamedplus
 endif
 
+if has('win32') || has('win64')
+  set shell=cmd
+endif
+
 " Ev/Rvで編集と反映.vim
 command! Ev edit $MYVIMRC
 command! Rv source $MYVIMRC
