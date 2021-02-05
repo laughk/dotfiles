@@ -7,3 +7,6 @@ nvim/plugged/
 # 内包しないように
 nvim/plugin/gtags-cscope.vim
 nvim/plugin/gtags.vim
+
+PowerShell/Modules/
+PowerShell/Scripts/
