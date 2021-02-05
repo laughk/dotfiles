@@ -10,6 +10,13 @@ if which nvim > /dev/null 2>&1 ; then
 elif which nvim > /dev/null 2>&1 ; then
   export EDITOR=vim
 fi
+
+# WSL2 環境向け
+if uname -a | grep -q microsoft ; then
+  export LESSCHARSET=utf-8  # git コマンドの文字化け対策
+fi
+
+
 # EDITOR の値が vim の場合、tmux 内で Vim Mode で起するのでその対策
 # see. http://web-salad.hateblo.jp/entry/2014/12/07/090000
 bindkey -e
