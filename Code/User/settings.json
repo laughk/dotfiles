@@ -57,9 +57,11 @@
         "**/venv"
     ],
     "vim.useSystemClipboard": true,
-    "vim.easymotionMarkerFontFamily": "Cica",
     "vim.normalModeKeyBindings": [
-        {"before": ["/"], "commands": ["actions.find"]}
+        // / でVS Codeの検索機能を使う
+        {"before": ["/"], "commands": ["actions.find"]},
+        // パネルの開閉
+        { "before": ["C-j"], "commands": [ "workbench.action.togglePanel" ] },
     ],
     "vim.leader": ",",
     "window.zoomLevel": 1,
@@ -93,5 +95,15 @@
     "timeline.showView": true,
     "diffEditor.ignoreTrimWhitespace": true,
     "typescript.implementationsCodeLens.enabled": true,
-    "terminal.integrated.allowChords": false
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "python.jediEnabled": false,
+    "python.envFile": "${workspaceFolder}/venv",
+    "workbench.editorAssociations": [
+        {
+            "viewType": "jupyter.notebook.ipynb",
+            "filenamePattern": "*.ipynb"
+        }
+    ],
+    "python.languageServer": "Microsoft",
 }
