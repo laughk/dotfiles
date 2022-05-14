@@ -1,5 +1,5 @@
 Import-Module posh-git
-Import-Module oh-my-posh
+# Import-Module oh-my-posh
 Import-Module ZLocation
 Import-Module posh-docker
 Import-Module AWSCompleter
@@ -7,6 +7,12 @@ Import-Module AWS.Tools.Common
 
 # environment
 $env:VIRTUAL_ENV_DISABLE_PROMPT = 1
+$env:Path += ";C:\Users\laughk\.local\bin"
+
+# Alias
+del alias:diff -Force
+Set-Alias diff $env:USERPROFILE\scoop\apps\git\current\usr\bin\diff.exe
+
 
 # prompt
 # --------------------------------------
@@ -26,6 +32,10 @@ function prompt {
         }
         $prompt += "`e[33m]`e[0m"
 
+    }
+
+    if (Test-Path -PathType Leaf .terraform\environment) {
+        $prompt += "`e[38;5;104m[workspace::" + $(cat .terraform\environment) + "]`e[0m"
     }
 
     if (!($env:VIRTUAL_ENV -eq $null)) {
@@ -89,3 +99,9 @@ Set-PSReadLineKeyHandler -Chord 'Ctrl+]' -ScriptBlock { gf; [Microsoft.PowerShel
 Set-PSReadLineKeyHandler -Chord 'Ctrl+;' -ScriptBlock  { Invoke-FuzzyZLocation; [Microsoft.PowerShell.PSConsoleReadLine]::AcceptLine() }
 Set-PSReadLineKeyHandler -Chord 'Ctrl+r' -ScriptBlock  { historyFzf }
 Set-PSReadLineKeyHandler -Chord 'Ctrl+?' -ScriptBlock  { petSearch }
+Set-PSReadLineKeyHandler -Chord 'Ctrl+U' -ScriptBlock  { searchDBUsers }
+
+# ~\.pwsh_config.ps1 がある場合読み込む
+if (Test-Path -PathType Leaf ($env:USERPROFILE + "\.pwsh_config.ps1")) {
+  . ($env:USERPROFILE + "\.pwsh_config.ps1")
+}
