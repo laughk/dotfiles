@@ -28,6 +28,9 @@ zinit load junegunn/fzf
 zinit ice as"program" from"github" pick"bin/fzf-tmux"
 zinit load junegunn/fzf
 
+zinit ice as"program" from"gh-r" bpick"*linux_amd64*" pick"*/ecschedule"
+zinit load Songmu/ecschedule
+
 zinit ice as"program" from"gh-r" bpick"*-lnx.zip" pick"procs"
 zinit load  dalance/procs
 
