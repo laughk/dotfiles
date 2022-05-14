@@ -1,1 +1,0 @@
-/usr/share/vim/vimfiles/plugin/gtags.vim

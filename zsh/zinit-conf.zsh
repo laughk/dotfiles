@@ -25,8 +25,17 @@ zinit load junegunn/fzf
 zinit ice as"program" from"github" pick"bin/fzf-tmux"
 zinit load junegunn/fzf
 
+zinit ice as"program" from"gh-r" bpick"*linux_amd64*" pick"*/ecschedule"
+zinit load Songmu/ecschedule
+
 zinit ice as"program" from"gh-r" bpick"*-lnx.zip" pick"procs"
 zinit load  dalance/procs
+
+# For WSL2 clipboard ( Win11 ではなぜか動いてくれないので一旦コメントアウト)
+#if uname -a | grep -q microsoft ; then
+#  zinit ice as"program" from"gh-r" bpick"*x64*" pick"win32yank.exe"
+#  zinit load equalsraf/win32yank 
+#fi
 
 # Theme
 # ----------------------------------------

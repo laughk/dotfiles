@@ -6,13 +6,13 @@ if has('vim_starting')
   set rtp+=~/.config/nvim/plugged/vim-plug
   if !isdirectory(expand('~/.config/nvim/plugged/vim-plug'))
     echo 'install vim-plug...'
-    call system('mkdir -vp ~/.config/nvim/plugged/vim-plug')
-    call system('git clone https://github.com/junegunn/vim-plug.git ~/.config/nvim/plugged/vim-plug/autoload')
+    call mkdir(expand('~/.config/nvim/plugged'), 'p')
+    call system('git clone https://github.com/junegunn/vim-plug.git '. $HOME .'/.config/nvim/plugged/vim-plug/autoload')
   end
 endif
 
-call plug#begin('~/.vim/plugged')
-Plug 'junegunn/vim-plug', {'dir': '~/.vim/plugged/vim-plug/autoload'}
+call plug#begin('~/.config/nvim/plugged')
+Plug 'junegunn/vim-plug', {'dir': '~/.config/nvim/plugged/vim-plug/autoload'}
 
 " Text Format -------------------------
 Plug 'vim-scripts/Align'
@@ -61,7 +61,7 @@ Plug 'tpope/vim-surround'
 Plug 'tyru/open-browser-github.vim'
 Plug 'tyru/open-browser.vim'
 
-if has('unix') && !has('mac')
+if has('unix') && !has('mac') && !has('WSL')
   Plug 'vim-scripts/fcitx.vim'
 endif
 
