@@ -61,7 +61,7 @@ Plug 'tpope/vim-surround'
 Plug 'tyru/open-browser-github.vim'
 Plug 'tyru/open-browser.vim'
 
-if has('unix') && !has('mac')
+if has('unix') && !has('mac') && !has('WSL')
   Plug 'vim-scripts/fcitx.vim'
 endif
 
