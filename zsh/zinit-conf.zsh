@@ -19,9 +19,6 @@ zinit load monochromegane/the_platinum_searcher
 zinit ice as"program" from"gh-r" bpick"*linux_amd64*" pick"*/trdsql"
 zinit load noborus/trdsql
 
-zinit ice as"program" from"gh-r" bpick"*linux_amd64*" pick"*/ecschedule"
-zinit load Songmu/ecschedule
-
 zinit ice as"program" from"gh-r" bpick"*linux_amd64*" pick"*/fzf"
 zinit load junegunn/fzf
 
@@ -34,11 +31,11 @@ zinit load Songmu/ecschedule
 zinit ice as"program" from"gh-r" bpick"*-lnx.zip" pick"procs"
 zinit load  dalance/procs
 
-# For WSL2 clipboard
-if uname -a | grep -q microsoft ; then
-  zinit ice as"program" from"gh-r" bpick"*x64*" pick"win32yank.exe"
-  zinit load equalsraf/win32yank 
-fi
+# For WSL2 clipboard ( Win11 ではなぜか動いてくれないので一旦コメントアウト)
+#if uname -a | grep -q microsoft ; then
+#  zinit ice as"program" from"gh-r" bpick"*x64*" pick"win32yank.exe"
+#  zinit load equalsraf/win32yank 
+#fi
 
 # Theme
 # ----------------------------------------
