@@ -13,17 +13,20 @@ zinit load stedolan/jq
 zinit ice as"program" from"gh-r" bpick"*linux_amd64*" pick"*/ghq"
 zinit load x-motemen/ghq
 
-zinit ice as"program" from"gh-r" bpick"*linux_amd64*"
-zinit load junegunn/fzf-bin 
-
 zinit ice as"program" from"gh-r" bpick"*linux_amd64*" pick"*/pt"
 zinit load monochromegane/the_platinum_searcher
 
 zinit ice as"program" from"gh-r" bpick"*linux_amd64*" pick"*/trdsql"
 zinit load noborus/trdsql
 
+zinit ice as"program" from"gh-r" bpick"*linux_amd64*" pick"*/fzf"
+zinit load junegunn/fzf
+
 zinit ice as"program" from"github" pick"bin/fzf-tmux"
-zinit load junegunn/fzf 
+zinit load junegunn/fzf
+
+zinit ice as"program" from"gh-r" bpick"*-lnx.zip" pick"procs"
+zinit load  dalance/procs
 
 # Theme
 # ----------------------------------------

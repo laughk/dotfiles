@@ -3,7 +3,7 @@
 # Main
 # ------------------------------------------
 ### Added by Zplugin's installer
-source "$HOME/.zinit/bin/zinit.zsh"
+source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 ### End of Zplugin installer's chunk
@@ -25,7 +25,7 @@ ZSH_INCLDE_CONF=(
 function __check_exist_and_source() {
 
   local target=$1
-  [[ -f ${target}  ]] && source ${target}
+  [[ -f ${target} ]] && source ${target}
 
 }
 
