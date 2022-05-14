@@ -86,3 +86,8 @@ function pet-select() {
 zle -N pet-select
 stty -ixon
 bindkey '^x^s' pet-select
+
+## VENV
+# --------------------------------------------------
+bindkey '^x^a' __venv_fzf_active_fzf
+bindkey '^x^v' __venv_fzf_mk_venv_fzf
