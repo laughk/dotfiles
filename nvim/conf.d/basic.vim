@@ -24,6 +24,7 @@ set wildmenu                    "| コマンド補完を強化
 set wildmode=list:full          "| リスト表示，最長マッチ
 set history=1000                "| コマンド・検索パターンの履歴数
 set complete+=k                 "| 補完に辞書ファイル追加
+let g:vim_json_syntax_conceal = 0 "| json のダブルクオートの非表示昨日を無効化
 
 " Buffer の移動ショートカット
 nnoremap bt :bnext<CR>

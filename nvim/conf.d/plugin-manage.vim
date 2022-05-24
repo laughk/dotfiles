@@ -16,49 +16,40 @@ Plug 'junegunn/vim-plug', {'dir': '~/.config/nvim/plugged/vim-plug/autoload'}
 
 " Text Format -------------------------
 Plug 'vim-scripts/Align'
-
-" Color Scheme ------------------------
-Plug 'lsdr/monokai'
-Plug 'iCyMind/NeoSolarized'
-Plug 'junegunn/seoul256.vim'
-Plug 'AlessandroYorba/Alduin'
-Plug 'davidklsn/vim-sialoquent'
-Plug 'trevordmiller/nova-vim'
-Plug 'fneu/breezy'
-Plug 'arcticicestudio/nord-vim'
-Plug 'cocopon/iceberg.vim'
-Plug 'wadackel/vim-dogrun'
-
-" Python -----------------------------
-Plug 'w0rp/ale'
-Plug 'davidhalter/jedi-vim'
-Plug 'Vimjas/vim-python-pep8-indent', {'for': ['python', 'python3']}
-
-" Develop Tool ------------------------
-Plug 'diepm/vim-rest-console'
-
-" Normal Utility ----------------------
-Plug 'LeafCage/yankround.vim'
-Plug 'ap/vim-css-color'
-Plug 'cocopon/vaffle.vim'
-Plug 'corntrace/bufexplorer'
-Plug 'itchyny/lightline.vim'
-Plug 'jsfaint/gen_tags.vim'
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
-Plug 'kannokanno/previm'
-Plug 'lambdalisue/gina.vim'
+Plug 'tpope/vim-surround'
 Plug 'mattn/vim-sqlfmt'
 Plug 'mattn/vim-goimports'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'ryanoasis/vim-devicons'
-Plug 'scrooloose/nerdcommenter'
-Plug 'thinca/vim-qfreplace'
-Plug 'thinca/vim-quickrun'
-Plug 'thinca/vim-ref'
+
+" Color Scheme ------------------------
+" Plug 'lsdr/monokai'
+" Plug 'iCyMind/NeoSolarized'
+" Plug 'junegunn/seoul256.vim'
+" Plug 'AlessandroYorba/Alduin'
+" Plug 'davidklsn/vim-sialoquent'
+" Plug 'trevordmiller/nova-vim'
+" Plug 'fneu/breezy'
+Plug 'arcticicestudio/nord-vim'
+" Plug 'cocopon/iceberg.vim'
+Plug 'wadackel/vim-dogrun'
+
+" Develop Tool ------------------------
+Plug 'lambdalisue/gina.vim'  " git client for vim
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-surround'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'w0rp/ale'
+Plug 'Vimjas/vim-python-pep8-indent', {'for': ['python', 'python3']}
+Plug 'jsfaint/gen_tags.vim'
+Plug 'thinca/vim-quickrun'
 Plug 'tyru/open-browser-github.vim'
+Plug 'scrooloose/nerdcommenter'
+Plug 'airblade/vim-gitgutter'
+
+" Normal Utility ----------------------
+Plug 'cocopon/vaffle.vim'    " filer for vim
+Plug 'itchyny/lightline.vim'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'thinca/vim-qfreplace'
 Plug 'tyru/open-browser.vim'
 
 if has('unix') && !has('mac') && !has('WSL')
@@ -66,22 +57,21 @@ if has('unix') && !has('mac') && !has('WSL')
 endif
 
 " edit Utility -------------------------
-Plug 'nathanaelkane/vim-indent-guides'
-Plug 'elzr/vim-json'
-Plug 'vim-scripts/gitignore.vim'
-Plug 'junegunn/vim-emoji'
-Plug '13k/vim-nginx'
 Plug 'chrisbra/Colorizer'
-Plug 'leafgarland/typescript-vim'
-Plug 'airblade/vim-gitgutter'
-Plug 'lambdalisue/lista.nvim'
+Plug 'junegunn/vim-emoji'
+Plug 'kannokanno/previm'
+Plug 'nathanaelkane/vim-indent-guides'
 
 " Syntax -------------------------------
+Plug 'aklt/plantuml-syntax'
+Plug 'ap/vim-css-color'
 Plug 'hashivim/vim-terraform'
 Plug 'hdima/python-syntax'
-Plug 'aklt/plantuml-syntax'
+Plug 'leafgarland/typescript-vim'
 Plug 'mechatroner/rainbow_csv'
 Plug 'pearofducks/ansible-vim'
 Plug 'posva/vim-vue'
+Plug 'ryanoasis/vim-devicons'
+Plug 'vim-scripts/gitignore.vim'
 
 call plug#end()

@@ -2,8 +2,6 @@
 
   "python.linting.pylintEnabled": false,
   "python.linting.flake8Enabled": true,
-  "python.jediEnabled": false,
-  "python.linting.flake8Path": "/usr/bin/flake8",
 
   "suggest.triggerAfterInsertEnter": true,
   "suggest.timeout": 500,
@@ -14,9 +12,11 @@
       "filetypes": ["go"]
     },
     "terraform": {
-      "command": "terraform-lsp",
-      "filetypes": ["terraform"],
-      "initializationOptions": {}
+      "command": "terraform-ls",
+      "args": ["serve"],
+      "filetypes": ["terraform", "tf"],
+      "initializationOptions": {},
+      "settings": {}
     }
   },
 
