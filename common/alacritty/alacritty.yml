@@ -33,6 +33,7 @@ window:
   # Setting this to false will result in window without borders and title bar.
   decorations: full
   dynamic_title: true
+  opacity: 0.9
 
 # Display tabs using this many cells (changes require restart)
 #tabspaces: 4
@@ -195,9 +196,6 @@ colors:
 bell:
   animation: EaseOutExpo
   duration: 0
-
-# Background opacity
-background_opacity: 0.9
 
 # Mouse bindings
 #
