@@ -43,7 +43,14 @@ return require'packer'.startup(function(use)
   use 'airblade/vim-gitgutter'
 
   -- Normal Utility ----------------------
-  use 'cocopon/vaffle.vim'    -- filer for vim
+  -- use 'cocopon/vaffle.vim'    -- filer for vim
+  use { -- filer for vim
+    'tamago324/lir.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim',
+      'kyazdani42/nvim-web-devicons'
+    }
+  }
   use 'itchyny/lightline.vim'
   use 'junegunn/fzf'
   use 'junegunn/fzf.vim'
