@@ -14,12 +14,24 @@ m.setup({
     "yamlls"
   }
 })
+m.setup_handlers({function(server)
 
-vim.keymap.set('n', 'K',  '<cmd>lua vim.lsp.buf.hover()<CR>')
-vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
-vim.keymap.set('n', 'gf', '<cmd>lua vim.lsp.buf.formatting()<CR>')
-vim.keymap.set('n', 'gn', '<cmd>lua vim.lsp.buf.rename()<CR>')
-vim.keymap.set('n', 'ga', '<cmd>lua vim.lsp.buf.code_action()<CR>')
+    on_attach = function(client, bufnr)
+      vim.keymap.set('n', 'K',  '<cmd>lua vim.lsp.buf.hover()<CR>')
+      vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
+      vim.keymap.set('n', 'gf', '<cmd>lua vim.lsp.buf.formatting()<CR>')
+      vim.keymap.set('n', 'gn', '<cmd>lua vim.lsp.buf.rename()<CR>')
+      vim.keymap.set('n', 'ga', '<cmd>lua vim.lsp.buf.code_action()<CR>')
+    end
+
+    capabilities = require('cmp_nvim_lsp').update_capabilities(
+      vim.lsp.protocol.make_client_capabilities()
+    )
+
+    require('lspconfig')[server].setup({ noremap = true, silent = true })
+
+end})
+
 
 -- Completion
 local cmp = require("cmp")
