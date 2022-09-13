@@ -1,11 +1,23 @@
-local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/opt/packer.nvim"
-if vim.fn.empty(vim.fn.glob(install_path)) == 1 then
-  vim.api.nvim_command("silent !git clone https://github.com/wbthomason/packer.nvim " .. install_path)
-end
+-- local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/opt/packer.nvim"
+-- if vim.fn.empty(vim.fn.glob(install_path)) == 1 then
+--   vim.api.nvim_command("silent !git clone https://github.com/wbthomason/packer.nvim " .. install_path)
+-- end
 
 vim.cmd[[packadd packer.nvim]]
 
 return require'packer'.startup(function(use)
+
+  use 'wbthomason/packer.nvim'
+  -- use 'mfussenegger/nvim-lint'
+  use 'dense-analysis/ale'
+
+  -- Lsp ---------------------------------
+  use 'williamboman/mason.nvim'
+  use 'williamboman/mason-lspconfig.nvim'
+  use 'neovim/nvim-lspconfig'
+  use "hrsh7th/nvim-cmp"
+  use "hrsh7th/cmp-nvim-lsp"
+  use "hrsh7th/vim-vsnip"
 
   -- Text Format -------------------------
   use 'vim-scripts/Align'
@@ -21,9 +33,7 @@ return require'packer'.startup(function(use)
   -- develop tool
   use 'lambdalisue/gina.vim'  -- git client for vim
   use 'tpope/vim-fugitive'
-  use {
-    'neoclide/coc.nvim', branch = 'release'
-  }
+  
   use {
     'Vimjas/vim-python-pep8-indent', ft = {'python', 'python3'}
   }
@@ -37,11 +47,13 @@ return require'packer'.startup(function(use)
   use 'itchyny/lightline.vim'
   use 'junegunn/fzf'
   use 'junegunn/fzf.vim'
-  use {
-    'ibhagwan/fzflua',
-    -- optional for icon support
-    requires = { 'kyazdani42/nvim-web-devicons' }
-  }
+  if not vim.fn.has('win32') and not vim.fn.has('win64') then
+    use {
+      'ibhagwan/fzf-lua',
+      -- optional for icon support
+      requires = { 'kyazdani42/nvim-web-devicons' }
+    }
+  end
   use 'thinca/vim-qfreplace'
   use 'tyru/open-browser.vim'
 
