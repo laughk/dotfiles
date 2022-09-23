@@ -32,8 +32,12 @@ return require'packer'.startup(function(use)
 
   -- develop tool
   use 'lambdalisue/gina.vim'  -- git client for vim
+  use {
+    'TimUntersberger/neogit',
+    requires = 'nvim-lua/plenary.nvim'
+  }
   use 'tpope/vim-fugitive'
-  
+
   use {
     'Vimjas/vim-python-pep8-indent', ft = {'python', 'python3'}
   }
@@ -80,5 +84,10 @@ return require'packer'.startup(function(use)
   use 'posva/vim-vue'
   use 'ryanoasis/vim-devicons'
   use 'vim-scripts/gitignore.vim'
+  use {
+    'nastevens/vim-cargo-make',
+    requires = { 'cespare/vim-toml' }
+  }
+  use 'nastevens/vim-duckscript'
 
 end)

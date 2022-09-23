@@ -104,11 +104,10 @@ nnoremap ] %
 " カーソル位置の単語をyankする
 nnoremap vy vawy
 
-"ビジュアルモード時vで行末まで選択
-vnoremap v $h
-
 ]]
 
+-- ビジュアルモード時vで行末まで選択
+vim.api.nvim_set_keymap('v', 'v', '$h', { noremap = true, silent = true })
 
 --
 -- 便利系
