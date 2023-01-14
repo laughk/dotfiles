@@ -1,0 +1,6 @@
+-- -- from: https://github.com/mfussenegger/nvim-lint/blob/b551a7218c802a5b361dd46857af4945fe779dcd/README.md#usage
+-- vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+--   callback = function()
+--     require("lint").try_lint()
+--   end,
+-- })

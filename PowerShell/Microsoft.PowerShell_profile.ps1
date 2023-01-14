@@ -8,6 +8,7 @@ Import-Module AWS.Tools.Common
 # environment
 $env:VIRTUAL_ENV_DISABLE_PROMPT = 1
 $env:Path += ";C:\Users\laughk\.local\bin"
+$env:LESSCHARSET = 'utf-8'
 
 # Alias
 del alias:diff -Force
@@ -47,6 +48,14 @@ function prompt {
     $prompt += "`n"
     $prompt += & $GitPromptScriptBlock
     $prompt.Replace(">", "`e[36m%`e[0m")
+}
+
+# インラインコマンドのシンタックス
+# see. https://terurou.hateblo.jp/entry/2019/06/25/000520
+Set-PSReadLineOption -Colors @{
+    "Parameter" = [ConsoleColor]::Cyan
+    "Operator" = [ConsoleColor]::Gray
+    "InlinePrediction" = $PSStyle.Background.blue
 }
 
 # emacs mode に
@@ -104,4 +113,12 @@ Set-PSReadLineKeyHandler -Chord 'Ctrl+U' -ScriptBlock  { searchDBUsers }
 # ~\.pwsh_config.ps1 がある場合読み込む
 if (Test-Path -PathType Leaf ($env:USERPROFILE + "\.pwsh_config.ps1")) {
   . ($env:USERPROFILE + "\.pwsh_config.ps1")
+}
+
+# completion
+# --------------------------------------
+# from. https://github.com/go-task/task/blob/3cad318b7091914414ca76aa6412352dff170655/completion/ps/task.ps1
+$cmd_gotask_completion_path = (scoop prefix task) + "\completion\ps\task.ps1"
+if (Test-Path -PathType Leaf $cmd_gotask_completion_path) {
+  . $cmd_gotask_completion_path
 }
