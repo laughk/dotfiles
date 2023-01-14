@@ -12,12 +12,16 @@ return require'packer'.startup(function(use)
   use 'dense-analysis/ale'
 
   -- Lsp ---------------------------------
-  use 'williamboman/mason.nvim'
-  use 'williamboman/mason-lspconfig.nvim'
-  use 'neovim/nvim-lspconfig'
-  use "hrsh7th/nvim-cmp"
-  use "hrsh7th/cmp-nvim-lsp"
-  use "hrsh7th/vim-vsnip"
+  use {
+    'neoclide/coc.nvim', branch = 'release'
+  }
+  --
+  -- use 'williamboman/mason.nvim'
+  -- use 'williamboman/mason-lspconfig.nvim'
+  -- use 'neovim/nvim-lspconfig'
+  -- use "hrsh7th/nvim-cmp"
+  -- use "hrsh7th/cmp-nvim-lsp"
+  -- use "hrsh7th/vim-vsnip"
 
   -- Text Format -------------------------
   use 'vim-scripts/Align'
@@ -67,11 +71,16 @@ return require'packer'.startup(function(use)
   end
   use 'thinca/vim-qfreplace'
   use 'tyru/open-browser.vim'
+  use 'segeljakt/vim-silicon'
 
   -- edit Utility -------------------------
   use 'chrisbra/Colorizer'
   use 'kannokanno/previm'
   use 'nathanaelkane/vim-indent-guides'
+  use {
+    'jose-elias-alvarez/null-ls.nvim',
+    requires = 'nvim-lua/plenary.nvim'
+  }
 
   -- Syntax -------------------------------
   use 'aklt/plantuml-syntax'
@@ -89,5 +98,13 @@ return require'packer'.startup(function(use)
     requires = { 'cespare/vim-toml' }
   }
   use 'nastevens/vim-duckscript'
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    cmd = 'TSUpdate'
+  }
+  use {
+    'LhKipp/nvim-nu',
+    cmd = 'TSInstall nu'
+  }
 
 end)

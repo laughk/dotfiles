@@ -19,12 +19,14 @@ m.setup_handlers({function(server)
     on_attach = function(client, bufnr)
       vim.keymap.set('n', 'K',  '<cmd>lua vim.lsp.buf.hover()<CR>')
       vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
+      vim.keymap.set('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>')
       vim.keymap.set('n', 'gf', '<cmd>lua vim.lsp.buf.formatting()<CR>')
       vim.keymap.set('n', 'gn', '<cmd>lua vim.lsp.buf.rename()<CR>')
       vim.keymap.set('n', 'ga', '<cmd>lua vim.lsp.buf.code_action()<CR>')
+      vim.keymap.set('n', '<Leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>')
     end
 
-    capabilities = require('cmp_nvim_lsp').update_capabilities(
+    capabilities = require('cmp_nvim_lsp').default_capabilities(
       vim.lsp.protocol.make_client_capabilities()
     )
 
