@@ -306,16 +306,19 @@ let-env config = {
   }
 
   hooks: {
-    pre_prompt: [{
+    pre_prompt: [{||
       $nothing  # replace with source code to run before the prompt is shown
     }]
-    pre_execution: [{
+    pre_execution: [{||
       $nothing  # replace with source code to run before the repl input is run
     }]
     env_change: {
-      PWD: [{|before, after|
-        $nothing  # replace with source code to run if the PWD environment is different since the last repl input
-      }]
+      PWD: [
+        {|before, after|
+          # switch terraform version by terraform-switcher
+          if (which tfswitch | get path.0 | path exists) and (".terraform-version" | path exists) { tfswitch }
+        }
+      ]
     }
   }
   menus: [
@@ -512,7 +515,7 @@ let-env config = {
       mode: emacs
       event: {
         send: executehostcommand
-        cmd: "commandline (history | each { |it| $it.command } | uniq | reverse | str collect (char -i 0) | fzf --read0 --layout=reverse --height=40% -q (commandline) | decode utf-8 | str trim)"
+        cmd: "commandline (history | each { |it| $it.command } | uniq | reverse | str join (char -i 0) | fzf --read0 --layout=reverse --height=40% -q (commandline) | decode utf-8 | str trim)"
       }
     }
     {
@@ -558,9 +561,12 @@ let-env config = {
 let-env BAT_PAGER = 'never'
 let-env BAT_THEME = 'Nord'
 
+# let-env Path = ( $env.Path | append ($env.USERPROFILE + "\\bin"))
+
 alias cat = open
 
 source ~\.cache\starship\init.nu
-source ~\.config\nushell\my_modules\completions\go-task.nu
-source ~\.config\nushell\my_modules\completions\terraform.nu
+overlay use ~\.config\nushell\my_modules\completions\go-task.nu
+overlay use ~\.config\nushell\my_modules\completions\terraform.nu
+overlay use ~\.config\nushell\my_modules\functions\connehito_functions.nu
 # overlay use ~\ghq\github.com\nushell\nu_scripts\custom-completions\scoop\scoop-completions.nu
