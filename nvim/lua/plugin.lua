@@ -1,110 +1,317 @@
--- local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/opt/packer.nvim"
--- if vim.fn.empty(vim.fn.glob(install_path)) == 1 then
---   vim.api.nvim_command("silent !git clone https://github.com/wbthomason/packer.nvim " .. install_path)
--- end
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
 
-vim.cmd[[packadd packer.nvim]]
+local lazy_config = {
+  install = { colorscheme = { "habamax" } },
+}
 
-return require'packer'.startup(function(use)
+local plugins = {
 
-  use 'wbthomason/packer.nvim'
-  -- use 'mfussenegger/nvim-lint'
-  use 'dense-analysis/ale'
+  -- { 'mfussenegger/nvim-lint' },
+  { 'dense-analysis/ale',
+    config = function()
+      -- " for ale
+      -- " from https://qiita.com/lighttiger2505/items/9a36c5b4035dd469134c
+
+      vim.g.ale_linters = {
+        terraform = { 'tflint' },
+        markdown = { 'textlint' },
+        yaml = { 'yamlfmt' }
+      }
+
+      -- " 各ツールをFixerとして登録
+      vim.g.ale_fixers = {
+        python = {
+          'autopep8', 'black', 'isort'
+        }
+      }
+
+      vim.g.ale_fix_on_save = 1
+      vim.g.ale_terraform_fmt_executable = "terraform fmt"
+
+      -- " 各ツールの実行オプションを変更してPythonパスを固定
+      vim.g.ale_python_flake8_executable = vim.g.python3_host_prog
+      vim.g.ale_python_flake8_options = '-m flake8'
+      vim.g.ale_python_autopep8_executable = vim.g.python3_host_prog
+      vim.g.ale_python_autopep8_options = '-m autopep8'
+      vim.g.ale_python_isort_executable = vim.g.python3_host_prog
+      vim.g.ale_python_isort_options = '-m isort'
+      vim.g.ale_python_black_executable = vim.g.python3_host_prog
+      vim.g.ale_python_black_options = '-m black'
+    end,
+  },
 
   -- Lsp ---------------------------------
-  use {
-    'neoclide/coc.nvim', branch = 'release'
-  }
+  {
+    'neoclide/coc.nvim',
+    branch = 'release',
+    config = function()
+      require("plugin_coc-nvim")
+    end
+  },
   --
-  -- use 'williamboman/mason.nvim'
-  -- use 'williamboman/mason-lspconfig.nvim'
-  -- use 'neovim/nvim-lspconfig'
-  -- use "hrsh7th/nvim-cmp"
-  -- use "hrsh7th/cmp-nvim-lsp"
-  -- use "hrsh7th/vim-vsnip"
+  -- { 'williamboman/mason.nvim' },
+  -- { 'williamboman/mason-lspconfig.nvim' },
+  -- { 'neovim/nvim-lspconfig' },
+  -- { "hrsh7th/nvim-cmp" },
+  -- { "hrsh7th/cmp-nvim-lsp" },
+  -- { "hrsh7th/vim-vsnip" },
 
   -- Text Format -------------------------
-  use 'vim-scripts/Align'
-  use 'tpope/vim-surround'
-  use 'mattn/vim-sqlfmt'
-  use 'mattn/vim-goimports'
+  { 'vim-scripts/Align',
+    config = function()
+      -- Alignを日本語環境で使用するための設定
+      vim.g.Align_xstrlen = 3
+    end,
+  },
+  { 'tpope/vim-surround' },
+  { 'mattn/vim-sqlfmt' },
+  { 'mattn/vim-goimports' },
 
   -- Color Scheme ------------------------
-  use 'arcticicestudio/nord-vim'
+  { 'shaunsingh/nord.nvim',
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.cmd[[colorscheme nord]]
+
+      -- Example config in lua
+      vim.g.nord_contrast = true
+      vim.g.nord_borders = false
+      vim.g.nord_disable_background = true
+      vim.g.nord_italic = false
+      vim.g.nord_uniform_diff_background = true
+      vim.g.nord_bold = false
+
+      -- Load the colorscheme
+      require('nord').set()
+    end,
+  },
   -- Plug 'cocopon/iceberg.vim'
-  use 'wadackel/vim-dogrun'
+  { 'wadackel/vim-dogrun' },
 
   -- develop tool
-  use 'lambdalisue/gina.vim'  -- git client for vim
-  use {
-    'TimUntersberger/neogit',
-    requires = 'nvim-lua/plenary.nvim'
-  }
-  use 'tpope/vim-fugitive'
+  { 'lambdalisue/gina.vim',  -- git client for vim
+    config = function()
+      vim.cmd[[
+      nnoremap Gs :Gina status<CR>
 
-  use {
+      call gina#custom#command#option(
+            \ 'commit', '-v|--verbose'
+            \)
+
+      call gina#custom#mapping#nmap(
+            \ 'status', '<C-^>',
+            \ ':<C-u>Gina commit<CR>',
+            \ {'noremap': 1, 'silent': 1}
+            \)
+      ]]
+    end,
+  },
+  {
+    'TimUntersberger/neogit',
+    dependencies = 'nvim-lua/plenary.nvim',
+    config = function()
+      local neogit = require('neogit')
+      neogit.setup {}
+    end,
+  },
+  { 'tpope/vim-fugitive' },
+
+  {
     'Vimjas/vim-python-pep8-indent', ft = {'python', 'python3'}
-  }
-  use 'thinca/vim-quickrun'
-  use 'tyru/open-browser-github.vim'
-  use 'scrooloose/nerdcommenter'
-  use 'airblade/vim-gitgutter'
+  },
+  { 'thinca/vim-quickrun' },
+  { 'tyru/open-browser-github.vim',
+    dependencies = 'tyru/open-browser.vim',
+  },
+  { 'scrooloose/nerdcommenter',
+    config = function()
+      --  コメントの間にスペースを空ける
+      vim.cmd[[let NERDSpaceDelims = 1]]
+
+      -- <Leader>xでコメントをトグル(NERD_commenter.vim)
+      -- vim.cmd[[" map <Leader>x, c<space>]]
+
+      -- 未対応ファイルタイプのエラーメッセージを表示しない
+      vim.cmd[[let NERDShutUp=1]]
+    end
+  },
+  { 'airblade/vim-gitgutter' },
 
   -- Normal Utility ----------------------
-  -- use 'cocopon/vaffle.vim'    -- filer for vim
-  use { -- filer for vim
+  { -- filer for vim
     'tamago324/lir.nvim',
-    requires = {
+    dependencies = {
       'nvim-lua/plenary.nvim',
       'kyazdani42/nvim-web-devicons'
-    }
-  }
-  use 'itchyny/lightline.vim'
-  use 'junegunn/fzf'
-  use 'junegunn/fzf.vim'
-  if not vim.fn.has('win32') and not vim.fn.has('win64') then
-    use {
-      'ibhagwan/fzf-lua',
-      -- optional for icon support
-      requires = { 'kyazdani42/nvim-web-devicons' }
-    }
-  end
-  use 'thinca/vim-qfreplace'
-  use 'tyru/open-browser.vim'
-  use 'segeljakt/vim-silicon'
+    },
+  },
+  { 'itchyny/lightline.vim' },
+  { 'junegunn/fzf',
+    config = function()
+      -- Todo: lua で書く
+
+      -- "" Command for git grep
+      -- " - fzf#vim#grep(command, with_column, [options], [fullscreen])
+      vim.cmd[[
+      command! -bang -nargs=* GGrep
+        \ call fzf#vim#grep(
+        \   'git grep --line-number '.shellescape(<q-args>), 1,
+        \   <bang>0 ? fzf#vim#with_preview('up:60%')
+        \           : fzf#vim#with_preview({ 'dir': s:find_git_root() }),
+        \   <bang>0)
+
+      ]]
+
+      -- keybind
+      vim.cmd[[
+
+      command! -bang -nargs=? -complete=dir Files
+      \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+
+      command! -bang -nargs=? -complete=dir GitFiles
+      \ call fzf#vim#gitfiles(<q-args>, fzf#vim#with_preview(), <bang>0)
+
+      nnoremap [fzf] <Nop>
+      nmap f [fzf]
+      " find file (for gir repository)
+      nnoremap <silent> [fzf]G :GitFiles<CR>
+      " find file
+      nnoremap <silent> [fzf]f :Files<CR>
+      " show buffer
+      nnoremap <silent> [fzf]b :Buffers<CR>
+      " search file
+      ]]
+    end,
+  },
+  { 'junegunn/fzf.vim' },
+  { 'thinca/vim-qfreplace' },
+  { 'tyru/open-browser.vim' },
+  { 'segeljakt/vim-silicon', -- Vim plugin for generating images of source code using https://github.com/Aloxaf/silicon
+    config = function()
+      vim.cmd[[
+      let g:silicon = {
+            \   'theme':                 'Nord',
+            \   'font':                  'Hack',
+            \   'background':         '#FFFFFF',
+            \   'shadow-color':       '#555555',
+            \   'line-pad':                   2,
+            \   'pad-horiz':                  0,
+            \   'pad-vert':                   0,
+            \   'shadow-blur-radius':         0,
+            \   'shadow-offset-x':            0,
+            \   'shadow-offset-y':            0,
+            \   'line-number':           v:false,
+            \   'round-corner':          v:true,
+            \   'window-controls':       v:true,
+            \ }
+      ]]
+    end,
+  },
 
   -- edit Utility -------------------------
-  use 'chrisbra/Colorizer'
-  use 'kannokanno/previm'
-  use 'nathanaelkane/vim-indent-guides'
-  use {
+  { 'chrisbra/Colorizer' },
+  { 'kannokanno/previm' },
+  { 'nathanaelkane/vim-indent-guides' },
+  {
     'jose-elias-alvarez/null-ls.nvim',
-    requires = 'nvim-lua/plenary.nvim'
-  }
+    dependencies = 'nvim-lua/plenary.nvim',
+    config = function()
+      local null_ls = require("null-ls")
+      null_ls.setup({
+        source = {
+          null_ls.builtins.diagnostics.credo,
+          null_ls.builtins.diagnostics.eslint,
+          null_ls.builtins.formatting.stylua,
+          null_ls.builtins.completion.spell,
+        },
+      })
+    end,
+  },
 
   -- Syntax -------------------------------
-  use 'aklt/plantuml-syntax'
-  use 'ap/vim-css-color'
-  use 'hashivim/vim-terraform'
-  use 'hdima/python-syntax'
-  use 'leafgarland/typescript-vim'
-  use 'mechatroner/rainbow_csv'
-  use 'pearofducks/ansible-vim'
-  use 'posva/vim-vue'
-  use 'ryanoasis/vim-devicons'
-  use 'vim-scripts/gitignore.vim'
-  use {
+  { 'aklt/plantuml-syntax' },
+  { 'ap/vim-css-color' },
+  { 'hashivim/vim-terraform',
+    config = function()
+      vim.g.terraform_fmt_on_save=1
+    end,
+  },
+  { 'hdima/python-syntax' },
+  { 'leafgarland/typescript-vim' },
+  { 'mechatroner/rainbow_csv' },
+  { 'pearofducks/ansible-vim' },
+  { 'posva/vim-vue' },
+  -- { 'ryanoasis/vim-devicons',
+    -- config = function()
+      -- -- フォルダアイコンの表示をON
+      -- vim.cmd[[let g:WebDevIconsUnicodeDecorateFolderNodes = 1]]
+    -- end,
+  -- },
+  { 'vim-scripts/gitignore.vim' },
+  {
     'nastevens/vim-cargo-make',
-    requires = { 'cespare/vim-toml' }
-  }
-  use 'nastevens/vim-duckscript'
-  use {
+    dependencies = { 'cespare/vim-toml' }
+  },
+  { 'nastevens/vim-duckscript' },
+  {
     'nvim-treesitter/nvim-treesitter',
-    cmd = 'TSUpdate'
-  }
-  use {
-    'LhKipp/nvim-nu',
-    cmd = 'TSInstall nu'
-  }
+    cmd = 'TSUpdate',
+    config = function()
+      require'nvim-treesitter.configs'.setup {
+        -- A list of parser names, or "all"
+        ensure_installed = {
+          'lua',
+          'hcl',
+          'go',
+          'python',
+          'markdown',
+        },
 
-end)
+        -- Install parsers synchronously (only applied to `ensure_installed`)
+        sync_install = false,
+
+        highlight = {
+          enable = true,
+          -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+          -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+          -- Using this option may slow down your editor, and you may see some duplicate highlights.
+          -- Instead of true it can also be a list of languages
+          -- additional_vim_regex_highlighting = false,
+        },
+      }
+    end,
+  },
+  {
+    'LhKipp/nvim-nu',
+    dependencies = 'nvim-treesitter/nvim-treesitter',
+    cmd = 'TSInstall nu',
+    config = function()
+      require('nu').setup{
+        complete_cmd_names = true
+      }
+    end,
+  },
+  {
+    'ibhagwan/fzf-lua',
+    dependencies = { 'kyazdani42/nvim-web-devicons' }
+  }
+}
+
+-- if vim.fn.has('win32') == 0 and vim.fn.has('win64') == 0 then -- !has('win32') and !has('win64')
+  -- print('not windows!!')
+  -- table.insert(plugins, { 'ibhagwan/fzf-lua', dependencies = { 'kyazdani42/nvim-web-devicons' }})
+-- end
+
+require("lazy").setup(plugins, lazy_config)

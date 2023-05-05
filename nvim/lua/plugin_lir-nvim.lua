@@ -4,7 +4,7 @@ local clipboard_actions = require'lir.clipboard.actions'
 
 require'lir'.setup {
   show_hidden_files = false,
-  devicons_enable = true,
+  -- devicons_enable = true,
   mappings = {
     ['l']     = actions.edit,
     ['<CR>']  = actions.edit,
