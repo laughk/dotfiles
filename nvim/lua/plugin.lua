@@ -52,20 +52,27 @@ local plugins = {
   },
 
   -- Lsp ---------------------------------
-  {
-    'neoclide/coc.nvim',
-    branch = 'release',
-    config = function()
-      require("plugin_coc-nvim")
-    end
-  },
+  -- {
+    -- 'neoclide/coc.nvim',
+    -- branch = 'release',
+    -- config = function()
+      -- require("plugin_coc-nvim")
+    -- end
+  -- },
   --
-  -- { 'williamboman/mason.nvim' },
-  -- { 'williamboman/mason-lspconfig.nvim' },
-  -- { 'neovim/nvim-lspconfig' },
-  -- { "hrsh7th/nvim-cmp" },
-  -- { "hrsh7th/cmp-nvim-lsp" },
-  -- { "hrsh7th/vim-vsnip" },
+  { 'neovim/nvim-lspconfig',
+    cmd = { "LspInfo", "LspLog" },
+    event = { "BufRead" },
+  },
+  { 'williamboman/mason.nvim',
+    cmd = { "Mason", "MasonInstall" },
+    event = { "WinNew", "WinLeave", "BufRead" },
+    build = ':MasonUpdate',
+  },
+  { 'williamboman/mason-lspconfig.nvim' },
+  { "hrsh7th/nvim-cmp" },
+  { "hrsh7th/cmp-nvim-lsp" },
+  { "hrsh7th/vim-vsnip" },
 
   -- Text Format -------------------------
   { 'vim-scripts/Align',
