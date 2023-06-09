@@ -165,46 +165,15 @@ local plugins = {
       'nvim-lua/plenary.nvim',
       'kyazdani42/nvim-web-devicons'
     },
-  },
-  { 'itchyny/lightline.vim' },
-  { 'junegunn/fzf',
     config = function()
-      -- Todo: lua で書く
-
-      -- "" Command for git grep
-      -- " - fzf#vim#grep(command, with_column, [options], [fullscreen])
-      vim.cmd[[
-      command! -bang -nargs=* GGrep
-        \ call fzf#vim#grep(
-        \   'git grep --line-number '.shellescape(<q-args>), 1,
-        \   <bang>0 ? fzf#vim#with_preview('up:60%')
-        \           : fzf#vim#with_preview({ 'dir': s:find_git_root() }),
-        \   <bang>0)
-
-      ]]
-
-      -- keybind
-      vim.cmd[[
-
-      command! -bang -nargs=? -complete=dir Files
-      \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
-
-      command! -bang -nargs=? -complete=dir GitFiles
-      \ call fzf#vim#gitfiles(<q-args>, fzf#vim#with_preview(), <bang>0)
-
-      nnoremap [fzf] <Nop>
-      nmap f [fzf]
-      " find file (for gir repository)
-      nnoremap <silent> [fzf]G :GitFiles<CR>
-      " find file
-      nnoremap <silent> [fzf]f :Files<CR>
-      " show buffer
-      nnoremap <silent> [fzf]b :Buffers<CR>
-      " search file
-      ]]
-    end,
+      require("plugin_lir-nvim")
+    end
   },
-  { 'junegunn/fzf.vim' },
+  { 'itchyny/lightline.vim',
+    config = function()
+      require("plugin_lightline")
+    end
+  },
   { 'thinca/vim-qfreplace' },
   { 'tyru/open-browser.vim' },
   { 'segeljakt/vim-silicon', -- Vim plugin for generating images of source code using https://github.com/Aloxaf/silicon
@@ -240,6 +209,7 @@ local plugins = {
       local null_ls = require("null-ls")
       null_ls.setup({
         source = {
+          require("nu-ls"),
           null_ls.builtins.diagnostics.credo,
           null_ls.builtins.diagnostics.eslint,
           null_ls.builtins.formatting.stylua,
@@ -248,6 +218,8 @@ local plugins = {
       })
     end,
   },
+  { 'github/copilot.vim' },
+
 
   -- Syntax -------------------------------
   { 'aklt/plantuml-syntax' },
@@ -305,11 +277,9 @@ local plugins = {
   {
     'LhKipp/nvim-nu',
     dependencies = 'nvim-treesitter/nvim-treesitter',
-    cmd = 'TSInstall nu',
+    -- cmd = 'TSInstall nu',
     config = function()
-      require('nu').setup{
-        complete_cmd_names = true
-      }
+      require'nu'.setup{}
     end,
   },
   {
@@ -332,10 +302,5 @@ local plugins = {
     'google/vim-jsonnet',
   }
 }
-
--- if vim.fn.has('win32') == 0 and vim.fn.has('win64') == 0 then -- !has('win32') and !has('win64')
-  -- print('not windows!!')
-  -- table.insert(plugins, { 'ibhagwan/fzf-lua', dependencies = { 'kyazdani42/nvim-web-devicons' }})
--- end
 
 require("lazy").setup(plugins, lazy_config)
