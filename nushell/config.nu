@@ -18,6 +18,7 @@ module completions {
     open Makefile | lines | where $it =~ '^[^\.][^:^ ]+:' | each { |line| echo $line | str replace '([^:]+):.*' '${1}' }
   }
 
+
   export extern "make" [
     task?: string@"nu-complete make"
     -b                                          # Ignored for compatibility.
@@ -152,7 +153,7 @@ module completions {
     --dry-run(-n)                                   # dry run
     --exec: string                                  # receive pack program
     --follow-tags                                   # push missing but relevant tags
-    --force-with-lease: string                      # require old value of ref to be at this value
+    --force-with-lease                              # require old value of ref to be at this value
     --force(-f)                                     # force updates
     --ipv4(-4)                                      # use IPv4 addresses only
     --ipv6(-6)                                      # use IPv6 addresses only
@@ -255,7 +256,7 @@ def "exec_pet_search" [] {
 
 
 # The default config record. This is where much of your global configuration is setup.
-let-env config = {
+$env.config = {
   color_config: $default_theme
   use_grid_icons: true
   footer_mode: "25" # always, never, number_of_rows, auto
@@ -271,9 +272,6 @@ let-env config = {
   }
   rm: {
     always_trash: true # always act as if -t was given. Can be overridden with -p
-  }
-  cd: {
-    abbreviations: true # allows `cd s/o/f` to expand to `cd some/other/folder`
   }
   table: {
     mode: rounded # basic, compact, compact_double, light, thin, with_love, rounded, reinforced, heavy, none, other
@@ -307,16 +305,44 @@ let-env config = {
 
   hooks: {
     pre_prompt: [{||
-      $nothing  # replace with source code to run before the prompt is shown
+      null
     }]
     pre_execution: [{||
-      $nothing  # replace with source code to run before the repl input is run
+      null  # replace with source code to run before the repl input is run
     }]
     env_change: {
       PWD: [
-        {|before, after|
-          # switch terraform version by terraform-switcher
-          if (which tfswitch | get path.0 | path exists) and (".terraform-version" | path exists) { tfswitch }
+        { # switch terraform version by terraform-switcher
+          condition: {|_, after|
+              ((which tfswitch | get path.0 | path exists)
+               and ($after | path join .terraform-version | path exists)
+              )
+          }
+          code: "tfswitch"
+        }
+        {
+          condition: {|_, after|
+              ($after | path join env.nu | path exists)
+          }
+          code: "overlay use env.nu"
+        }
+        {
+          condition: {|before, after|
+              ((not ($after | path join env.nu | path exists))
+                  and ($"($before)" | path join env.nu | path exists)
+                  and ("env" in (overlay list))
+              )
+          }
+          code: "overlay hide --keep-env [ PWD ] env"
+        }
+        {
+          condition: {|before, after|
+              ((not ($after | path join env.nu | path exists))
+                  and ($"($before)" | path join env.nu | path exists)
+                  and ("env" in (overlay list))
+              )
+          }
+          code: 'print $"from ($before) to ($after)"'
         }
       ]
     }
@@ -439,6 +465,26 @@ let-env config = {
             | each { |it| {value: $it.command description: $it.usage} }
         }
       }
+      {
+        name: ghq_repo_menu
+        only_buffer_difference: true
+        marker: "# "
+        type: {
+            layout: list
+            page_size: 10
+        }
+        style: {
+            text: green
+            selected_text: green_reverse
+            description_text: yellow
+        }
+        source: { |buffer, position|
+            ghq list --full-path
+            | lines
+            | where { |it| $it =~ $buffer }
+            | each { |it| {value: $"cd ($it)" } }
+        }
+      }
   ]
   keybindings: [
     {
@@ -518,6 +564,17 @@ let-env config = {
         cmd: "commandline (history | each { |it| $it.command } | uniq | reverse | str join (char -i 0) | fzf --read0 --layout=reverse --height=40% -q (commandline) | decode utf-8 | str trim)"
       }
     }
+    # {
+      # name: fuzzy_cd_ghq_repository
+      # modifier: control
+      # keycode: char_]
+      # mode: emacs
+      # event: [
+        # # { edit: Clear }
+        # { send: menu name: ghq_repo_menu }
+        # # { send: Enter }
+      # ]
+    # }
     {
       name: fuzzy_cd_ghq_repository
       modifier: control
@@ -558,15 +615,56 @@ let-env config = {
 }
 
 # environment
-let-env BAT_PAGER = 'never'
-let-env BAT_THEME = 'Nord'
+$env.BAT_PAGER = 'never'
+$env.BAT_THEME = 'Nord'
+# for direnv
+# let-env DIRENV_CONFIG = $env.USERPROFILE + "\\.config"
+# let-env XDG_CACHE_HOME = $env.USERPROFILE + "\\.cache"
+# let-env XDG_DATA_HOME = $env.USERPROFILE + "\\.local\\share"
 
 # let-env Path = ( $env.Path | append ($env.USERPROFILE + "\\bin"))
 
 alias cat = open
 
-source ~\.cache\starship\init.nu
+overlay use ~\.cache\starship\init.nu
 overlay use ~\.config\nushell\my_modules\completions\go-task.nu
 overlay use ~\.config\nushell\my_modules\completions\terraform.nu
 overlay use ~\.config\nushell\my_modules\functions\connehito_functions.nu
 # overlay use ~\ghq\github.com\nushell\nu_scripts\custom-completions\scoop\scoop-completions.nu
+
+
+# Prompt
+# def create_left_prompt [] {
+  # let path_segment = ($env.PWD)
+
+  # let git_current_branch = (
+    # if (".git" | path exists) {
+      # $" (ansi yellow)[(git branch --show-current)]"
+    # } else {
+      # ""
+    # }
+  # )
+
+  # "\n" + $path_segment + $git_current_branch + "\n "
+# }
+# $env.PROMPT_COMMAND = { create_left_prompt }
+# $env.PROMPT_INDICATOR = "❯ "
+
+# def create_right_prompt [] {
+
+  # let datetime_segment = (date now | format date "%Y-%m-%d %H:%M:%S" | str join " ")
+  # # let git_segment = (
+    # # if (".git" | path exists) {
+      # # let git_segment = (git status --porcelain | lines | count | if $it > 0 { echo "dirty" } { echo "clean" } | str trim | str join " ")
+      # # $git_segment
+    # # } else {
+      # # ""
+    # # }
+  # # )
+
+  # # $git_segment
+  # $datetime_segment
+# }
+
+# $env.PROMPT_COMMAND_RIGHT = { create_right_prompt }
+# $env.PROMPT_MULTILINE_INDICATOR = "::: "
