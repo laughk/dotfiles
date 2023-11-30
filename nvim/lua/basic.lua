@@ -146,3 +146,7 @@ end
 --   vim.o.shell=cmd
 -- end
 
+-- keybind
+--
+vim.api.nvim_set_keymap("", "gt", ":tabNext<CR>", { noremap=true })
+vim.api.nvim_set_keymap("", "gT", ":tabprevious<CR>", { noremap=true })
