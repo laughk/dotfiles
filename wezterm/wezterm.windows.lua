@@ -40,6 +40,12 @@ return {
         size = { Percent = 50 },
       },
     },
+    -- disable ctrl+shift+u
+    {
+      key = 'U',
+      mods = 'CTRL',
+      action = wezterm.action.DisableDefaultAssignment,
+    },
   },
 
   -- color_scheme = "Bluloco Dark",
@@ -47,7 +53,7 @@ return {
   -- color_scheme = "Darcula (base16)",
   window_background_opacity = 0.9,
 
-  font = wezterm.font("HackGenNerd Console"),
+  font = wezterm.font("UDEV Gothic"),
   font_size = 14.0,
 
   default_prog = {"C:\\Users\\laughk\\scoop\\shims\\nu.exe"}
