@@ -1,0 +1,5 @@
+modmap:
+  - name: Global
+    remap:
+      ALT_R: KatakanaHiragana
+      CapsLock: Control_L

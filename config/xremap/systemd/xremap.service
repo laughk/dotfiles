@@ -1,0 +1,12 @@
+[Unit]
+Description=xremap service
+
+[Service]
+# restart periodically
+Restart=always
+ExecStart=/usr/bin/xremap /home/laughk/.config/xremap/config.yml
+User=root
+Group=root
+
+[Install]
+WantedBy=default.target
