@@ -305,7 +305,20 @@ $env.config = {
 
   hooks: {
     pre_prompt: [{||
-      null
+      if (which direnv | is-empty) {
+        return
+      }
+
+      mut envrc = (direnv export json | from json | default {})
+      if ($envrc | is-empty) {
+        return
+      } 
+
+      if ($envrc.Path == null) {
+        $envrc.Path = ($envrc.PATH | split row ";")
+      }
+      $envrc | load-env
+
     }]
     pre_execution: [{||
       null  # replace with source code to run before the repl input is run
@@ -618,9 +631,9 @@ $env.config = {
 $env.BAT_PAGER = 'never'
 $env.BAT_THEME = 'Nord'
 # for direnv
-# let-env DIRENV_CONFIG = $env.USERPROFILE + "\\.config"
-# let-env XDG_CACHE_HOME = $env.USERPROFILE + "\\.cache"
-# let-env XDG_DATA_HOME = $env.USERPROFILE + "\\.local\\share"
+$env.DIRENV_CONFIG = $env.USERPROFILE + "\\AppData\\Local\\direnv"
+$env.XDG_CACHE_HOME = $env.USERPROFILE + "\\AppData\\Local\\Temp"
+$env.XDG_DATA_HOME = $env.USERPROFILE + "\\AppData\\Local"
 
 # let-env Path = ( $env.Path | append ($env.USERPROFILE + "\\bin"))
 
