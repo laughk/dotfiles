@@ -7,7 +7,7 @@ module completions {
   #
   # This is a simplified version of completions for git branches and git remotes
   def "nu-complete git branches" [] {
-    ^git branch | lines | each { |line| $line | str replace '[\*\+] ' '' | str trim }
+    ^git branch | lines | each { |line| $line | str replace -r '[\*\+] ' '' | str trim }
   }
 
   def "nu-complete git remotes" [] {
@@ -333,30 +333,6 @@ $env.config = {
           }
           code: "tfswitch"
         }
-        {
-          condition: {|_, after|
-              ($after | path join env.nu | path exists)
-          }
-          code: "overlay use env.nu"
-        }
-        {
-          condition: {|before, after|
-              ((not ($after | path join env.nu | path exists))
-                  and ($"($before)" | path join env.nu | path exists)
-                  and ("env" in (overlay list))
-              )
-          }
-          code: "overlay hide --keep-env [ PWD ] env"
-        }
-        {
-          condition: {|before, after|
-              ((not ($after | path join env.nu | path exists))
-                  and ($"($before)" | path join env.nu | path exists)
-                  and ("env" in (overlay list))
-              )
-          }
-          code: 'print $"from ($before) to ($after)"'
-        }
       ]
     }
   }
@@ -638,11 +614,12 @@ $env.XDG_DATA_HOME = $env.USERPROFILE + "\\AppData\\Local"
 # let-env Path = ( $env.Path | append ($env.USERPROFILE + "\\bin"))
 
 alias cat = open
+alias dog = dog -n 9.9.9.9
 
 overlay use ~\.cache\starship\init.nu
-overlay use ~\.config\nushell\my_modules\completions\go-task.nu
-overlay use ~\.config\nushell\my_modules\completions\terraform.nu
-overlay use ~\.config\nushell\my_modules\functions\connehito_functions.nu
+overlay use ~\AppData\Roaming\nushell\my_modules\completions\go-task.nu
+overlay use ~\AppData\Roaming\nushell\my_modules\completions\terraform.nu
+overlay use ~\AppData\Roaming\nushell\my_modules\functions\connehito_functions.nu
 # overlay use ~\ghq\github.com\nushell\nu_scripts\custom-completions\scoop\scoop-completions.nu
 
 
