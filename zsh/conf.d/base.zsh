@@ -10,6 +10,7 @@ if which nvim > /dev/null 2>&1 ; then
 elif which nvim > /dev/null 2>&1 ; then
   export EDITOR=vim
 fi
+export BAT_THEME="Nord"
 
 # WSL2 環境向け
 if uname -a | grep -q microsoft ; then
@@ -45,5 +46,8 @@ export PATH
 export MANPATH="/usr/local/man:${MANPATH}"
 
 # disable C-s and C-q
-stty stop undef
-stty start undef
+if [[ -t 0 && $- == *i* ]]; then
+  stty stop undef
+  stty start undef
+  stty -ixon
+fi

@@ -145,3 +145,6 @@ venv/
 *_suitebook_staging.sql
 *_suitebook_staging.tar.gz
 build-eb-python27-playbook/
+
+# for `git worktree` 
+.wotktree

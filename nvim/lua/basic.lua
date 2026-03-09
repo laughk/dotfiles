@@ -8,7 +8,6 @@ vim.g.mapleader = ","
 -- 文字コード関連
 --- デフォルトエンコーディング
 vim.o.encoding = "utf-8"
-vim.o.termencoding = "utf-8"
 vim.o.fileformats = "unix,dos,mac"
 
 -- ワイルドカードで表示するときの優先度を低くする拡張子
@@ -37,7 +36,6 @@ vim.o.smartindent = true                 -- 新しい行を開始したときに
 vim.o.cindent = true                     -- Cプログラムファイルの自動インデントを始める
 
 
-vim.o.browsedir= "buffer"              -- Exploreの初期ディレクトリ
 vim.o.whichwrap='b,s,h,l,<,>,[,]'      -- カーソルを行頭、行末で止まらないようにする
 -- vim.cmd[[vim.o.viminfo='50,<1000,s100,\"50]]  -- viminfoファイルの設定
 
@@ -63,11 +61,9 @@ vim.o.softtabstop = 0
 vim.o.expandtab = true
 
 -- insertモードを抜けるとIMEオフ
-vim.o.imdisable = false
-vim.o.iminsert = 0
-vim.o.imsearch = 0
-vim.o.imcmdline = false
-vim.cmd[[inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>]]
+-- vim.o.iminsert = 0
+-- vim.o.imsearch = 0
+-- vim.cmd[[inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>]]
 
 -- ファイル内検索関連
 vim.o.wrapscan = true   -- 最後まで検索したら先頭へ戻る

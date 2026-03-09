@@ -84,10 +84,21 @@ function pet-select() {
     | anyframe-action-execute
 }
 zle -N pet-select
-stty -ixon
+if [[ -t 0 && $- == *i* ]]; then
+  stty -ixon
+fi
 bindkey '^x^s' pet-select
 
 ## VENV
 # --------------------------------------------------
 bindkey '^x^a' __venv_fzf_active_fzf
 bindkey '^x^v' __venv_fzf_mk_venv_fzf
+
+# terraform monorepo
+# -----------------
+function _cd_git_tf_dir() {
+  cd $(ghq list --full-path | xargs fd "provider.tf" | sed 's;/provider.tf;;'  | fzf )
+}
+zle -N _cd_git_tf_dir
+bindkey '^xt' _cd_git_tf_dir
+bindkey '^x^t' _cd_git_tf_dir

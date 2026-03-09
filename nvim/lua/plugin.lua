@@ -20,6 +20,9 @@ local plugins = {
   -- { 'mfussenegger/nvim-lint' },
   { 'dense-analysis/ale',
     config = function()
+      -- ref. https://github.com/dense-analysis/ale/issues/4956
+      vim.g.ale_use_neovim_lsp_api = 0
+
       -- " for ale
       -- " from https://qiita.com/lighttiger2505/items/9a36c5b4035dd469134c
 
@@ -91,12 +94,12 @@ local plugins = {
     priority = 1000,
     config = function()
       -- Example config in lua
-      vim.g.nord_contrast = true
-      vim.g.nord_borders = true
+      -- vim.g.nord_contrast = false
+      vim.g.nord_borders = false
       vim.g.nord_disable_background = true
       vim.g.nord_italic = false
-      vim.g.nord_uniform_diff_background = true
-      vim.g.nord_bold = false
+      -- vim.g.nord_uniform_diff_background = true
+      -- vim.g.nord_bold = false
 
       -- Load the colorscheme
       require('nord').set()
@@ -106,6 +109,37 @@ local plugins = {
       vim.cmd[[colorscheme nord]]
     end,
   },
+  -- { "ellisonleao/gruvbox.nvim",
+    -- priority = 1000,
+    -- config = function()
+      -- require("gruvbox").setup({
+        -- terminal_colors = true, -- add neovim terminal colors
+        -- undercurl = true,
+        -- underline = true,
+        -- bold = true,
+        -- italic = {
+          -- strings = true,
+          -- emphasis = true,
+          -- comments = true,
+          -- operators = false,
+          -- folds = true,
+        -- },
+        -- strikethrough = true,
+        -- invert_selection = false,
+        -- invert_signs = false,
+        -- invert_tabline = false,
+        -- inverse = true, -- invert background for search, diffs, statuslines and errors
+        -- contrast = "", -- can be "hard", "soft" or empty string
+        -- palette_overrides = {},
+        -- overrides = {},
+        -- dim_inactive = false,
+        -- transparent_mode = false,
+      -- })
+
+      -- vim.o.background = "dark"
+      -- vim.cmd[[colorscheme gruvbox]]
+    -- end,
+  -- },
   -- Plug 'cocopon/iceberg.vim'
   { 'wadackel/vim-dogrun' },
 
@@ -211,7 +245,6 @@ local plugins = {
         source = {
           require("nu-ls"),
           null_ls.builtins.diagnostics.credo,
-          null_ls.builtins.diagnostics.eslint,
           null_ls.builtins.formatting.stylua,
           null_ls.builtins.completion.spell,
         },
@@ -284,7 +317,7 @@ local plugins = {
   },
   {
     'nvim-telescope/telescope.nvim',
-    tag = '0.1.1',
+    tag = '0.1.8',
     dependencies = { 'nvim-lua/plenary.nvim' },
     config = function()
       local builtin = require('telescope.builtin')

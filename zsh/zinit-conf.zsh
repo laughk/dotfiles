@@ -5,32 +5,11 @@
 zinit load mollifier/anyframe
 zinit load zsh-users/zsh-syntax-highlighting
 
+export GPG_TTY=$TTY
+zinit ice depth=1; zinit light romkatv/powerlevel10k 
+
 # CLI
 # ----------------------------------------
-zinit ice as"program" from"gh-r" bpick"*linux64" mv"jq-* -> jq"
-zinit load stedolan/jq
-
-zinit ice as"program" from"gh-r" bpick"*linux_amd64*" pick"*/ghq"
-zinit load x-motemen/ghq
-
-zinit ice as"program" from"gh-r" bpick"*linux_amd64*" pick"*/pt"
-zinit load monochromegane/the_platinum_searcher
-
-zinit ice as"program" from"gh-r" bpick"*linux_amd64*" pick"*/trdsql"
-zinit load noborus/trdsql
-
-zinit ice as"program" from"gh-r" bpick"*linux_amd64*" pick"*/fzf"
-zinit load junegunn/fzf
-
-zinit ice as"program" from"github" pick"bin/fzf-tmux"
-zinit load junegunn/fzf
-
-zinit ice as"program" from"gh-r" bpick"*linux_amd64*" pick"*/ecschedule"
-zinit load Songmu/ecschedule
-
-zinit ice as"program" from"gh-r" bpick"*-lnx.zip" pick"procs"
-zinit load  dalance/procs
-
 # For WSL2 clipboard ( Win11 ではなぜか動いてくれないので一旦コメントアウト)
 #if uname -a | grep -q microsoft ; then
 #  zinit ice as"program" from"gh-r" bpick"*x64*" pick"win32yank.exe"
@@ -39,14 +18,24 @@ zinit load  dalance/procs
 
 # Theme
 # ----------------------------------------
-# for using theme by oh-my-zsh {{{
+# # for using theme by oh-my-zsh {{{
 zinit snippet OMZ::lib/git.zsh
 zinit snippet OMZ::plugins/git/git.plugin.zsh
-zinit cdclear -q 
-setopt promptsubst
-# }}}
-
-zinit snippet https://raw.githubusercontent.com/caiogondim/bullet-train.zsh/master/bullet-train.zsh-theme
-export BULLETTRAIN_DIR_FG=black
-export BULLETTRAIN_GO_FG=black
-export BULLETTRAIN_VIRTUALENV_FG=black
+# # git.plugin.zsh の非同期版 git_prompt_info を同期版で上書き
+# git_prompt_info() {
+#   local ref
+#   if [[ "$(command git config --get oh-my-zsh.hide-status 2>/dev/null)" != "1" ]]; then
+#     ref=$(command git symbolic-ref HEAD 2> /dev/null) || \
+#     ref=$(command git rev-parse --short HEAD 2> /dev/null) || return 0
+#     echo "$ZSH_THEME_GIT_PROMPT_PREFIX${ref#refs/heads/}$(parse_git_dirty)$ZSH_THEME_GIT_PROMPT_SUFFIX"
+#   fi
+# }
+# zinit cdclear -q 
+# #zinit snippet OMZ::themes/ys.zsh-theme
+# setopt promptsubst
+# # }}}
+# 
+# zinit snippet https://raw.githubusercontent.com/caiogondim/bullet-train.zsh/master/bullet-train.zsh-theme
+# export BULLETTRAIN_DIR_FG=black
+# export BULLETTRAIN_GO_FG=black
+# export BULLETTRAIN_VIRTUALENV_FG=black

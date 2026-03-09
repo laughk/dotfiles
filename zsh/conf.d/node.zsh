@@ -4,4 +4,4 @@
 #     export NODE_VERSION_PREFIX="v"
 #     export NODE_VERSIONS="$NVM_DIR/versions/node"
 # }}
-source /usr/share/nvm/init-nvm.sh
+#source /usr/share/nvm/init-nvm.sh

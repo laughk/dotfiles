@@ -10,16 +10,16 @@ alias mkdir='mkdir -v'
 if [[ $(uname) = Darwin ]] ; then
   # Macでだけ必要なもの
   alias find="gfind"
-  alias ls='ls -GF'
-  alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
-  alias mvim="/Applications/MacVim.app/Contents/MacOS/mvim"
+  alias ls='ls -GFa'
+  # alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
+  # alias mvim="/Applications/MacVim.app/Contents/MacOS/mvim"
   alias gvim=mvim
   if which htop > /dev/null 2>&1 ; then
     alias top=htop
   fi
 else
   # Linux(Mac以外, Gnu系)で必要なもの
-  alias ls='ls --color=auto -F'
+  alias ls='ls --color=auto -Fa'
   alias open='gio open'
   # for desktop linux (mozc_tool)
   [[ -f /usr/lib/mozc/mozc_tool ]] && {
@@ -60,3 +60,25 @@ alias pyactive=_pyactivate
 [[ -n $TMUX ]] && {
   alias fzf=fzf-tmux 
 }
+
+# git worktree add 
+function _ghwt() {
+  if [ -z "$1" ]; then
+    echo "Usage: ghwt <branch_name>" >&2
+    return 1
+  fi
+
+  local branch="$1"
+  local repo_name
+  repo_name="$(basename "$(git rev-parse --show-toplevel 2>/dev/null)" 2>/dev/null)" || {
+    echo "Error: not inside a git repository." >&2
+    return 1
+  }
+
+  local base_dir="$HOME/work"
+  local target="${base_dir}/${repo_name}/${branch}"
+
+  mkdir -p "${base_dir}/${repo_name}"
+  git worktree add -b "${branch}" "${target}"
+}
+alias ghwt=_ghwt

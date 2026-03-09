@@ -17,16 +17,16 @@ m.setup({
     "yamlls"
   }
 })
-m.setup_handlers({function(server)
+-- m.setup_handlers({function(server)
 
 
-    capabilities = require('cmp_nvim_lsp').default_capabilities(
-      vim.lsp.protocol.make_client_capabilities()
-    )
+    -- capabilities = require('cmp_nvim_lsp').default_capabilities(
+      -- vim.lsp.protocol.make_client_capabilities()
+    -- )
 
-    require('lspconfig')[server].setup({ noremap = true, silent = true })
+    -- require('lspconfig')[server].setup({ noremap = true, silent = true })
 
-end})
+-- end})
 
 vim.keymap.set('n', 'K',  '<cmd>lua vim.lsp.buf.hover()<CR>')
 vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
