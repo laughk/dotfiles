@@ -258,13 +258,11 @@ def "exec_pet_search" [] {
 # The default config record. This is where much of your global configuration is setup.
 $env.config = {
   color_config: $default_theme
-  use_grid_icons: true
-  footer_mode: "25" # always, never, number_of_rows, auto
+  footer_mode: "auto" # always, never, number_of_rows, auto
   float_precision: 2
   # buffer_editor: "emacs" # command that will be used to edit the current line buffer with ctrl+o, if unset fallback to $env.EDITOR and $env.VISUAL
   use_ansi_coloring: true
   edit_mode: emacs # emacs, vi
-  shell_integration: false # enables terminal markers and a workaround to arrow keys stop working issue
 
   ls: {
     use_ls_colors: true # use the LS_COLORS environment variable to colorize output
@@ -298,10 +296,6 @@ $env.config = {
       completer: null # check 'carapace_completer' above as an example
     }
   }
-  filesize: {
-    metric: true # true => KB, MB, GB (ISO standard), false => KiB, MiB, GiB (Windows standard)
-    format: "auto" # b, kb, kib, mb, mib, gb, gib, tb, tib, pb, pib, eb, eib, zb, zib, auto
-  }
 
   hooks: {
     pre_prompt: [{||
@@ -324,16 +318,7 @@ $env.config = {
       null  # replace with source code to run before the repl input is run
     }]
     env_change: {
-      PWD: [
-        { # switch terraform version by terraform-switcher
-          condition: {|_, after|
-              ((which tfswitch | get path.0 | path exists)
-               and ($after | path join .terraform-version | path exists)
-              )
-          }
-          code: "tfswitch"
-        }
-      ]
+      PWD: []
     }
   }
   menus: [
@@ -596,19 +581,6 @@ $env.config = {
         { send: Enter }
       ]
     }
-    {
-      name: connehito_db_user_search
-      modifier: control
-      keycode: char_.
-      mode: emacs
-      event: [
-        {
-          edit: insertString,
-          value: "(commandline (open ~/ghq/github.com/Connehito/mamari-db/ansible/prd/roles/mamari/tasks/main.yml | get loop.12.user | to text | fzf --layout=reverse --height=40% -q (commandline) | decode utf-8 | str trim))"
-        }
-        { send: Enter }
-      ]
-    }
   ]
 }
 
@@ -628,7 +600,6 @@ alias dog = dog -n 9.9.9.9
 overlay use ~\.cache\starship\init.nu
 overlay use ~\AppData\Roaming\nushell\my_modules\completions\go-task.nu
 overlay use ~\AppData\Roaming\nushell\my_modules\completions\terraform.nu
-overlay use ~\AppData\Roaming\nushell\my_modules\functions\connehito_functions.nu
 # overlay use ~\ghq\github.com\nushell\nu_scripts\custom-completions\scoop\scoop-completions.nu
 
 
