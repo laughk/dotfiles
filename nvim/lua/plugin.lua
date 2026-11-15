@@ -22,6 +22,8 @@ local plugins = {
     config = function()
       -- ref. https://github.com/dense-analysis/ale/issues/4956
       vim.g.ale_use_neovim_lsp_api = 0
+      -- lsp としては使わない
+      vim.g.ale_disable_lsp = 1
 
       -- " for ale
       -- " from https://qiita.com/lighttiger2505/items/9a36c5b4035dd469134c
@@ -251,7 +253,7 @@ local plugins = {
       })
     end,
   },
-  { 'github/copilot.vim' },
+  -- { 'github/copilot.vim' },
 
 
   -- Syntax -------------------------------

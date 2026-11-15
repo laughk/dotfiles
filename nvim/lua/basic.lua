@@ -61,9 +61,10 @@ vim.o.softtabstop = 0
 vim.o.expandtab = true
 
 -- insertモードを抜けるとIMEオフ
--- vim.o.iminsert = 0
--- vim.o.imsearch = 0
--- vim.cmd[[inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>]]
+-- vim.o.imdisable = false
+vim.o.iminsert = 0
+vim.o.imsearch = 0
+vim.cmd[[inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>]]
 
 -- ファイル内検索関連
 vim.o.wrapscan = true   -- 最後まで検索したら先頭へ戻る
